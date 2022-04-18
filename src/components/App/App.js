@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { PageLayout } from "../PageLayout";
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
 import { loginRequest } from "../../authConfig";
 import Button from "react-bootstrap/Button";
@@ -8,6 +7,7 @@ import { callMsGraph } from "../../graph";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { SignInButton } from "../SignInButton";
 import { SignOutButton } from "../SignOutButton";
+import"./App.css"
 
 
 
@@ -48,6 +48,15 @@ function App() {
             <UnauthenticatedTemplate>
                 { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
                 <p>You are not signed in! Please sign in.</p>
+                <div id="logo">
+                <img src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
+                </div>
+                <p id="appName">Steed's Tasks</p>
+                <p id="motto">The better organized, the better your day will go!</p>
+                <div id="signBtn">
+                    <button>Sign in</button>
+                </div>
+
             </UnauthenticatedTemplate>
         {/* </PageLayout> */}
         </>
