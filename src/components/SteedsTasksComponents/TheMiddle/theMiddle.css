@@ -1,0 +1,760 @@
+/*Code underneath is for the profile icon menu*/
+#hideProfMenu{
+    display:none;
+}
+#profMenu{
+    background-color:rgb(240, 240, 240);
+    width:300px;
+    height:175px;
+    position:absolute;
+    top:50px;
+    right:0;
+    z-index:2;
+}
+#profLogo{
+    height:30px;
+    width:90px;
+    margin-top:10px;
+    margin-left:10px;
+}
+#signOut{
+    position:absolute;
+    top:0px;
+    right:0px;
+    padding-top:18px;
+    padding-bottom:18px;
+    padding-right:13px;
+    padding-left:13px;
+    text-decoration:none;
+}
+#signOut:hover{
+    text-decoration:underline;
+    background-color:lightgray;
+}
+#profMenuPic{
+    height:100px;
+    width:100px;
+    border-radius:50px;
+    margin-left:5px;
+    margin-top:5px;
+}
+#profMenuPic:hover{
+    filter:brightness(70%);
+    cursor:pointer;
+}
+#profMenuData{
+    position:absolute;
+    top:50px;
+    right:0px;
+    width:200px;
+}
+.profMenuData{
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:15px;
+}
+#profMenuEmail{
+    display:flex;
+    justify-content:left;
+    font-size:14px;
+}
+.profMenuLinks{
+    display:block;
+    text-decoration:none;
+    margin-top:5px;
+}
+.profMenuLinks:hover{
+    text-decoration:underline;
+}
+/*The code below is for the settings icon menu*/
+#hideSettingsMenu{
+    display:none;
+}
+#settingsMenu{
+    position:absolute;
+    right:0px;
+    background-color:rgb(231, 231, 231);
+    border-left-color:rgb(182, 182, 182);
+    border-left-width:2px;
+    border-left-style:solid;
+    width:360px;
+    height:100vh;
+    overflow:auto;
+    z-index:2;
+}
+#settingsTitle{
+    font-weight:550;
+    font-size:20px;
+    margin-top:70px;
+    margin-left:20px;
+}
+#settingsXdiv{
+    position:absolute;
+    top:10px;
+    right:5px;
+    margin-top:60px;
+    padding-top:11px;
+    padding-bottom:5px;
+    padding-right:11px;
+    padding-left:11px;
+}
+#settingsXdiv:hover{
+    cursor:pointer;
+    background-color:lightgray;    
+}
+#settingsX{
+    width:18px;
+    height:18px;
+    filter:brightness(91%);
+}
+#darkSettingsX{
+    width:18px;
+    height:18px;
+    filter:brightness(83%);
+}
+.settingsMenuSectionTitles{
+    font-weight:500;
+    font-size:18px;
+    margin-left:20px;
+}
+.switchDescription{
+    display:block;
+    width:273px;
+    font-weight:500;
+    font-size:14px;
+    margin-left:20px;
+    color:rgb(144, 143, 143);
+}
+/*I got the code for the toggles from the website below:
+    https://danklammer.com/articles/simple-css-toggle-switch/
+*/
+.toggle {
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:rgb(144, 143, 143);
+    border-width:1px;
+    transition: background-color ease 0.3s;
+    margin-left:20px;
+}
+.toggle:before {
+    content:"";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgb(144, 143, 143);
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    transition: all cubic-bezier(0.3, 0, 0,0) 0.1s;
+}
+.toggle:checked {
+    background-color: #1379c7;
+    border-color:#1379c7;
+}
+.toggle:checked:before {
+    left: 29px;
+    background-color:white;
+}
+.toggle:checked:hover,#toggle-on:checked{
+    height:23px;
+    width:48px;
+}
+.darkToggle{
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:rgb(144,143,143);
+    border-width:1px;
+    transition: background-color ease 0.3s;
+    margin-left:20px;
+}
+.darkToggle:hover{
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+}.darkToggle:hover:before{
+    background-color:black;
+}
+.darkToggle:before {
+    content:"";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background:rgb(144, 143, 143);
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    transition:all cubic-bezier(0.3, 0, 0,0) 0.1s;
+}
+#darkToggle-on{
+    border-color:black;
+}
+#darkToggle-on:before{
+    background-color:black;
+}
+/*The code below is for making the toggle yes or no appear next to it.*/
+.settingsOff{
+    color:rgb(144, 143, 143);
+    position:relative;
+    bottom:10px;
+    left:5px;
+}
+.settingsOn{
+    color:rgb(144, 143, 143);
+    position:relative;
+    bottom:10px;
+    left:5px;
+}
+.hide{
+    display:none;
+}
+/*The code below is for the small labels in the Connected apps section of the settings menu*/
+.settingsMenuConnectedAppsSmallLabel{
+    display:block;
+    width:176px;
+    font-size:11px;
+    margin-left:20px;
+    margin-bottom:15px;
+    color:rgb(144, 143, 143);
+}
+.settingsMenuThinLinks{
+    text-decoration:none;
+    font-size:14px;
+    display:block;
+    margin-left:20px;
+    margin-bottom:10px;
+}
+.settingsMenuThinLinks:hover{
+    text-decoration:underline;
+}
+#settingsMenuText{
+    font-size:14px;
+    margin-bottom:0px;
+}
+.settingsMenuFatLinks{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    display:block;
+    margin-left:20px;
+    margin-bottom:10px;
+    display:inline;
+}
+.settingsMenuFatLinks:hover{
+    background-color:rgb(224, 223, 223);
+    border-radius:3px;
+}
+#settingsLogoDiv{
+    width:130px;
+    display:inline-block;
+}
+#settingsLogo{
+    height:90px;
+    width:90px;
+    margin-top:10px;
+    margin-left:20px;
+    border-top-color:rgb(144, 143, 143);
+    border-bottom-color:rgb(144, 143, 143);
+    border-right-color:rgb(144, 143, 143);
+    border-left-color:rgb(144, 143, 143);
+    border-width:.5px;
+    border-style:solid;
+    border-radius:50px;
+}
+#settingsCopyRight{
+    width:200px;
+    display:inline-block;
+    position:relative;
+    top:1.5px;
+    margin-bottom:8px;
+}
+#copyRightsHeader{
+    margin-top:14px;
+    margin-bottom:0px;
+    font-weight:normal;
+    font-weight:500;
+    font-size:16px;
+}
+.settingsCopyRightText{
+    font-size:14px;
+    margin-top:5px;
+    margin-bottom:0px;
+    display:block;
+}
+.settingsSocialMedias{
+    height:30px;
+    width:30px;
+    border-radius:50px;
+    margin-left:15px;
+}
+.settingsMenuSocialLinks{
+    text-decoration:none;
+    font-size:14px;
+    position:relative;
+    bottom:10px;
+    margin-left:10px;
+}
+.settingsMenuSocialLinks:hover{
+    text-decoration:underline;
+}
+/*The code below is for the centerPage where most of the screen's content is.*/
+#centerPage{
+    background-color:white;
+    height:100vh;
+    width:100%;
+    position:absolute;
+    right:0px;
+}
+#wideCenterPage{
+    background-color:white;
+    height:100vh;
+    width:100%;
+    position:absolute;
+    right:0px;
+}
+#listsMenu{
+    background-color:rgb(231, 231, 231);
+    border-right-color:rgb(182, 182, 182);
+    border-right-style:solid;
+    border-right-width:2px;
+    height:100vh;
+    width:200px;
+    position:absolute;
+    left:0px;
+    z-index:2;
+    overflow:auto;
+}
+#hideListsMenu{
+    display:none;
+}
+#listsMenuButton{
+    height:30px;
+    width:30px;
+    position:absolute;
+    top:80px;
+    left:15px;
+    filter:brightness(94%);
+}
+#listsMenuButton:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
+#listsMenuDayDiv{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:130px;
+    left:0px;
+}
+#listsMenuDayDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuDayImage{
+    height:28px;
+    width:28px;
+    filter:brightness(90.5%);
+    position:absolute;
+    left:15px;
+}
+#listsMenuDayText{
+    font-weight:400;
+    position:absolute;
+    left:50px;
+    top:-20px;
+}
+#listsMenuAssignedDiv{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:160px;
+    left:0px;
+}
+#listsMenuAssignedDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuAssignedImage{
+    height:28px;
+    width:28px;
+    filter:brightness(90.5%);
+    position:absolute;
+    left:15px;
+}
+#listsMenuAssignedText{
+    font-weight:400;
+    position:absolute;
+    left:50px;
+    top:-20px;
+}
+#listsMenuFlaggedDiv{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:190px;
+    left:0px;
+}
+#listsMenuFlaggedDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuFlaggedImage{
+    height:28px;
+    width:28px;
+    filter:brightness(96%);
+    position:absolute;
+    left:15px;
+}
+#listsMenuFlaggedText{
+    font-weight:400;
+    position:absolute;
+    left:50px;
+    top:-20px;
+}
+#listsMenuTasksDiv{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:220px;
+    left:0px;
+    background-color:rgb(224, 224, 224);
+}
+#listsMenuTasksDiv:hover{
+    cursor:pointer;
+}
+#listsMenuTasksImage{
+    height:28px;
+    width:28px;
+    filter:brightness(90%);
+    position:absolute;
+    left:15px;
+}
+#listsMenuTasksText{
+    font-weight:600;
+    position:absolute;
+    left:50px;
+    top:-17px;
+    color:#0769b4;
+}
+#listsMenuNewListDiv{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:280px;
+    left:0px;
+}
+#listsMenuNewListDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuNewListImage{
+    height:15px;
+    width:15px;
+    filter:brightness(91%);
+    position:absolute;
+    left:18px;
+    top:8px;
+}
+#listsMenuNewListText{
+    font-weight:400;
+    position:absolute;
+    left:50px;
+    top:-17px;
+    color:#0769b4;
+}
+/*
+filter:brightness(91%);
+} */
+
+/*The code below is for the top division in the center page.*/
+#leftTopCenterPage{
+    position:absolute;
+    top:60px;
+    left:210px;
+    display:flex;
+    align-items:center;
+    width:300px;
+}
+#wideLeftTopCenterPage{
+    position:absolute;
+    top:60px;
+    left:15px;
+    display:flex;
+    align-items:center;
+    width:300px;
+}
+#centerPageMenuButton{
+    height:30px;
+    width:30px;
+    filter:brightness(105%);
+    position:relative;
+}
+#centerPageMenuButton:hover{
+    cursor:pointer;
+}
+#centerPageTitle{
+    color:#0769b4;
+    font-size:20px;
+    position:relative;
+    bottom:2px;
+}
+#centerPageOptions{
+    height:30px;
+    width:30px;
+    filter:brightness(105%);
+    margin-left:5px;
+}
+#centerPageOptions:hover{
+    filter:brightness(101%);
+    cursor:pointer;
+}
+#date{
+    font-size:13px;
+    position:absolute;
+    left:295px;
+    top:86px;
+    color:rgb(144, 143, 143);
+}
+#wideDate{
+    font-size:13px;
+    position:absolute;
+    left:130px;
+    top:86px;
+    color:rgb(144, 143, 143);
+}
+#rightTopCenterPage{
+    height:72px;
+    width:300px;
+    position:absolute;
+    right:10px;
+    top:60px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+.centerPageRightIcons{
+    height:30px;
+    width:30px;
+}
+.centerPageRightIconsDark{
+    height:30px;
+    width:30px;
+    filter:brightness(95%);
+    border-top-left-radius:3px;
+    border-bottom-left-radius:3px;
+}
+.centerPageRightIconsDark:hover{
+    cursor:pointer;
+}
+.centerPageRightIcons:hover{
+    cursor:pointer;
+}
+.centerPageRightWords{
+    font-weight:400;
+    color:#0769b4;
+    padding-right:5px;
+    margin-right:5px;
+}
+.centerPageRightWordsDark{
+    font-weight:400;
+    color:#0769b4;
+    background-color:rgb(243, 243, 243);
+    padding-top:4.5px;
+    padding-bottom:4.5px;
+    padding-right:5px;
+    margin-right:5px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+}
+.centerPageRightWordsDark:hover{
+    cursor:pointer;
+}
+.centerPageRightWords:hover{
+    cursor:pointer;
+}
+/*The code below is for the create task section in the middle*/
+.createTask{
+    background-color:rgb(231, 231, 231);
+    height:50px;
+    position:absolute;
+    top:120px;
+    left:210px;
+    display:flex;
+    align-items:center;
+    border-radius:4px;
+    width:85vw;
+}
+.tallCreateTask{
+    background-color:rgb(231, 231, 231);
+    position:absolute;
+    top:120px;
+    left:210px;
+    border-radius:4px;
+    height:100px;
+    width:85vw;
+}
+.wideCreateTask{
+    background-color:rgb(231, 231, 231);
+    height:50px;
+    width:99.2vw;
+    position:absolute;
+    top:120px;
+    left:5px;
+    display:flex;
+    align-items:center;
+    border-radius:4px;
+}
+.tallWideCreateTask{
+    background-color:rgb(231, 231, 231);
+    position:absolute;
+    top:120px;
+    left:5px;
+    border-radius:4px;
+    height:100px;
+}
+#createTaskPlus{
+    height:13px;
+    width:13px;
+    filter:brightness(91%);
+    margin-left:20px;
+    margin-right:20px;
+}
+#createTaskCircle{
+    height:15px;
+    width:15px;
+    border-radius:50px;
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    margin-left:20px;
+    margin-right:8px;
+    filter:brightness(95%);
+}
+#createTaskCircle:hover{
+    cursor:pointer;
+}
+.createTaskInput{
+    height:30px;
+    width:71.8vw;
+    background-color:rgb(231, 231, 231);
+    border-style:none;
+    outline:none;
+    margin-right:5px;
+}
+.focusedCreateTaskInput{
+    height:30px;
+    width:71vw;
+    border-style:none;
+    outline:none;
+    margin-top:10px;
+    margin-right:5px;
+    background-color:white;
+    border-bottom-color:#0769b4;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+.wideCreateTaskInput{
+    height:30px;
+    width:94vw;
+    background-color:rgb(231, 231, 231);
+    border-style:none;
+    outline:none;
+    margin-right:5px;
+}
+.focusedWideCreateTaskInput{
+    height:30px;
+    width:95.5vw;
+    border-style:none;
+    outline:none;
+    margin-top:10px;
+    margin-right:5px;
+    background-color:white;
+    border-bottom-color:#0769b4;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+::placeholder{
+    color:#0769b4;
+}
+#createTaskIconsDiv{
+    display:flex;
+    justify-content:space-between;
+    width:95px;
+    position:absolute;
+    top:55px;
+    left:45px;
+}
+.createTaskIcons{
+    filter:brightness(90%);
+    height:25px;
+    width:25px;
+}
+.createTaskIconsHover{
+    height:25px;
+    width:25px;
+    filter:brightness(60%);
+    border-radius:3px;
+}
+#add{
+    color:rgb(190, 190, 190);
+    font-weight:500;
+    position:absolute;
+    top:35px;
+    right:20px;
+}
+#add:hover{
+    cursor:pointer;
+}
+@media(max-width:770px){
+    .centerPageRightWords{
+        display:none;
+    }
+    .focusedWideCreateTaskInput{
+        height:30px;
+        width:80vw;
+        border-style:none;
+        outline:none;
+        margin-top:10px;
+        margin-right:5px;
+        background-color:white;
+        border-bottom-color:#0769b4;
+        border-bottom-style:solid;
+        border-bottom-width:1px;
+    }    
+    .wideCreateTask{
+        background-color:rgb(231, 231, 231);
+        height:50px;
+        width:97vw;
+        position:absolute;
+        top:120px;
+        left:5px;
+        display:flex;
+        align-items:center;
+        border-radius:4px;
+    }
+    .tallWideCreateTask{
+        background-color:rgb(231, 231, 231);
+        position:absolute;
+        top:120px;
+        left:5px;
+        border-radius:4px;
+        height:100px;
+        width:97vw;
+    }
+}

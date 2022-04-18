@@ -1,0 +1,162 @@
+header{
+    background-color:#0078d4;
+    position:fixed;
+    width:100%;
+    height:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:3;
+}
+#leftHeader{
+    background-color:#0078d4;
+    width:150px;
+    display:flex;
+    justify-content:center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+h1{
+    display:flex;
+    color:white;
+    margin-top:auto;
+    margin-bottom:auto;
+    font-weight:450;
+    font-size:20px;
+}
+h1:hover{
+    cursor:pointer;
+    text-decoration:underline;
+}
+#middleHeader{
+    display:flex;
+    margin-top:auto;
+    margin-bottom:auto;
+    filter:brightness(90%);
+}
+#brightMiddleHeader{
+    display:flex;
+    margin-top:auto;
+    margin-bottom:auto;
+    border-style:solid;
+    border-width:1px;
+    border-color:white;
+    border-radius:3px;
+    background-color:white;
+}
+.searchPic{
+    height:60%;
+    width:30px;
+    margin-top:auto;
+    margin-bottom:auto;
+    border-top-left-radius:3px;
+    border-bottom-left-radius:3px;
+}
+.searchPic:hover{
+    cursor:pointer;
+}
+.search{
+    height:29px;
+    width:370px;
+    margin-top:auto;
+    margin-bottom:auto;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border:#0078d4;
+}
+.search:focus{
+    outline:none;
+}
+#searchX{
+    width:13px;
+    height:13px;
+    position:relative;
+    right:15px;
+    top:10px;
+}
+#searchX:hover{
+    cursor:pointer;
+}
+#displayNone{
+    display:none;
+}
+#rightHeader{
+    width:115px;
+    height:100%;
+    display:flex;
+    justify-content:flex-end;
+    background-color:#0078d4;
+}
+#settingsDiv{
+    display:flex;
+}
+#settingsDiv:hover{
+    background-color:#0769b4;
+    cursor:pointer;
+}
+#lightSettingsDiv{
+    display:flex;
+    background-color:rgb(231, 231, 231);
+}
+#lightSettingsDiv:hover{
+    background-color:#0769b4;
+    cursor:pointer;
+}
+#settingsPic{
+    height:31px;
+    width:30px;
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-right:10px;
+    margin-left:10px;
+    border-radius:15px;
+}
+#settingsPic:hover{
+    cursor:pointer;
+}
+#profileDiv{
+    display:flex;
+    cursor:pointer;
+}
+#profileDiv:hover{
+    background-color:#0769b4;
+}
+#darkProfileDiv{
+    display:flex;
+    background-color:#0769b4;
+}
+#profilePic{
+    height:31px;
+    width:30px;
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-right:10px;
+    margin-left:10px;
+    border-radius:15px;
+}
+#profilePic:hover{
+    cursor:pointer;    
+}
+@media(max-width:770px){
+    .searchPic{
+        border-top-right-radius:3px;
+        border-bottom-right-radius:3px;
+    }
+    .searchPicSquare{
+        border-top-right-radius:0px;
+        border-bottom-right-radius:0px;
+    }
+    .hideSearch{
+        display:none;
+        width:150px;
+    }
+    .smallSearch{
+        height:29px;
+        width:120px;
+        margin-top:auto;
+        margin-bottom:auto;
+        border-top-right-radius:3px;
+        border-bottom-right-radius:3px;
+        border:#0078d4;
+    }
+}
