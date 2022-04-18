@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+### **Steeds Tasks**
+## **Detailed Project Functionality** 
+### **Front End**
+##### **Sign-in Page**
+- Logo
+- Sign in button
+    - Use Microsoft authentication
+##### **Tasks Lists Page**
+- Header
+    - Logo
+    - Search Bar
+    - User's profile picture(top right)
+- Task Interaction(main division)
+    - Main header
+        - Show Tasks Lists button
+            - Hide Tasks Lists button
+            - My Day button
+            - Buttons for created lists
+            - Add New List button
+        - List Name
+        - Options button
+            - Drop down to print list
+        - Date
+        - Sort button
+        - Suggestions button
+            - Suggestions title
+            - Date
+                - Date of last To-Do use
+                    - List of up to four tasks that were created on that day
+                        - Mark as completed input
+                        - Add to My Day button for each task displayed
+                - Recently Added title
+                    - List of the three most recently added tasks
+                        - Mark as completed input
+                        - Add to My Day button for each task displayed
+    - Create Task form
+        - Plus sign(onClick feature to expand the Create Task form)
+        - Input box(onClick feature to expand the Create Task form)
+        - Add due date button(hides when another division is clicked)
+            - Due title
+            - Calandar picture, Today, and today's day of the week
+            - Calandar picture, Tomorrow, tomorrow's day of the week
+            - Calandar picture, Next week, Monday 
+            - Calandar picture, Pick a date, arrow
+                - Pick a date title
+                - Calandar
+                - Save button
+        - Remind me button(hides when another division is clicked)
+            - Reminder title
+            - Clock picture, Later today, 4:00 PM
+            - Clock picture, Tomorrow, tomorrow's day of the week, 9 AM
+            - Clock picture, Next Week, Monday , 9 AM
+            - Calandar picture, Pick a date & time, arrow
+                - Pick a date & time title
+                - Calandar
+                - Time menu selection
+                - AM and PM selection
+                - Save button
+        - Repeat button(hides when another division is clicked)
+            - Repeat title
+            - Calandar picture, Daily
+            - Calandar picture, Weekdays
+            - Calandar picture, Weekly
+            - Calandar picture, Monthly
+            - Calandar picture, Yearly
+            - Calandar picture, Custom, arrow
+                - Repeat every ... title
+                - Input box for number
+                - Input menu
+                    - Days
+                    - Weeks
+                    - Months
+                    - Years
+                - Input buttons for days in a week(can select multiple)
+                - Save button
+        - Add button(creates the task with the information provided)
+    - 15.5 listed tasks spots(filled or blank)
+        - Mark as completed input toggle
+        - Mark task as important star picture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### **HTML**
+#### **CSS**
+#### **React Components**
+#### **Server**
+#### **Database**
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
