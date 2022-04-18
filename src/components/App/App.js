@@ -39,26 +39,21 @@ function App() {
 
     return (
         <>
-         {/* <PageLayout> */}
             <AuthenticatedTemplate>
                 { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
                 <h5 className="card-title">Welcome {name}</h5>
                 {graphData?<ProfileData graphData={graphData} />:<Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>}
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>
-                { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
-                <p>You are not signed in! Please sign in.</p>
                 <div id="logo">
                 <img src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
                 </div>
                 <p id="appName">Steed's Tasks</p>
                 <p id="motto">The better organized, the better your day will go!</p>
                 <div id="signBtn">
-                    <button>Sign in</button>
+                    { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
                 </div>
-
             </UnauthenticatedTemplate>
-        {/* </PageLayout> */}
         </>
     );
 }
