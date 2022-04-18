@@ -401,7 +401,7 @@ const TheMiddle=(props)=>{
                 <div id="topMenu">
                     <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
                     <div id="signOutDiv">
-                        <h6 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h6>{/*fix the href value to be correct*/}
+                        <h5 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h5>{/*fix the href value to be correct*/}
                     </div>
                 </div>
                 <div>
