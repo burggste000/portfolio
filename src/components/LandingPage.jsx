@@ -10,9 +10,8 @@ function handleLogin(instance) {
 /**
  * Renders a button which, when selected, will redirect the page to the login prompt
  */
-export const SignInButton = () => {
+export const LandingPage = () => {
     const { instance } = useMsal();
-
     return (
         <button onClick={() => handleLogin(instance)}>Sign in</button>
     );

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { ProfileData } from "../ProfileData";
 import { callMsGraph } from "../../graph";
 import { useIsAuthenticated } from "@azure/msal-react";
-import { SignInButton } from "../SignInButton";
+import { LandingPage } from "../LandingPage.jsx";
 import { SignOutButton } from "../SignOutButton";
 import"./App.css"
 
@@ -40,7 +40,7 @@ function App() {
     return (
         <>
             <AuthenticatedTemplate>
-                { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
+                { isAuthenticated ? <SignOutButton /> : <LandingPage /> }
                 <h5 className="card-title">Welcome {name}</h5>
                 {graphData?<ProfileData graphData={graphData} />:<Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>}
             </AuthenticatedTemplate>
@@ -51,7 +51,7 @@ function App() {
                 <p id="appName">Steed's Tasks</p>
                 <p id="motto">The better organized, the better your day will go!</p>
                 <div id="signBtn">
-                    { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
+                    { isAuthenticated ? <SignOutButton /> : <LandingPage /> }
                 </div>
             </UnauthenticatedTemplate>
         </>
