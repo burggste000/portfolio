@@ -10,18 +10,6 @@ import { callMsGraph } from "../../graph";
 //  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
 
 function App() {
-    return (
-        <PageLayout>
-            <AuthenticatedTemplate>
-                <ProfileContent />
-            </AuthenticatedTemplate>
-            <UnauthenticatedTemplate>
-                <p>You are not signed in! Please sign in.</p>
-            </UnauthenticatedTemplate>
-        </PageLayout>
-    );
-  }
-  function ProfileContent() {
     const { instance, accounts } = useMsal();
     const [graphData, setGraphData] = useState(null);
 
@@ -42,16 +30,16 @@ function App() {
             });
         });
     }
-
     return (
-        <>
-            <h5 className="card-title">Welcome {name}</h5>
-            {graphData ? 
-                <ProfileData graphData={graphData} />
-                :
-                <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
-            }
-        </>
+        <PageLayout>
+            <AuthenticatedTemplate>
+                <h5 className="card-title">Welcome {name}</h5>
+                {graphData?<ProfileData graphData={graphData} />:<Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>}
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>You are not signed in! Please sign in.</p>
+            </UnauthenticatedTemplate>
+        </PageLayout>
     );
-};
+}
 export default App;
