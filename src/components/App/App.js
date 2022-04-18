@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { PageLayout } from "../PageLayout";
+// import { PageLayout } from "../PageLayout";
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
 import { loginRequest } from "../../authConfig";
 import Button from "react-bootstrap/Button";
 import { ProfileData } from "../ProfileData";
 import { callMsGraph } from "../../graph";
+import { useIsAuthenticated } from "@azure/msal-react";
+import { SignInButton } from "../SignInButton";
+import { SignOutButton } from "../SignOutButton";
+
+
 
 //I got all of the code for setting up this entire project from the following website:
 //  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
@@ -30,16 +35,22 @@ function App() {
             });
         });
     }
+    const isAuthenticated = useIsAuthenticated();
+
     return (
-        <PageLayout>
+        <>
+         {/* <PageLayout> */}
             <AuthenticatedTemplate>
+                { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
                 <h5 className="card-title">Welcome {name}</h5>
                 {graphData?<ProfileData graphData={graphData} />:<Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>}
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>
+                { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
                 <p>You are not signed in! Please sign in.</p>
             </UnauthenticatedTemplate>
-        </PageLayout>
+        {/* </PageLayout> */}
+        </>
     );
 }
 export default App;
