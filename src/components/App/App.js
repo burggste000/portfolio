@@ -5,7 +5,7 @@ import{LandingPage}from"../LandingPage.jsx";
 import{SignOutButton}from"../SignOutButton";
 import"./App.css";
 import{SteedsTasks}from"../SteedsTasksComponents/SteedsTasks.js";
-//I got all of the code for setting up this entire project from the following website:
+//I got the code for connecting to Microsoft's Graph API from the following website:
 //  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
 function App() {
 
