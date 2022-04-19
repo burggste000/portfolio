@@ -14,9 +14,6 @@ function App() {
     return (
         <>
             <AuthenticatedTemplate>
-                {/* { isAuthenticated ? <SignOutButton /> : <LandingPage /> }
-                <h5 className="card-title">Welcome {name}</h5>
-                {graphData?<ProfileData graphData={graphData} />:<Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>} */}
                 <SteedsTasks />
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>
