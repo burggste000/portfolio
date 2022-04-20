@@ -438,13 +438,13 @@ const TheMiddle=(props)=>{
                     </div>
                 </div>
                 <div>
+{/*Working here*/}
+                    {/* <img src={photo}alt="user" /> */}
+                    {/* {graphData!==null?<p><strong>FirstName: </strong>{graphData.givenName}</p>:<p>stopped horses</p>} */}
+
                     <img id="profMenuPic"src="https://image.shutterstock.com/image-vector/neon-human-head-cpu-blue-600w-508239127.jpg"alt="text" />
                 </div>
                 <div id="profMenuData">
-{/*Working here*/}
-                    {/* <p>Welcome {name}</p> */}
-                    {/* {graphData!==null?<p><strong>FirstName: </strong>{graphData.givenName}</p>:<p>stopped horses</p>} */}
-                    {/* <img src={photo}alt="user" /> */}
                     <h3 className="profMenuData">{name}</h3>
                     <p id="profMenuEmail"className="profMenuData">usersemail@email.com</p>
                     <a className="profMenuData profMenuLinks" href="microsoftAccount.com">My Microsoft account</a>
