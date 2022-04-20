@@ -1,6 +1,8 @@
 import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
+import{loginRequest}from"../../../authConfig.js";
+import{callMsGraphForUser,callMsGraphForPhoto}from"../../../graph.js";
 
 
 const TheMiddle=(props)=>{
@@ -394,7 +396,38 @@ const TheMiddle=(props)=>{
     }
     
     const { instance } = useMsal();
+    const{instance:instance2,accounts}=useMsal();
+    const[graphData,setGraphData]=react.useState(null);
+    const[photo,setPhoto]=react.useState(null);
+    const name=accounts[0]&&accounts[0].name;
 
+    react.useEffect(()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
+        }).catch(e=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
+            });
+        });
+    },[]);
+    
+    react.useEffect(()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+        }).catch(e=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+            });
+        });
+    },[]);
     return(
         <main>
             <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
@@ -408,7 +441,11 @@ const TheMiddle=(props)=>{
                     <img id="profMenuPic"src="https://image.shutterstock.com/image-vector/neon-human-head-cpu-blue-600w-508239127.jpg"alt="text" />
                 </div>
                 <div id="profMenuData">
-                    <h3 className="profMenuData">User's Name</h3>
+{/*Working here*/}
+                    {/* <p>Welcome {name}</p> */}
+                    {/* {graphData!==null?<p><strong>FirstName: </strong>{graphData.givenName}</p>:<p>stopped horses</p>} */}
+                    {/* <img src={photo}alt="user" /> */}
+                    <h3 className="profMenuData">{name}</h3>
                     <p id="profMenuEmail"className="profMenuData">usersemail@email.com</p>
                     <a className="profMenuData profMenuLinks" href="microsoftAccount.com">My Microsoft account</a>
                     <a className="profMenuData profMenuLinks" href="microsoftProfile.com">My profile</a>
