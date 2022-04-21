@@ -607,7 +607,7 @@ const TheMiddle=(props)=>{
                 </div>
 {/*Working here*/}
                 <div id="listsMenuMyListsDiv">
-                    <h4 id="listsMenuMyLists">{lists}</h4>
+                    <h4 id="listsMenuMyLists">{lists[0]}</h4>
                 </div>
                 <div id="listsMenuNewListDiv">
                     <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
