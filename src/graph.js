@@ -25,7 +25,7 @@ export async function callMsGraphForUser(accessToken) {
 
 export async function callMsGraphForPhoto(accessToken){
     const headers=new Headers();
-    const bearer=`Bearer${accessToken}`;
+    const bearer=`Bearer ${accessToken}`;
     headers.append("Authorization",bearer);
     headers.append("Content-Type","image/jpg");
     const options={

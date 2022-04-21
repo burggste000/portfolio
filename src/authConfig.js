@@ -17,5 +17,6 @@ export const msalConfig = {
   
   // Add the endpoints here for Microsoft Graph API services you'd like to use.
   export const graphConfig = {
-      graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
+      graphMeUserEndpoint: "https://graph.microsoft.com/v1.0/me",
+      graphMePhotoEndpoint:"https://graph.microsoft.com/v1.0/me/photos/48x48/$value"
   };
