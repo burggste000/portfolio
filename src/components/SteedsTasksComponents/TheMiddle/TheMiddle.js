@@ -446,7 +446,7 @@ const TheMiddle=(props)=>{
                 </div>
                 <div id="profMenuData">
                     <h3 className="profMenuData">{name}</h3>
-                    <p id="profMenuEmail"className="profMenuData">usersemail@email.com</p>
+                    <p id="profMenuEmail"className="profMenuData">{graphData!==null?graphData.userPrincipalName:"userName@email.com"}</p>
                     <a className="profMenuData profMenuLinks" href="microsoftAccount.com">My Microsoft account</a>
                     <a className="profMenuData profMenuLinks" href="microsoftProfile.com">My profile</a>
                 </div>
