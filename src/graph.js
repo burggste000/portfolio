@@ -37,3 +37,17 @@ export async function callMsGraphForPhoto(accessToken){
     .then(blob=>blob)
     .catch(error=>console.log(error));
 }
+
+export async function callMsGraphForLists(accessToken){
+    const headers=new Headers();
+    const bearer=`Bearer ${accessToken}`;
+    headers.append("authorization",bearer);
+    headers.append("content-Type","image/jpg");
+    const options={
+        method:"GET",
+        headers:headers
+    };
+    return fetch(graphConfig.graphMeListsEndpoint,options)
+    .then(response=>response.json())
+    .catch(error=>console.log(error));
+}

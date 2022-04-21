@@ -2,7 +2,7 @@ import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForUser,callMsGraphForPhoto}from"../../../graph.js";
+import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists}from"../../../graph.js";
 
 
 const TheMiddle=(props)=>{
@@ -428,6 +428,22 @@ const TheMiddle=(props)=>{
             });
         });
     },[]);
+
+    const[lists,setLists]=react.useState([]);
+
+    react.useEffect(()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>setLists(response));
+        }).catch(e=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>setLists(response));
+            });
+        });
+    },[]);
     return(
         <main>
             <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
@@ -438,7 +454,6 @@ const TheMiddle=(props)=>{
                     </div>
                 </div>
                 <div>
-{/*Working here*/}
                     <img id="profMenuPic"src={photo}alt="text" />
                 </div>
                 <div id="profMenuData">
@@ -589,6 +604,10 @@ const TheMiddle=(props)=>{
                 <div id="listsMenuTasksDiv">
                     <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
                     <h4 id="listsMenuTasksText">Tasks</h4>
+                </div>
+{/*Working here*/}
+                <div id="listsMenuMyListsDiv">
+                    <h4 id="listsMenuMyLists">{lists}</h4>
                 </div>
                 <div id="listsMenuNewListDiv">
                     <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
