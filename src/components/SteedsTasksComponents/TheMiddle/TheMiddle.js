@@ -439,9 +439,6 @@ const TheMiddle=(props)=>{
                 </div>
                 <div>
 {/*Working here*/}
-                    {/* <img src={photo}alt="user" /> */}
-                    {/* {graphData!==null?<p><strong>FirstName: </strong>{graphData.givenName}</p>:<p>stopped horses</p>} */}
-
                     <img id="profMenuPic"src={photo}alt="text" />
                 </div>
                 <div id="profMenuData">

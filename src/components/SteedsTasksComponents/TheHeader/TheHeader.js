@@ -1,5 +1,8 @@
 import"./theHeader.css";
 import react from"react";
+import{loginRequest}from"../../../authConfig.js";
+import{useMsal}from"@azure/msal-react";
+import{callMsGraphForPhoto}from"../../../graph.js";
 
 const TheHeader=(props)=>{
 
@@ -22,6 +25,24 @@ const TheHeader=(props)=>{
             setSearchImgClass("searchPic");
         }
     }
+
+    const{instance:instance2,accounts}=useMsal();
+    const[photo,setPhoto]=react.useState(null);
+
+    react.useEffect(()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+        }).catch(e=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+            });
+        });
+    },[]);
+
     return(
         <header>
             <div id="leftHeader">
@@ -37,7 +58,7 @@ const TheHeader=(props)=>{
                     <img id="settingsPic"src="https://image.shutterstock.com/image-vector/setting-flat-vector-icon-ui-600w-1632567877.jpg"alt="text" />
                 </div>
                 <div id={!props.profileIconClicked?"profileDiv":"darkProfileDiv"}onClick={()=>{if(props.settingsIconClicked===true){props.setSettingsIconClicked(!props.settingsIconClicked);props.setProfileIconClicked(!props.profileIconClicked);}else{props.setProfileIconClicked(!props.profileIconClicked);}}}>
-                    <img id="profilePic"src="https://image.shutterstock.com/image-vector/neon-human-head-cpu-blue-600w-508239127.jpg"alt="text" />
+                    <img id="profilePic"src={photo}alt="text" />
                 </div>
             </div>
         </header>
