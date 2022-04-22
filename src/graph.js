@@ -42,7 +42,6 @@ export async function callMsGraphForLists(accessToken){
     const headers=new Headers();
     const bearer=`Bearer ${accessToken}`;
     headers.append("authorization",bearer);
-    headers.append("content-Type","image/jpg");
     const options={
         method:"GET",
         headers:headers
