@@ -603,11 +603,11 @@ const TheMiddle=(props)=>{
                 </div>
                 <div id="listsMenuTasksDiv">
                     <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
-                    <h4 id="listsMenuTasksText">Tasks</h4>
+                    <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                 </div>
 {/*Working here*/}
                 <div id="listsMenuMyListsDiv">
-                    <h4 id="listsMenuMyLists">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
+                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<h4 className="listsMenuMyLists"key={index}>{value.displayName}</h4>);}}):"loading..."}
                 </div>
                 <div id="listsMenuNewListDiv">
                     <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
