@@ -453,18 +453,26 @@
     top:-17px;
     color:#0769b4;
 }
-#listsMenuMyListsDiv{
+#listsMenuMyListsBigDiv{
+    display:flex;
     position:absolute;
-    top:300px
+    top:250px;
+    height:auto;
+    width:200px;
+    flex-direction:column;
+    justify-content:space-evenly;
+    background-color:red;
 }
-.listsMenyMyLists{
-    font-weight:300;
+.myListsImages{
+    height:20px;
+    width:20px;
+    display:inline-block;
 }
 #listsMenuNewListDiv{
     width:200px;
     height:30px;
     position:absolute;
-    top:280px;
+    bottom:30px;
     left:0px;
 }
 #listsMenuNewListDiv:hover{
