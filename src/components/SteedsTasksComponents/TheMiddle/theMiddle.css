@@ -365,7 +365,6 @@
     overflow-y:auto;
     overflow-x:hidden;
     background-color:rgb(231, 231, 231);
-    background-color:red;
     height:60vh;
     width:200px;
     max-height:80vh;
@@ -375,9 +374,9 @@
 #listsMenuDayDiv{
     width:200px;
     height:30px;
-    /* position:absolute;
-    top:130px;
-    left:0px; */
+    position:absolute;
+    top:5px;
+    left:0px;
 }
 #listsMenuDayDiv:hover{
     background-color:white;
@@ -401,7 +400,7 @@
     width:200px;
     height:30px;
     position:absolute;
-    top:160px;
+    top:35px;
     left:0px;
 }
 #listsMenuAssignedDiv:hover{
@@ -426,7 +425,7 @@
     width:200px;
     height:30px;
     position:absolute;
-    top:190px;
+    top:65px;
     left:0px;
 }
 #listsMenuFlaggedDiv:hover{
@@ -451,7 +450,7 @@
     width:200px;
     height:30px;
     position:absolute;
-    top:220px;
+    top:95px;
     left:0px;
     background-color:rgb(224, 224, 224);
 }
@@ -475,7 +474,7 @@
 #listsMenuMyListsBigDiv{
     display:flex;
     position:absolute;
-    top:250px;
+    top:125px;
     height:auto;
     width:200px;
     flex-direction:column;
