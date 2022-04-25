@@ -588,35 +588,39 @@ const TheMiddle=(props)=>{
                 </div>
             </div>
             <div id={listsMenuId}>
-                <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
-                <div id="listsMenuDayDiv">
-                    <img id="listsMenuDayImage"src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text" />
-                    <h4 id="listsMenuDayText">My Day</h4>
+                <div id="listsMenuButtonDiv">
+                    <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
                 </div>
-                <div id="listsMenuAssignedDiv">
-                    <img id="listsMenuAssignedImage"src="https://image.shutterstock.com/image-vector/flat-portrait-black-man-icon-600w-2134341081.jpg"alt="text" />
-                    <h4 id="listsMenuAssignedText">Assigned To Me</h4>
-                </div>
-                <div id="listsMenuFlaggedDiv">
-                    <img id="listsMenuFlaggedImage"src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text" />
-                    <h4 id="listsMenuFlaggedText">Flagged email</h4>
-                </div>
-                <div id="listsMenuTasksDiv">
-                    <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
-                    <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
-                </div>
-                <div id="listsMenuMyListsBigDiv">
-                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
-                </div>
-                <div id="listsMenuNewListDiv">
-                    <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-{/*Working here*/}
-                    <input id="listsMenuNewInput"type="text"placeholder="New list" />
-                </div>
-                <div id="apiChoices">
-                    <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
-                    <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
-                    <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
+                <div id="listsScrollDiv">
+                    <div id="listsMenuDayDiv">
+                        <img id="listsMenuDayImage"src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text" />
+                        <h4 id="listsMenuDayText">My Day</h4>
+                    </div>
+                    <div id="listsMenuAssignedDiv">
+                        <img id="listsMenuAssignedImage"src="https://image.shutterstock.com/image-vector/flat-portrait-black-man-icon-600w-2134341081.jpg"alt="text" />
+                        <h4 id="listsMenuAssignedText">Assigned To Me</h4>
+                    </div>
+                    <div id="listsMenuFlaggedDiv">
+                        <img id="listsMenuFlaggedImage"src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text" />
+                        <h4 id="listsMenuFlaggedText">Flagged email</h4>
+                    </div>
+                    <div id="listsMenuTasksDiv">
+                        <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
+                        <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
+                    </div>
+                    <div id="listsMenuMyListsBigDiv">
+                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                    </div>
+                    <div id="listsMenuNewListDiv">
+                        <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
+    {/*Working here*/}
+                        <input id="listsMenuNewInput"type="text"placeholder="New list" />
+                    </div>
+                    <div id="apiChoices">
+                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
+                        <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
+                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
+                    </div>
                 </div>
             </div>
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
