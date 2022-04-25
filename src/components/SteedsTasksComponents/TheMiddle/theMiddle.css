@@ -461,17 +461,37 @@
     width:200px;
     flex-direction:column;
     justify-content:space-evenly;
-    background-color:red;
+}
+.myListsDiv{
+    display:flex;
+    align-items:center;
+    padding-left:17px;
+    height:28px;
+}
+.myListsDiv:hover{
+    cursor:pointer;
+    background-color:white;
+    filter:brightness(120%);
 }
 .myListsImages{
     height:20px;
     width:20px;
     display:inline-block;
+    filter:brightness(90%);
+    position:relative;
+    top:2.5px;
+}
+.myListsText{
+    margin-top:0px;
+    margin-bottom:0px;
+    font-weight:400;
+    position:relative;
+    left:14px;
 }
 #listsMenuNewListDiv{
     width:200px;
     height:30px;
-    position:absolute;
+    position:fixed;
     bottom:30px;
     left:0px;
 }
