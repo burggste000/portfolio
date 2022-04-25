@@ -610,14 +610,13 @@ const TheMiddle=(props)=>{
                 </div>
                 <div id="listsMenuNewListDiv">
                     <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-                    <h4 id="listsMenuNewListText">New list</h4>
+{/*Working here*/}
+                    <input id="listsMenuNewInput"type="text"placeholder="New list" />
                 </div>
                 <div id="apiChoices">
                     <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
                     <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
-                    <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />
-
-                    
+                    <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
                 </div>
             </div>
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
@@ -644,8 +643,6 @@ const TheMiddle=(props)=>{
                     </div>
                     <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
                 </div>
-{/*Working here*/}
-
             </div>
         </main>
     );

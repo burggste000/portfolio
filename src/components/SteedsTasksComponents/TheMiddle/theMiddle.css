@@ -494,6 +494,8 @@
     position:fixed;
     bottom:40px;
     left:0px;
+    display:flex;
+    align-items:center;
 }
 #listsMenuNewListDiv:hover{
     background-color:white;
@@ -508,12 +510,13 @@
     left:18px;
     top:8px;
 }
-#listsMenuNewListText{
-    font-weight:400;
+#listsMenuNewInput{
     position:absolute;
     left:50px;
-    top:-17px;
-    color:#0769b4;
+    width:100px;
+    background-color:rgb(231,231,231);
+    border-style:none;
+    outline:none;
 }
 #apiChoices{
     position:fixed;
