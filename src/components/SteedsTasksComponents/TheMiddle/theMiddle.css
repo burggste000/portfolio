@@ -492,7 +492,7 @@
     width:200px;
     height:30px;
     position:fixed;
-    bottom:30px;
+    bottom:40px;
     left:0px;
 }
 #listsMenuNewListDiv:hover{
@@ -514,6 +514,24 @@
     left:50px;
     top:-17px;
     color:#0769b4;
+}
+#apiChoices{
+    position:fixed;
+    bottom:-11px;
+}
+.apiButtons{
+    height:40px;
+    width:40px;
+}
+.apiButtons:hover{
+    cursor:pointer;
+}
+#myAppButton{
+    height:41px;
+    width:120px;
+}
+#myAppButton:hover{
+    cursor:pointer;
 }
 /*
 filter:brightness(91%);
