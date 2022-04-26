@@ -538,6 +538,33 @@
     border-style:none;
     outline:none;
 }
+#lowMenuIconsDiv{
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    position:fixed;
+    left:0px;
+    bottom:60px;
+    width:200px;
+}
+#lowMenuMail{
+    filter:brightness(90%);
+}
+#lowMenuCalandar{
+    filter:brightness(96%);
+    height:25px;
+    width:25px;
+}
+#lowMenuPeople{
+    filter:brightness(93%);
+}
+#lowMenuFiles{
+    filter:brightness(90%);
+}
+.lowMenuIcons{
+    height:30px;
+    width:30px;
+}
 #apiChoices{
     position:fixed;
     bottom:-11px;
