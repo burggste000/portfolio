@@ -447,7 +447,9 @@ const TheMiddle=(props)=>{
 
     react.useEffect(()=>{getLists();},[]);
 
-    const createTask=(string)=>{
+    const[newList,setNewList]=react.useState('');
+
+    const createList=(string)=>{
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -458,7 +460,7 @@ const TheMiddle=(props)=>{
         }).catch(e=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCreateList(response.accessToken,string)
-                .then(response=>getLists());
+                .then(()=>getLists());
             });
         });
     }
@@ -632,7 +634,9 @@ const TheMiddle=(props)=>{
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
     {/*Working here*/}
-                        <input id="listsMenuNewInput"type="text"placeholder="New list" />
+                        <form onSubmit={event=>createList(newList)}>
+                            <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
+                        </form>
                     </div>
                     <div id="apiChoices">
                         <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />

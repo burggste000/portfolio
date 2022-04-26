@@ -532,6 +532,7 @@
 #listsMenuNewInput{
     position:absolute;
     left:50px;
+    bottom:5px;
     width:144.5px;
     background-color:rgb(231,231,231);
     border-style:none;
