@@ -1,7 +1,7 @@
 import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
-import{loginRequest}from"../../../authConfig.js";
+import{loginRequest,graphConfig}from"../../../authConfig.js";
 import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
@@ -467,15 +467,29 @@ const TheMiddle=(props)=>{
 
     const[currentList,setCurrentList]=react.useState(null);
     const[currentListTasks,setCurrentListTasks]=react.useState(null);
+    const[currentListTasksTitles,setCurrentListTasksTitles]=react.useState(["My array of titles"]);
+    const[currentListIndex,setCurrentListIndex]=react.useState(null);
+
+    const findListIndex=event=>{
+        let thisListsName=event.target.children[1].textContent;
+        lists.value.map((value,index)=>{
+            if(value.displayName===thisListsName){
+                setCurrentListIndex(index);
+            }
+        });
+    }
 
     const clickedList=event=>{
-        console.log(event.target.children[1].textContent);
-        console.log(currentList);
+        // console.log(event.target.children[1].textContent);
+        // console.log(currentList);
+        findListIndex(event);
         let thisText=event.target.children[1].textContent;
-        console.log(thisText);
+        // console.log(thisText);
         setCurrentList(thisText);
-        console.log(currentList);
-
+        // console.log(currentList);
+        // console.log(lists.value);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+lists.value[currentListIndex].id+"/tasks";
+        // console.log(graphConfig.graphMeListTasksEndpoint);
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -487,6 +501,15 @@ const TheMiddle=(props)=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
             });
         });
+        currentListTasks.map((value)=>{
+            let tempTitle=value.title;
+            let varHolder=currentListTasksTitles;
+            varHolder.push(tempTitle);
+            setCurrentListTasksTitles(varHolder);
+            console.log(currentListTasksTitles);
+        });
+
+        // console.log(currentListTasks);
     }
 
     return(
