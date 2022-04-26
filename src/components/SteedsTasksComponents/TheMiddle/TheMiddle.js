@@ -2,7 +2,7 @@ import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists}from"../../../graph.js";
+import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
 
 
 const TheMiddle=(props)=>{
@@ -431,7 +431,7 @@ const TheMiddle=(props)=>{
 
     const[lists,setLists]=react.useState(null);
 
-    react.useEffect(()=>{
+    const getLists=()=>{
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -443,7 +443,25 @@ const TheMiddle=(props)=>{
                 callMsGraphForLists(response.accessToken).then(response=>setLists(response));
             });
         });
-    },[]);
+    }
+
+    react.useEffect(()=>{getLists();},[]);
+
+    const createTask=(string)=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForCreateList(response.accessToken,string)
+            .then(()=>getLists());
+        }).catch(e=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForCreateList(response.accessToken,string)
+                .then(response=>getLists());
+            });
+        });
+    }
     return(
         <main>
             <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>

@@ -19,5 +19,6 @@ export const msalConfig = {
   export const graphConfig = {
       graphMeUserEndpoint:"https://graph.microsoft.com/v1.0/me",
       graphMePhotoEndpoint:"https://graph.microsoft.com/v1.0/me/photos/48x48/$value",
-      graphMeListsEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists"
+      graphMeListsEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists",
+      graphMeCreateListEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists"
   };

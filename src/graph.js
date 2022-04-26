@@ -50,3 +50,21 @@ export async function callMsGraphForLists(accessToken){
     .then(response=>response.json())
     .catch(error=>console.log(error));
 }
+
+export async function callMsGraphForCreateList(accessToken,str){
+    const headers=new Headers();
+    const bearer=`Bearer ${accessToken}`;
+    headers.append("authorization",bearer);
+    headers.append("Content-Type","application/json");
+
+    const options={
+        method:"POST",
+        headers:headers,
+        body:JSON.stringify({
+            displayName:str
+        })
+    };
+    return fetch(graphConfig.graphMeCreateListEndpoint,options)
+    .then(response=>response.json())
+    .catch(error=>console.log(error));
+}
