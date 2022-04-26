@@ -466,10 +466,27 @@ const TheMiddle=(props)=>{
     }
 
     const[currentList,setCurrentList]=react.useState(null);
+    const[currentListTasks,setCurrentListTasks]=react.useState(null);
 
     const clickedList=event=>{
         console.log(event.target.children[1].textContent);
-        setCurrentList(event.target.children[1].textContent);
+        console.log(currentList);
+        let thisText=event.target.children[1].textContent;
+        console.log(thisText);
+        setCurrentList(thisText);
+        console.log(currentList);
+
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+            });
+        });
     }
 
     return(
