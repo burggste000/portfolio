@@ -2,7 +2,7 @@ import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
 const TheMiddle=(props)=>{
@@ -464,6 +464,14 @@ const TheMiddle=(props)=>{
             });
         });
     }
+
+    const[currentList,setCurrentList]=react.useState(null);
+
+    const clickedList=event=>{
+        console.log(event.target.children[1].textContent);
+        setCurrentList(event.target.children[1].textContent);
+    }
+
     return(
         <main>
             <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
@@ -629,11 +637,11 @@ const TheMiddle=(props)=>{
                         <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                     </div>
                     <div id="listsMenuMyListsBigDiv">
-                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+{/*Working here*/}
+                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                     </div>
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-    {/*Working here*/}
                         <form onSubmit={event=>createList(newList)}>
                             <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
                         </form>
