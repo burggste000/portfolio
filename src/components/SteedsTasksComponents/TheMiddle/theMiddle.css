@@ -795,11 +795,12 @@
     height:25px;
     width:25px;
 }
-.createTaskIconsHover{
+.createTaskIconsDark{
     height:25px;
     width:25px;
-    filter:brightness(60%);
+    filter:brightness(70%);
     border-radius:3px;
+    cursor:pointer;
 }
 #add{
     color:rgb(190, 190, 190);
