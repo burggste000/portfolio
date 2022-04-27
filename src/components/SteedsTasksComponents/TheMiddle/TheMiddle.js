@@ -1,8 +1,8 @@
 import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
-import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{loginRequest,graphConfig}from"../../../authConfig.js";
+import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
 const TheMiddle=(props)=>{
@@ -464,6 +464,54 @@ const TheMiddle=(props)=>{
             });
         });
     }
+
+    const[currentList,setCurrentList]=react.useState(null);
+    const[currentListTasks,setCurrentListTasks]=react.useState(null);
+    const[currentListTasksTitles,setCurrentListTasksTitles]=react.useState(["My array of titles"]);
+    const[currentListIndex,setCurrentListIndex]=react.useState(null);
+
+    const findListIndex=event=>{
+        let thisListsName=event.target.children[1].textContent;
+        lists.value.map((value,index)=>{
+            if(value.displayName===thisListsName){
+                setCurrentListIndex(index);
+            }
+        });
+    }
+
+    const clickedList=event=>{
+        // console.log(event.target.children[1].textContent);
+        // console.log(currentList);
+        findListIndex(event);
+        let thisText=event.target.children[1].textContent;
+        // console.log(thisText);
+        setCurrentList(thisText);
+        // console.log(currentList);
+        console.log(lists.value);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+lists.value[currentListIndex].id+"/tasks";
+        console.log(graphConfig.graphMeListTasksEndpoint);
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+            });
+        });
+        currentListTasks.map((value)=>{
+            let tempTitle=value.title;
+            let varHolder=currentListTasksTitles;
+            varHolder.push(tempTitle);
+            setCurrentListTasksTitles(varHolder);
+            console.log(currentListTasksTitles);
+        });
+
+        // console.log(currentListTasks);
+    }
+
     return(
         <main>
             <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
@@ -629,7 +677,7 @@ const TheMiddle=(props)=>{
                         <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                     </div>
                     <div id="listsMenuMyListsBigDiv">
-                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
     {/*Working here*/}
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />

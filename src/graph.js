@@ -68,3 +68,16 @@ export async function callMsGraphForCreateList(accessToken,str){
     .then(response=>response.json())
     .catch(error=>console.log(error));
 }
+
+export async function callMsGraphForListTasks(accessToken){
+    const headers=new Headers();
+    const bearer=`Bearer ${accessToken}`;
+    headers.append("authorization",bearer);
+    const options={
+        method:"GET",
+        headers:headers
+    };
+    return fetch(graphConfig.graphMeListTasksEndpoint,options)
+    .then(response=>response.json())
+    .catch(error=>console.log(error));
+}
