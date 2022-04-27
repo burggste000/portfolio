@@ -58,9 +58,6 @@ const TheMiddle=(props)=>{
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
-    const[calandarHovered,setCalandarHovered]=react.useState(false);
-    const[remindHovered,setRemindHovered]=react.useState(false);
-    const[repeatHovered,setRepeatHovered]=react.useState(false);
 
     react.useEffect(()=>{
         if(setting1hovered===true){
@@ -719,9 +716,9 @@ const TheMiddle=(props)=>{
                     <img id={createTaskInputFocused===false?"hideProfMenu":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
                     <input className={createTaskInputDecideClass(listsMenuClicked,createTaskInputFocused)}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)} />
                     <div id={createTaskInputFocused===false?"hideProfMenu":"createTaskIconsDiv"}>
-                        <img className={!calandarHovered?"createTaskIcons":"createTaskIconsDark"}src="https://image.shutterstock.com/image-vector/black-calendar-icon-design-vector-600w-1818197549.jpg"alt="text"onMouseEnter={()=>setCalandarHovered(true)}onMouseLeave={()=>setCalandarHovered(false)} />
-                        <img className={!remindHovered?"createTaskIcons":"createTaskIconsDark"}src="https://image.shutterstock.com/image-vector/bell-icon-design-600w-1250740630.jpg"alt="text"onMouseEnter={()=>setRemindHovered(true)}onMouseLeave={()=>setRemindHovered(false)} />
-                        <img className={!repeatHovered?"createTaskIcons":"createTaskIconsDark"}src="https://image.shutterstock.com/image-vector/update-organizer-vector-icon-style-600w-338278388.jpg"alt="text"onMouseEnter={()=>setRepeatHovered(true)}onMouseLeave={()=>setRepeatHovered(false)} />
+                        <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/black-calendar-icon-design-vector-600w-1818197549.jpg"alt="text" />
+                        <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/bell-icon-design-600w-1250740630.jpg"alt="text" />
+                        <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/update-organizer-vector-icon-style-600w-338278388.jpg"alt="text" />
                     </div>
                     <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
                 </div>

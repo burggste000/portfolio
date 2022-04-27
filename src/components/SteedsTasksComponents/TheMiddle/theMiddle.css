@@ -549,7 +549,7 @@
     width:25px;
 }
 #lowMenuCalandar:hover{
-    filter:brightness(115%);
+    filter:brightness(110%);
     cursor:pointer;
 }
 #lowMenuPeople{
@@ -811,9 +811,7 @@
     height:25px;
     width:25px;
 }
-.createTaskIconsDark{
-    height:25px;
-    width:25px;
+.createTaskIcons:hover{
     filter:brightness(70%);
     border-radius:3px;
     cursor:pointer;
