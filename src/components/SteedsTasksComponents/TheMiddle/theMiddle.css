@@ -539,16 +539,32 @@
 #lowMenuMail{
     filter:brightness(90%);
 }
+#lowMenuMail:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
 #lowMenuCalandar{
     filter:brightness(96%);
     height:25px;
     width:25px;
 }
+#lowMenuCalandar:hover{
+    filter:brightness(115%);
+    cursor:pointer;
+}
 #lowMenuPeople{
     filter:brightness(93%);
 }
+#lowMenuPeople:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
 #lowMenuFiles{
     filter:brightness(90%);
+}
+#lowMenuFiles:hover{
+    filter:brightness(100%);
+    cursor:pointer;
 }
 .lowMenuIcons{
     height:30px;
