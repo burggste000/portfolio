@@ -509,12 +509,8 @@
 #listsMenuNewListDiv{
     width:200px;
     height:30px;
-    position:fixed;
-    bottom:34px;
-    left:0px;
     display:flex;
     align-items:center;
-    background-color:rgb(231,231,231);
 }
 #listsMenuNewListDiv:hover{
     background-color:white;
@@ -525,26 +521,19 @@
     height:15px;
     width:15px;
     filter:brightness(91%);
-    position:absolute;
-    left:18px;
-    top:8px;
+    margin-left:20px;
 }
 #listsMenuNewInput{
-    position:absolute;
-    left:50px;
-    bottom:5px;
     width:144.5px;
     background-color:rgb(231,231,231);
     border-style:none;
     outline:none;
+    margin-left:12px;
 }
 #lowMenuIconsDiv{
     display:flex;
     align-items:center;
     justify-content:space-evenly;
-    position:fixed;
-    left:0px;
-    bottom:60px;
     width:200px;
 }
 #lowMenuMail{
