@@ -487,9 +487,9 @@ const TheMiddle=(props)=>{
         // console.log(thisText);
         setCurrentList(thisText);
         // console.log(currentList);
-        // console.log(lists.value);
+        console.log(lists.value);
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+lists.value[currentListIndex].id+"/tasks";
-        // console.log(graphConfig.graphMeListTasksEndpoint);
+        console.log(graphConfig.graphMeListTasksEndpoint);
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -677,19 +677,25 @@ const TheMiddle=(props)=>{
                         <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                     </div>
                     <div id="listsMenuMyListsBigDiv">
-{/*Working here*/}
                         {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
-                    </div>
-                    <div id="listsMenuNewListDiv">
-                        <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-                        <form onSubmit={event=>createList(newList)}>
-                            <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
-                        </form>
-                    </div>
-                    <div id="apiChoices">
-                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
-                        <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
-                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
+    {/*Working here*/}
+                        <div id="listsMenuNewListDiv">
+                            <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
+                            <form onSubmit={()=>createList(newList)}>
+                                <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
+                            </form>
+                        </div>
+                        <div id="lowMenuIconsDiv">
+                            <img id="lowMenuMail"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/email-web-icon-vector-design-600w-410977486.jpg"alt="email icon" />
+                            <img id="lowMenuCalandar"src="https://image.shutterstock.com/image-illustration/calendar-icon-line-symbol-isolated-600w-1072208258.jpg"alt="calandar icon" />
+                            <img id="lowMenuPeople"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/group-icon-team-symbol-social-600w-1506361112.jpg"alt="people icon" />
+                            <img id="lowMenuFiles"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/clip-web-icon-vector-design-600w-413873332.jpg"alt="files icon" />
+                        </div>
+                        <div>
+                            <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
+                            <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
+                            <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
+                        </div>
                     </div>
                 </div>
             </div>
