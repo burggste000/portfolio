@@ -464,11 +464,8 @@ const TheMiddle=(props)=>{
         });
     }
 
-    const[currentList,setCurrentList]=react.useState(null);
-    const[currentListTasks,setCurrentListTasks]=react.useState(null);
-    const[currentListTasksTitles,setCurrentListTasksTitles]=react.useState(["My array of titles"]);
     const[currentListIndex,setCurrentListIndex]=react.useState(null);
-
+    
     const findListIndex=event=>{
         let thisListsName=event.target.children[1].textContent;
         lists.value.map((value,index)=>{
@@ -478,6 +475,10 @@ const TheMiddle=(props)=>{
         });
     }
 
+    const[currentListTasks,setCurrentListTasks]=react.useState(null);
+    const[currentListTasksTitles,setCurrentListTasksTitles]=react.useState(["My array of titles"]);
+    const[currentList,setCurrentList]=react.useState(null);
+    
     const clickedList=event=>{
         // console.log(event.target.children[1].textContent);
         // console.log(currentList);
@@ -486,9 +487,9 @@ const TheMiddle=(props)=>{
         // console.log(thisText);
         setCurrentList(thisText);
         // console.log(currentList);
-        console.log(lists.value);
+        // console.log(lists.value);
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+lists.value[currentListIndex].id+"/tasks";
-        console.log(graphConfig.graphMeListTasksEndpoint);
+        // console.log(graphConfig.graphMeListTasksEndpoint);
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -505,10 +506,23 @@ const TheMiddle=(props)=>{
             let varHolder=currentListTasksTitles;
             varHolder.push(tempTitle);
             setCurrentListTasksTitles(varHolder);
-            console.log(currentListTasksTitles);
+            // console.log(currentListTasksTitles);
         });
 
         // console.log(currentListTasks);
+    }
+
+    const whichListHighlight=()=>{
+        let microsoftsListsArray;
+        for(let i=0;i<lists.value.length;++i){
+            microsoftsListsArray.push(lists.value[i].displayName);
+        }
+        let allMyLists=["My Day","Assigned To Me","Flagged email",...microsoftsListsArray];
+        for(let j=0;j<allMyLists.length;++j){
+            if(currentList===allMyLists[j]){
+                set${allMyLists[j]}className("dark");
+            }
+        }
     }
 
     return(
@@ -677,7 +691,7 @@ const TheMiddle=(props)=>{
                     </div>
                     <div id="listsMenuMyListsBigDiv">
                         {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
-    {/*Working here*/}
+{/*Working here*/}
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                             <form onSubmit={()=>createList(newList)}>
