@@ -456,7 +456,7 @@ const TheMiddle=(props)=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForCreateList(response.accessToken,string)
             .then(()=>getLists());
-        }).catch(e=>{
+        }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCreateList(response.accessToken,string)
                 .then(()=>getLists());
@@ -464,7 +464,6 @@ const TheMiddle=(props)=>{
         });
     }
 
-    const[currentListIndex,setCurrentListIndex]=react.useState(null);
 
     const findListByName=name=>lists.value.find(value=>value.displayName===name);
     const findListIdByName=name=>findListByName(name).id;
