@@ -465,31 +465,17 @@ const TheMiddle=(props)=>{
     }
 
     const[currentListIndex,setCurrentListIndex]=react.useState(null);
-    
-    const findListIndex=event=>{
-        let thisListsName=event.target.children[1].textContent;
-        lists.value.map((value,index)=>{
-            if(value.displayName===thisListsName){
-                setCurrentListIndex(index);
-            }
-        });
-    }
+
+    const findListByName=name=>lists.value.find(value=>value.displayName===name);
+    const findListIdByName=name=>findListByName(name).id;
 
     const[currentListTasks,setCurrentListTasks]=react.useState(null);
-    const[currentListTasksTitles,setCurrentListTasksTitles]=react.useState(["My array of titles"]);
     const[currentList,setCurrentList]=react.useState(null);
     
     const clickedList=event=>{
-        // console.log(event.target.children[1].textContent);
-        // console.log(currentList);
-        findListIndex(event);
         let thisText=event.target.children[1].textContent;
-        // console.log(thisText);
         setCurrentList(thisText);
-        // console.log(currentList);
-        // console.log(lists.value);
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+lists.value[currentListIndex].id+"/tasks";
-        // console.log(graphConfig.graphMeListTasksEndpoint);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -501,28 +487,6 @@ const TheMiddle=(props)=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
             });
         });
-        currentListTasks.map((value)=>{
-            let tempTitle=value.title;
-            let varHolder=currentListTasksTitles;
-            varHolder.push(tempTitle);
-            setCurrentListTasksTitles(varHolder);
-            // console.log(currentListTasksTitles);
-        });
-
-        // console.log(currentListTasks);
-    }
-
-    const whichListHighlight=()=>{
-        let microsoftsListsArray;
-        for(let i=0;i<lists.value.length;++i){
-            microsoftsListsArray.push(lists.value[i].displayName);
-        }
-        let allMyLists=["My Day","Assigned To Me","Flagged email",...microsoftsListsArray];
-        for(let j=0;j<allMyLists.length;++j){
-            if(currentList===allMyLists[j]){
-                set${allMyLists[j]}className("dark");
-            }
-        }
     }
 
     return(
@@ -531,7 +495,7 @@ const TheMiddle=(props)=>{
                 <div id="topMenu">
                     <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
                     <div id="signOutDiv">
-                        <h5 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h5>{/*fix the href value to be correct*/}
+                        <h5 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h5>
                     </div>
                 </div>
                 <div>
@@ -690,8 +654,8 @@ const TheMiddle=(props)=>{
                         <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                     </div>
                     <div id="listsMenuMyListsBigDiv">
-                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
 {/*Working here*/}
+                        {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                             <form onSubmit={()=>createList(newList)}>
