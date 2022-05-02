@@ -448,14 +448,17 @@ const TheMiddle=(props)=>{
 
     const[newList,setNewList]=react.useState('');
 
-    const createList=(string)=>{
+    const createList=string=>{
+        console.log("createList("+string+")");
+        // setTimeout(9000);
         const request={
             ...loginRequest,
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForCreateList(response.accessToken,string)
-            .then(()=>getLists());
+            .then(()=>getLists())
+            .catch((err)=>console.log(err));
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCreateList(response.accessToken,string)

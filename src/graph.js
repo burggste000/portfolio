@@ -65,7 +65,7 @@ export async function callMsGraphForCreateList(accessToken,str){
         })
     };
     return fetch(graphConfig.graphMeCreateListEndpoint,options)
-    .then(response=>response.json())
+    .then(response=>{console.log("createListFetch");response.json();})
     .catch(error=>console.log(error));
 }
 
