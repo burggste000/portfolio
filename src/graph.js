@@ -31,43 +31,32 @@ export async function callMsGraphForPhoto(accessToken){
     const options={
         method:"GET",
         headers:headers
-    };
+        };
     return fetch(graphConfig.graphMePhotoEndpoint,options)
     .then(response=>response.blob())
     .then(blob=>blob)
     .catch(error=>console.log(error));
 }
 
-export async function callMsGraphForLists(accessToken){
-    const headers=new Headers();
-    const bearer=`Bearer ${accessToken}`;
-    headers.append("authorization",bearer);
-    const options={
+export function callMsGraphForLists(accessToken){
+    return fetch(graphConfig.graphMeListsEndpoint, {
         method:"GET",
-        headers:headers
-    };
-    return fetch(graphConfig.graphMeListsEndpoint,options)
+        headers:{ "Authorization":`Bearer ${accessToken}`}
+        })
     .then(response=>response.json())
     .catch(error=>console.log(error));
-}
+    }
 
-export async function callMsGraphForCreateList(accessToken,str){
-    const headers=new Headers();
-    const bearer=`Bearer ${accessToken}`;
-    headers.append("authorization",bearer);
-    headers.append("Content-Type","application/json");
-
-    const options={
+export function callMsGraphForCreateList(accessToken,str){
+    return fetch(graphConfig.graphMeCreateListEndpoint, {
         method:"POST",
-        headers:headers,
-        body:JSON.stringify({
-            displayName:str
-        })
-    };
-    return fetch(graphConfig.graphMeCreateListEndpoint,options)
-    .then(response=>{console.log("createListFetch");response.json();})
-    .catch(error=>console.log(error));
-}
+        headers:{ 
+            "Authorization":`Bearer ${accessToken}`,
+            "Content-Type":"application/json"
+            },
+        body:JSON.stringify({displayName:str})
+        });
+    }
 
 export async function callMsGraphForListTasks(accessToken){
     const headers=new Headers();
