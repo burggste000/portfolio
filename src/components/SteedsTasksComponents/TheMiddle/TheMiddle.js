@@ -455,8 +455,6 @@ const TheMiddle=(props)=>{
     const[newList,setNewList]=react.useState('');
 
     const createList=string=>{
-        console.log("createList("+string+")");
-        // setTimeout(9000);
         const request={
             ...loginRequest,
             account:accounts[0]
