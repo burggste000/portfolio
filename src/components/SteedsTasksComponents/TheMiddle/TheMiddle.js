@@ -667,8 +667,8 @@ const TheMiddle=(props)=>{
                         {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-                            <form onSubmit={e=>{e.preventDefault();createList(newList);}}>
 {/*Working here*/}
+                            <form onSubmit={e=>{e.preventDefault();createList(newList);}}>
                                 <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
                             </form>
                         </div>

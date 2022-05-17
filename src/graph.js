@@ -45,7 +45,7 @@ export function callMsGraphForLists(accessToken){
         })
     .then(response=>response.json())
     .catch(error=>console.log(error));
-    }
+}
 
 export function callMsGraphForCreateList(accessToken,str){
     return fetch(graphConfig.graphMeCreateListEndpoint, {
@@ -56,7 +56,7 @@ export function callMsGraphForCreateList(accessToken,str){
             },
         body:JSON.stringify({displayName:str})
         });
-    }
+}
 
 export async function callMsGraphForListTasks(accessToken){
     const headers=new Headers();
