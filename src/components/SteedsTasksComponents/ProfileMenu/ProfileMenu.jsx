@@ -47,7 +47,7 @@ const ProfileMenu=props=>{
     const name=accounts[0]&&accounts[0].name;
 
     return(
-        <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}>
+        <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
             <div>
                 <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
                 <div>

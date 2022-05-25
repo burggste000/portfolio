@@ -400,34 +400,6 @@ const TheMiddle=props=>{
     const[photo,setPhoto]=react.useState(null);
     const name=accounts[0]&&accounts[0].name;
 
-    // react.useEffect(()=>{
-    //     const request={
-    //         ...loginRequest,
-    //         account:accounts[0]
-    //     };
-    //     instance2.acquireTokenSilent(request).then(response=>{
-    //         callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
-    //     }).catch(e=>{
-    //         instance2.acquireTokenPopup(request).then(response=>{
-    //             callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
-    //         });
-    //     });
-    // },[]);
-    
-    // react.useEffect(()=>{
-    //     const request={
-    //         ...loginRequest,
-    //         account:accounts[0]
-    //     };
-    //     instance2.acquireTokenSilent(request).then(response=>{
-    //         callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
-    //     }).catch(e=>{
-    //         instance2.acquireTokenPopup(request).then(response=>{
-    //             callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
-    //         });
-    //     });
-    // },[]);
-
     const[lists,setLists]=react.useState(null);
 
     const getLists=()=>{
@@ -501,23 +473,6 @@ const TheMiddle=props=>{
 
     return(
         <main>
-            {/* <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
-                <div id="topMenu">
-                    <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
-                    <div id="signOutDiv">
-                        <h5 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h5>
-                    </div>
-                </div>
-                <div>
-                    <img id="profMenuPic"src={photo}alt="text" />
-                </div>
-                <div id="profMenuData">
-                    <h3 className="profMenuData">{name}</h3>
-                    <p id="profMenuEmail"className="profMenuData">{graphData!==null?graphData.userPrincipalName:"userName@email.com"}</p>
-                    <a className="profMenuData profMenuLinks" href="microsoftAccount.com">My Microsoft account</a>
-                    <a className="profMenuData profMenuLinks" href="microsoftProfile.com">My profile</a>
-                </div>
-            </div> */}
             <div id={props.settingsIconClicked===false?"hideSettingsMenu":"settingsMenu"}>
                 <h2 id="settingsTitle">Settings</h2>
                 <div id="settingsXdiv"onMouseEnter={()=>setSettingsMenuXhovered(true)}onMouseLeave={()=>setSettingsMenuXhovered(false)}onClick={()=>props.setSettingsIconClicked(false)}>
