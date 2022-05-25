@@ -668,8 +668,8 @@ const TheMiddle=(props)=>{
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
 {/*Working here*/}
-                            <form onSubmit={e=>{e.preventDefault();createList(newList);}}>
-                                <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)} />
+                            <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
+                                <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)}value={newList} />
                             </form>
                         </div>
                         <div id="lowMenuIconsDiv">
