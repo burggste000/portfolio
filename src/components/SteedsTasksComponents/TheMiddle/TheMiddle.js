@@ -5,7 +5,7 @@ import{loginRequest,graphConfig}from"../../../authConfig.js";
 import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
-const TheMiddle=(props)=>{
+const TheMiddle=props=>{
     const[settingsMenuXhovered,setSettingsMenuXhovered]=react.useState(false);
     const[setting1on,setSetting1on]=react.useState(false);
     const[setting2on,setSetting2on]=react.useState(false);
@@ -400,33 +400,33 @@ const TheMiddle=(props)=>{
     const[photo,setPhoto]=react.useState(null);
     const name=accounts[0]&&accounts[0].name;
 
-    react.useEffect(()=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
-        }).catch(e=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
-            });
-        });
-    },[]);
+    // react.useEffect(()=>{
+    //     const request={
+    //         ...loginRequest,
+    //         account:accounts[0]
+    //     };
+    //     instance2.acquireTokenSilent(request).then(response=>{
+    //         callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
+    //     }).catch(e=>{
+    //         instance2.acquireTokenPopup(request).then(response=>{
+    //             callMsGraphForUser(response.accessToken).then(response=>setGraphData(response));
+    //         });
+    //     });
+    // },[]);
     
-    react.useEffect(()=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
-        }).catch(e=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
-            });
-        });
-    },[]);
+    // react.useEffect(()=>{
+    //     const request={
+    //         ...loginRequest,
+    //         account:accounts[0]
+    //     };
+    //     instance2.acquireTokenSilent(request).then(response=>{
+    //         callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+    //     }).catch(e=>{
+    //         instance2.acquireTokenPopup(request).then(response=>{
+    //             callMsGraphForPhoto(response.accessToken).then(response=>setPhoto((window.URL||window.webkitURL).createObjectURL(response)));
+    //         });
+    //     });
+    // },[]);
 
     const[lists,setLists]=react.useState(null);
 
@@ -501,7 +501,7 @@ const TheMiddle=(props)=>{
 
     return(
         <main>
-            <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
+            {/* <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
                 <div id="topMenu">
                     <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
                     <div id="signOutDiv">
@@ -517,7 +517,7 @@ const TheMiddle=(props)=>{
                     <a className="profMenuData profMenuLinks" href="microsoftAccount.com">My Microsoft account</a>
                     <a className="profMenuData profMenuLinks" href="microsoftProfile.com">My profile</a>
                 </div>
-            </div>
+            </div> */}
             <div id={props.settingsIconClicked===false?"hideSettingsMenu":"settingsMenu"}>
                 <h2 id="settingsTitle">Settings</h2>
                 <div id="settingsXdiv"onMouseEnter={()=>setSettingsMenuXhovered(true)}onMouseLeave={()=>setSettingsMenuXhovered(false)}onClick={()=>props.setSettingsIconClicked(false)}>

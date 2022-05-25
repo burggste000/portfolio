@@ -1,0 +1,69 @@
+#hideProfMenu{
+    display:none;
+}
+#profMenu{
+    background-color:rgb(240, 240, 240);
+    width:300px;
+    height:175px;
+    position:absolute;
+    top:50px;
+    right:0;
+    z-index:2;
+}
+#profLogo{
+    height:30px;
+    width:90px;
+    margin-top:10px;
+    margin-left:10px;
+}
+#signOut{
+    color:#0d6efd;
+    position:absolute;
+    top:-22px;
+    right:0px;
+    padding-top:18px;
+    padding-bottom:18px;
+    padding-right:13px;
+    padding-left:13px;
+    text-decoration:none;
+}
+#signOut:hover{
+    text-decoration:underline;
+    background-color:lightgray;
+    cursor:pointer;
+}
+#profMenuPic{
+    height:100px;
+    width:100px;
+    border-radius:50px;
+    margin-left:5px;
+    margin-top:5px;
+}
+#profMenuPic:hover{
+    filter:brightness(70%);
+    cursor:pointer;
+}
+#profMenuData{
+    position:absolute;
+    top:50px;
+    right:0px;
+    width:200px;
+}
+.profMenuData{
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:15px;
+}
+#profMenuEmail{
+    display:flex;
+    justify-content:left;
+    font-size:14px;
+}
+.profMenuLinks{
+    display:block;
+    text-decoration:none;
+    margin-top:5px;
+}
+.profMenuLinks:hover{
+    text-decoration:underline;
+}
