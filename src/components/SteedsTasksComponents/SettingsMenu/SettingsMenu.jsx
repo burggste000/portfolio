@@ -47,6 +47,268 @@ const SettingsMenu=props=>{
     const[hoverId14,setHoverId14]=react.useState('');
     const[hoverId15,setHoverId15]=react.useState('');
 
+    react.useEffect(()=>{
+        if(setting1hovered===true){
+            switch(setting1on){
+                case true:{
+                    setHoverId1("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId1("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId1('');
+                    break;
+                }
+            }
+        }
+        if(setting2hovered===true){
+            switch(setting2on){
+                case true:{
+                    setHoverId2("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId2("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId2('');
+                    break;
+                }
+            }
+        }
+        if(setting3hovered===true){
+            switch(setting3on){
+                case true:{
+                    setHoverId3("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId3("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId3('');
+                    break;
+                }
+            }
+        }
+        if(setting4hovered===true){
+            switch(setting4on){
+                case true:{
+                    setHoverId4("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId4("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId4('');
+                    break;
+                }
+            }
+        }
+        if(setting5hovered===true){
+            switch(setting5on){
+                case true:{
+                    setHoverId5("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId5("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId5('');
+                    break;
+                }
+            }
+        }
+        if(setting6hovered===true){
+            switch(setting6on){
+                case true:{
+                    setHoverId6("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId6("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId6('');
+                    break;
+                }
+            }
+        }
+        if(setting7hovered===true){
+            switch(setting7on){
+                case true:{
+                    setHoverId7("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId7("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId7('');
+                    break;
+                }
+            }
+        }
+        if(setting8hovered===true){
+            switch(setting8on){
+                case true:{
+                    setHoverId8("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId8("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId8('');
+                    break;
+                }
+            }
+        }
+        if(setting9hovered===true){
+            switch(setting9on){
+                case true:{
+                    setHoverId9("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId9("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId9('');
+                    break;
+                }
+            }
+        }
+        if(setting10hovered===true){
+            switch(setting10on){
+                case true:{
+                    setHoverId10("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId10("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId10('');
+                    break;
+                }
+            }
+        }
+        if(setting11hovered===true){
+            switch(setting11on){
+                case true:{
+                    setHoverId11("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId11("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId11('');
+                    break;
+                }
+            }
+        }
+        if(setting12hovered===true){
+            switch(setting12on){
+                case true:{
+                    setHoverId12("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId12("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId12('');
+                    break;
+                }
+            }
+        }
+        if(setting13hovered===true){
+            switch(setting13on){
+                case true:{
+                    setHoverId13("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId13("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId13('');
+                    break;
+                }
+            }
+        }
+        if(setting14hovered===true){
+            switch(setting14on){
+                case true:{
+                    setHoverId14("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId14("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId14('');
+                    break;
+                }
+            }
+        }
+        if(setting15hovered===true){
+            switch(setting15on){
+                case true:{
+                    setHoverId15("toggle-on");
+                    break;
+                }
+                case false:{
+                    setHoverId15("darkToggle-on");
+                    break;
+                }
+                default:{
+                    setHoverId15('');
+                    break;
+                }
+            }
+        }
+
+        if(setting1hovered===false&&setting2hovered===false&&setting3hovered===false&&setting4hovered===false&&setting5hovered===false&&setting6hovered===false&&setting7hovered===false&&setting8hovered===false&&setting9hovered===false&&setting10hovered===false&&setting11hovered===false&&setting12hovered===false&&setting13hovered===false&&setting14hovered===false&&setting15hovered===false){
+            setHoverId1('');
+            setHoverId2('');
+            setHoverId3('');
+            setHoverId4('');
+            setHoverId5('');
+            setHoverId6('');
+            setHoverId7('');
+            setHoverId8('');
+            setHoverId9('');
+            setHoverId10('');
+            setHoverId11('');
+            setHoverId12('');
+            setHoverId13('');
+            setHoverId14('');
+            setHoverId15('');
+            
+        }
+    },[setting1hovered,setting2hovered,setting3hovered,setting4hovered,setting5hovered,setting6hovered,setting7hovered,setting8hovered,setting9hovered,setting10hovered,setting11hovered,setting12hovered,setting13hovered,setting14hovered,setting15hovered]);
+
     const decideToggleClass=(settingIsOn)=>{
         if(settingIsOn===true){
             return"toggle";
