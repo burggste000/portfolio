@@ -371,32 +371,6 @@
     position:absolute;
     top:120px;
 }
-/*I'm going to reference this when I make my styling for the dark div*/
-/* #listsMenuTasksDiv{
-    width:200px;
-    height:30px;
-    position:absolute;
-    top:95px;
-    left:0px;
-    background-color:rgb(224, 224, 224);
-}
-#listsMenuTasksDiv:hover{
-    cursor:pointer;
-}
-#listsMenuTasksImage{
-    height:28px;
-    width:28px;
-    filter:brightness(90%);
-    position:absolute;
-    left:15px;
-}
-#listsMenuTasksText{
-    font-weight:600;
-    position:absolute;
-    left:50px;
-    top:-17px;
-    color:#0769b4;
-} */
 #listsMenuDayDiv{
     width:200px;
     height:30px;

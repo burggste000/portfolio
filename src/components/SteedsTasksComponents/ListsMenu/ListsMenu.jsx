@@ -1,0 +1,152 @@
+import"./listsMenu.css";
+import react from"react";
+import{graphConfig,loginRequest}from"../../../authConfig.js";
+import{callMsGraphForListTasks,callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{useMsal}from"@azure/msal-react";
+
+
+const ListsMenu=()=>{
+    const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
+    const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
+    const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
+    const[lists,setLists]=react.useState(null);
+    const[currentListTasks,setCurrentListTasks]=react.useState(null);
+    const[currentList,setCurrentList]=react.useState(null);
+
+    react.useEffect(()=>{
+        if(listsMenuClicked===true){
+            setListsMenuId("listsMenu");
+        }
+        else{
+            setListsMenuId("hideListsMenu");
+        }
+    },[listsMenuClicked]);
+
+    const checkWindowSize=()=>{
+        if(window.innerWidth<screenWidth){
+            setListsMenuId("hideListsMenu");
+            setListsMenuClicked(false);
+            setScreenWidth(window.innerWidth);
+        }
+        else{
+            setScreenWidth(window.innerWidth);
+        }
+    }
+
+    window.onresize=checkWindowSize;
+
+    const findListByName=name=>lists.value.find(value=>value.displayName===name);
+
+    const findListIdByName=name=>findListByName(name).id;    
+
+    const{instance:instance2,accounts}=useMsal();
+
+    const clickedList=event=>{
+        let thisText=event.target.children[1].textContent;
+        setCurrentList(thisText);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+            });
+        });
+    }
+
+    const createList=string=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForCreateList(response.accessToken,string)
+            .then(()=>{
+                getLists();
+            })
+            .catch((err)=>console.log(err));
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForCreateList(response.accessToken,string)
+                .then(()=>{
+                    getLists();
+                });
+            });
+        });
+    };
+
+    const getLists=()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>{
+                setLists(response);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>{
+                    setLists(response);
+                });
+            });
+        });
+    };
+
+    react.useEffect(()=>{
+        getLists();
+    },[]);
+
+    const[newList,setNewList]=react.useState('');
+
+    return(
+        <div id={listsMenuId}>
+            <div id="listsMenuButtonDiv">
+                <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
+            </div>
+            <div id="listsScrollDiv">
+                <div id="listsMenuDayDiv">
+                    <img id="listsMenuDayImage"src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text" />
+                    <h4 id="listsMenuDayText">My Day</h4>
+                </div>
+                <div id="listsMenuAssignedDiv">
+                    <img id="listsMenuAssignedImage"src="https://image.shutterstock.com/image-vector/flat-portrait-black-man-icon-600w-2134341081.jpg"alt="text" />
+                    <h4 id="listsMenuAssignedText">Assigned To Me</h4>
+                </div>
+                <div id="listsMenuFlaggedDiv">
+                    <img id="listsMenuFlaggedImage"src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text" />
+                    <h4 id="listsMenuFlaggedText">Flagged email</h4>
+                </div>
+                <div id="listsMenuTasksDiv">
+                    <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
+                    <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
+                </div>
+                <div id="listsMenuMyListsBigDiv">
+                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                    <div id="listsMenuNewListDiv">
+                        <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
+                        <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
+                            <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)}value={newList} />
+                        </form>
+                    </div>
+                    <div id="lowMenuIconsDiv">
+                        <img id="lowMenuMail"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/email-web-icon-vector-design-600w-410977486.jpg"alt="email icon" />
+                        <img id="lowMenuCalandar"src="https://image.shutterstock.com/image-illustration/calendar-icon-line-symbol-isolated-600w-1072208258.jpg"alt="calandar icon" />
+                        <img id="lowMenuPeople"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/group-icon-team-symbol-social-600w-1506361112.jpg"alt="people icon" />
+                        <img id="lowMenuFiles"className="lowMenuIcons"src="https://image.shutterstock.com/image-vector/clip-web-icon-vector-design-600w-413873332.jpg"alt="files icon" />
+                    </div>
+                    <div>
+                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
+                        <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
+                        <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />  
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+export{ListsMenu};

@@ -1,8 +1,8 @@
 import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
-import{loginRequest,graphConfig}from"../../../authConfig.js";
-import{callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
+import{loginRequest}from"../../../authConfig.js";
+import{}from"../../../graph.js";
 
 
 const TheMiddle=()=>{
@@ -14,27 +14,26 @@ const TheMiddle=()=>{
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
 
 
-    react.useEffect(()=>{
-        if(listsMenuClicked===true){
-            setListsMenuId("listsMenu");
-        }
-        else{
-            setListsMenuId("hideListsMenu");
-        }
-    },[listsMenuClicked]);
+    // react.useEffect(()=>{
+    //     if(listsMenuClicked===true){
+    //         setListsMenuId("listsMenu");
+    //     }
+    //     else{
+    //         setListsMenuId("hideListsMenu");
+    //     }
+    // },[listsMenuClicked]);
 
-    const checkWindowSize=()=>{
-        if(window.innerWidth<screenWidth){
-            setListsMenuId("hideListsMenu");
-            setListsMenuClicked(false);
-            setScreenWidth(window.innerWidth);
-        }
-        else{
-            setScreenWidth(window.innerWidth);
-        }
-    }
+    // const checkWindowSize=()=>{
+    //     if(window.innerWidth<screenWidth){
+    //         setListsMenuId("hideListsMenu");
+    //         setListsMenuClicked(false);
+    //         setScreenWidth(window.innerWidth);
+    //     }
+    //     else{
+    //         setScreenWidth(window.innerWidth);
+    //     }
+    // }
     
-    window.onresize=checkWindowSize;
 
     const createTaskInputDecideClass=listsMenuClicked=>{
         if(listsMenuClicked===true&&createTaskInputFocused===false){
@@ -76,78 +75,9 @@ const TheMiddle=()=>{
 
     const[lists,setLists]=react.useState(null);
 
-    const getLists=()=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForLists(response.accessToken).then(response=>{
-                setLists(response);
-            });
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForLists(response.accessToken).then(response=>{
-                    setLists(response);
-                });
-            });
-        });
-    };
-
-    react.useEffect(()=>{
-        getLists();
-    },[]);
-
-    const[newList,setNewList]=react.useState('');
-
-    const createList=string=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForCreateList(response.accessToken,string)
-            .then(()=>{
-                getLists();
-            })
-            .catch((err)=>console.log(err));
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForCreateList(response.accessToken,string)
-                .then(()=>{
-                    getLists();
-                });
-            });
-        });
-    };
-
-
-    const findListByName=name=>lists.value.find(value=>value.displayName===name);
-    const findListIdByName=name=>findListByName(name).id;
-
-    const[currentListTasks,setCurrentListTasks]=react.useState(null);
-    const[currentList,setCurrentList]=react.useState(null);
-    
-    const clickedList=event=>{
-        let thisText=event.target.children[1].textContent;
-        setCurrentList(thisText);
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-            });
-        });
-    }
-
     return(
         <main>
-            <div id={listsMenuId}>
+            {/* <div id={listsMenuId}>
                 <div id="listsMenuButtonDiv">
                     <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
                 </div>
@@ -172,7 +102,6 @@ const TheMiddle=()=>{
                         {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                         <div id="listsMenuNewListDiv">
                             <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
-{/*Working here*/}
                             <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
                                 <input id="listsMenuNewInput"type="text"placeholder="New list"onChange={event=>setNewList(event.target.value)}value={newList} />
                             </form>
@@ -190,7 +119,7 @@ const TheMiddle=()=>{
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
                 <div id={listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
                     <img id={listsMenuClicked===true?"hideListsMenu":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
