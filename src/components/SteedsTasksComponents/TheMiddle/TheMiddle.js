@@ -9,8 +9,6 @@ const TheMiddle=()=>{
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
     const[sortHovered,setSortHovered]=react.useState(false);
     const[shareHovered,setShareHovered]=react.useState(false);
-    const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
-    const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
 
     const createTaskInputDecideClass=listsMenuClicked=>{
@@ -49,10 +47,6 @@ const TheMiddle=()=>{
     let year = newDate.getFullYear();
     let theDate=`${year}/${month<10?`0${month}`:`${month}`}/${date}`;
     
-    const{instance:instance2,accounts}=useMsal();
-
-    const[lists,setLists]=react.useState(null);
-
     return(
         <main>
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
