@@ -1,0 +1,161 @@
+#hideSettingsMenu{
+    display:none;
+}
+#settingsMenu{
+    position:absolute;
+    right:0px;
+    background-color:rgb(231, 231, 231);
+    border-left-color:rgb(182, 182, 182);
+    border-left-width:2px;
+    border-left-style:solid;
+    width:360px;
+    height:100vh;
+    overflow:auto;
+    z-index:2;
+}
+#settingsTitle{
+    font-weight:550;
+    font-size:20px;
+    margin-top:70px;
+    margin-left:20px;
+}
+#settingsXdiv{
+    position:absolute;
+    top:10px;
+    right:5px;
+    margin-top:60px;
+    padding-top:11px;
+    padding-bottom:5px;
+    padding-right:11px;
+    padding-left:11px;
+}
+#settingsXdiv:hover{
+    cursor:pointer;
+    background-color:lightgray;    
+}
+#settingsX{
+    width:18px;
+    height:18px;
+    filter:brightness(91%);
+}
+#darkSettingsX{
+    width:18px;
+    height:18px;
+    filter:brightness(83%);
+}
+.settingsMenuSectionTitles{
+    font-weight:500;
+    font-size:18px;
+    margin-left:20px;
+}
+.switchDescription{
+    display:block;
+    width:273px;
+    font-weight:500;
+    font-size:14px;
+    margin-left:20px;
+    color:rgb(144, 143, 143);
+}
+.settingsOff{
+    color:rgb(144, 143, 143);
+    position:relative;
+    bottom:10px;
+    left:5px;
+}
+.settingsOn{
+    color:rgb(144, 143, 143);
+    position:relative;
+    bottom:10px;
+    left:5px;
+}
+.hide{
+    display:none;
+}
+.settingsMenuConnectedAppsSmallLabel{
+    display:block;
+    width:176px;
+    font-size:11px;
+    margin-left:20px;
+    margin-bottom:15px;
+    color:rgb(144, 143, 143);
+}
+.settingsMenuThinLinks{
+    text-decoration:none;
+    font-size:14px;
+    display:block;
+    margin-left:20px;
+    margin-bottom:10px;
+}
+.settingsMenuThinLinks:hover{
+    text-decoration:underline;
+}
+#settingsMenuText{
+    font-size:14px;
+    margin-bottom:0px;
+}
+.settingsMenuFatLinks{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    display:block;
+    margin-left:20px;
+    margin-bottom:10px;
+    display:inline;
+}
+.settingsMenuFatLinks:hover{
+    background-color:rgb(224, 223, 223);
+    border-radius:3px;
+}
+#settingsLogoDiv{
+    width:130px;
+    display:inline-block;
+}
+#settingsLogo{
+    height:90px;
+    width:90px;
+    margin-top:10px;
+    margin-left:20px;
+    border-top-color:rgb(144, 143, 143);
+    border-bottom-color:rgb(144, 143, 143);
+    border-right-color:rgb(144, 143, 143);
+    border-left-color:rgb(144, 143, 143);
+    border-width:.5px;
+    border-style:solid;
+    border-radius:50px;
+}
+#settingsCopyRight{
+    width:200px;
+    display:inline-block;
+    position:relative;
+    top:1.5px;
+    margin-bottom:8px;
+}
+#copyRightsHeader{
+    margin-top:14px;
+    margin-bottom:0px;
+    font-weight:normal;
+    font-weight:500;
+    font-size:16px;
+}
+.settingsCopyRightText{
+    font-size:14px;
+    margin-top:5px;
+    margin-bottom:0px;
+    display:block;
+}
+.settingsSocialMedias{
+    height:30px;
+    width:30px;
+    border-radius:50px;
+    margin-left:15px;
+}
+.settingsMenuSocialLinks{
+    text-decoration:none;
+    font-size:14px;
+    position:relative;
+    bottom:10px;
+    margin-left:10px;
+}
+.settingsMenuSocialLinks:hover{
+    text-decoration:underline;
+}

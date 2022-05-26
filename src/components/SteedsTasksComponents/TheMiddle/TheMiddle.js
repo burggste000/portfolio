@@ -5,7 +5,7 @@ import{loginRequest,graphConfig}from"../../../authConfig.js";
 import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
-const TheMiddle=props=>{
+const TheMiddle=()=>{
     const[settingsMenuXhovered,setSettingsMenuXhovered]=react.useState(false);
     const[setting1on,setSetting1on]=react.useState(false);
     const[setting2on,setSetting2on]=react.useState(false);
@@ -321,14 +321,14 @@ const TheMiddle=props=>{
         }
     },[setting1hovered,setting2hovered,setting3hovered,setting4hovered,setting5hovered,setting6hovered,setting7hovered,setting8hovered,setting9hovered,setting10hovered,setting11hovered,setting12hovered,setting13hovered,setting14hovered,setting15hovered]);
 
-    const decideToggleClass=(settingIsOn)=>{
-        if(settingIsOn===true){
-            return"toggle";
-        }
-        else{
-            return"darkToggle";
-        }
-    }
+    // const decideToggleClass=(settingIsOn)=>{
+    //     if(settingIsOn===true){
+    //         return"toggle";
+    //     }
+    //     else{
+    //         return"darkToggle";
+    //     }
+    // }
 
     react.useEffect(()=>{
         if(listsMenuClicked===true){
@@ -473,7 +473,7 @@ const TheMiddle=props=>{
 
     return(
         <main>
-            <div id={props.settingsIconClicked===false?"hideSettingsMenu":"settingsMenu"}>
+            {/* <div id={props.settingsIconClicked===false?"hideSettingsMenu":"settingsMenu"}>
                 <h2 id="settingsTitle">Settings</h2>
                 <div id="settingsXdiv"onMouseEnter={()=>setSettingsMenuXhovered(true)}onMouseLeave={()=>setSettingsMenuXhovered(false)}onClick={()=>props.setSettingsIconClicked(false)}>
                     <img id={settingsMenuXhovered===false?"settingsX":"darkSettingsX"}src="https://image.shutterstock.com/image-vector/cancel-cross-close-icon-vector-600w-294801173.jpg"alt="text" />
@@ -596,7 +596,7 @@ const TheMiddle=props=>{
                     <img className="settingsSocialMedias"src="https://image.shutterstock.com/image-vector/letter-heart-logo-icon-design-600w-372064519.jpg"alt="text" />
                     <a className="settingsMenuSocialLinks"href="www.twitter.com">Spread the word</a>
                 </div>
-            </div>
+            </div> */}
             <div id={listsMenuId}>
                 <div id="listsMenuButtonDiv">
                     <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
