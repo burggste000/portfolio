@@ -2,7 +2,7 @@ import "./theMiddle.css";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 import{loginRequest,graphConfig}from"../../../authConfig.js";
-import{callMsGraphForUser,callMsGraphForPhoto,callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
+import{callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 
 
 const TheMiddle=()=>{
@@ -72,11 +72,7 @@ const TheMiddle=()=>{
     let year = newDate.getFullYear();
     let theDate=`${year}/${month<10?`0${month}`:`${month}`}/${date}`;
     
-    const { instance } = useMsal();
     const{instance:instance2,accounts}=useMsal();
-    const[graphData,setGraphData]=react.useState(null);
-    const[photo,setPhoto]=react.useState(null);
-    const name=accounts[0]&&accounts[0].name;
 
     const[lists,setLists]=react.useState(null);
 
@@ -89,7 +85,7 @@ const TheMiddle=()=>{
             callMsGraphForLists(response.accessToken).then(response=>{
                 setLists(response);
             });
-        }).catch(e=>{
+        }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForLists(response.accessToken).then(response=>{
                     setLists(response);
