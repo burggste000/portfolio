@@ -178,3 +178,111 @@
     flex-direction:column;
     justify-content:space-evenly;
 }
+.myListsDiv{
+    display:flex;
+    align-items:center;
+    padding-left:17px;
+    height:28px;
+}
+.myListsDiv:hover{
+    cursor:pointer;
+    background-color:white;
+    filter:brightness(120%);
+}
+.myListsImages{
+    height:20px;
+    width:20px;
+    display:inline-block;
+    filter:brightness(90%);
+    position:relative;
+    top:2.5px;
+}
+.myListsText{
+    margin-top:0px;
+    margin-bottom:0px;
+    font-weight:400;
+    position:relative;
+    left:14px;
+}
+#listsMenuNewListDiv{
+    width:200px;
+    height:30px;
+    display:flex;
+    align-items:center;
+}
+#listsMenuNewListDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuNewListImage{
+    height:15px;
+    width:15px;
+    filter:brightness(91%);
+    margin-left:20px;
+}
+#listsMenuNewInput{
+    width:144.5px;
+    background-color:rgb(231,231,231);
+    border-style:none;
+    outline:none;
+    margin-left:12px;
+}
+#lowMenuIconsDiv{
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    width:200px;
+}
+#lowMenuMail{
+    filter:brightness(90%);
+}
+#lowMenuMail:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
+#lowMenuCalandar{
+    filter:brightness(96%);
+    height:25px;
+    width:25px;
+}
+#lowMenuCalandar:hover{
+    filter:brightness(110%);
+    cursor:pointer;
+}
+#lowMenuPeople{
+    filter:brightness(93%);
+}
+#lowMenuPeople:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
+#lowMenuFiles{
+    filter:brightness(90%);
+}
+#lowMenuFiles:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
+.lowMenuIcons{
+    height:30px;
+    width:30px;
+}
+#apiChoices{
+    position:fixed;
+    bottom:-11px;
+}
+.apiButtons{
+    height:40px;
+    width:40px;
+}
+.apiButtons:hover{
+    cursor:pointer;
+}
+#myAppButton{
+    height:41px;
+    width:120px;
+}
+#myAppButton:hover{
+    cursor:pointer;
+}

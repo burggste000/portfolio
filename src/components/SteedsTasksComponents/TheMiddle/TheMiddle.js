@@ -24,7 +24,7 @@ const TheMiddle=()=>{
         if(listsMenuClicked===false&&createTaskInputFocused===true){
             return"focusedWideCreateTaskInput";
         }
-    }
+    };
 
     const createTaskDecideClass=(listsMenuClicked,createTaskInputFocused)=>{
         if(listsMenuClicked===true&&createTaskInputFocused===false){
@@ -39,7 +39,7 @@ const TheMiddle=()=>{
         if(listsMenuClicked===false&&createTaskInputFocused===true){
             return"tallWideCreateTask";
         }
-    }
+    };
 
     let newDate = new Date()
     let date = newDate.getDate();
