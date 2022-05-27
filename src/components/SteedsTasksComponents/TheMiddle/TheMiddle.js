@@ -45,7 +45,7 @@ const TheMiddle=()=>{
 
     
     return(
-        <main>
+        <>
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
                 <div id={listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
                     <img id={listsMenuClicked===true?"hideListsMenu":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
@@ -71,7 +71,7 @@ const TheMiddle=()=>{
                     <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
                 </div>
             </div>
-        </main>
+        </>
     );
 };
 export{TheMiddle};

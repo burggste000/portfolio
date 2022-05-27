@@ -12,7 +12,7 @@ function App() {
     const isAuthenticated = useIsAuthenticated();
 
     return (
-        <>
+        <main>
             <AuthenticatedTemplate>
                 <SteedsTasks />
             </AuthenticatedTemplate>
@@ -26,7 +26,7 @@ function App() {
                     { isAuthenticated ? <SignOutButton /> : <LandingPage /> }
                 </div>
             </UnauthenticatedTemplate>
-        </>
+        </main>
     );
 }
 export default App;
