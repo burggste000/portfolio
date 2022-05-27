@@ -1,3 +1,4 @@
+import"./settingsMenu.css";
 import react from"react";
 const SettingsMenu=props=>{
     const[settingsMenuXhovered,setSettingsMenuXhovered]=react.useState(false);
@@ -309,7 +310,7 @@ const SettingsMenu=props=>{
         }
     },[setting1hovered,setting2hovered,setting3hovered,setting4hovered,setting5hovered,setting6hovered,setting7hovered,setting8hovered,setting9hovered,setting10hovered,setting11hovered,setting12hovered,setting13hovered,setting14hovered,setting15hovered]);
 
-    const decideToggleClass=(settingIsOn)=>{
+    const decideToggleClass=settingIsOn=>{
         if(settingIsOn===true){
             return"toggle";
         }

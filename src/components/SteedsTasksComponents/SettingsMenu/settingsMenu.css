@@ -1,3 +1,4 @@
+/*The code below is for settings icon menu.*/
 #hideSettingsMenu{
     display:none;
 }
@@ -56,6 +57,86 @@
     margin-left:20px;
     color:rgb(144, 143, 143);
 }
+/*I got the code for the toggles from the website below:
+    https://danklammer.com/articles/simple-css-toggle-switch/
+*/
+.toggle{
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:rgb(144, 143, 143);
+    border-width:1px;
+    transition: background-color ease 0.3s;
+    margin-left:20px;
+}
+.toggle:before{
+    content:"";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgb(144, 143, 143);
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    transition: all cubic-bezier(0.3, 0, 0,0) 0.1s;
+}
+.toggle:checked{
+    background-color: #1379c7;
+    border-color:#1379c7;
+}
+.toggle:checked:before{
+    left: 29px;
+    background-color:white;
+}
+.toggle:checked:hover,#toggle-on:checked{
+    height:23px;
+    width:48px;
+}
+.darkToggle{
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:rgb(144,143,143);
+    border-width:1px;
+    transition: background-color ease 0.3s;
+    margin-left:20px;
+}
+.darkToggle:hover{
+    background-color: rgb(231, 231, 231);
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+}.darkToggle:hover:before{
+    background-color:black;
+}
+.darkToggle:before {
+    content:"";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background:rgb(144, 143, 143);
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    transition:all cubic-bezier(0.3, 0, 0,0) 0.1s;
+}
+#darkToggle-on{
+    border-color:black;
+}
+#darkToggle-on:before{
+    background-color:black;
+}
+/*The code below is for making the toggle yes or no appear next to it.*/
 .settingsOff{
     color:rgb(144, 143, 143);
     position:relative;
@@ -71,6 +152,7 @@
 .hide{
     display:none;
 }
+/*The code below is for the small labels in the Connected apps section of the settings menu.*/
 .settingsMenuConnectedAppsSmallLabel{
     display:block;
     width:176px;
