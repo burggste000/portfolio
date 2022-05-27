@@ -6,6 +6,12 @@ const TheMiddle=()=>{
     const[sortHovered,setSortHovered]=react.useState(false);
     const[shareHovered,setShareHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
+    
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    let theDate=`${year}/${month<10?`0${month}`:`${month}`}/${date}`;
 
     const createTaskInputDecideClass=listsMenuClicked=>{
         if(listsMenuClicked===true&&createTaskInputFocused===false){
@@ -37,11 +43,6 @@ const TheMiddle=()=>{
         }
     };
 
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-    let theDate=`${year}/${month<10?`0${month}`:`${month}`}/${date}`;
     
     return(
         <main>
@@ -72,5 +73,5 @@ const TheMiddle=()=>{
             </div>
         </main>
     );
-}
+};
 export{TheMiddle};
