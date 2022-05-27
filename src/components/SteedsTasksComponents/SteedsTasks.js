@@ -8,13 +8,15 @@ import react from"react";
 const SteedsTasks=()=>{
     const[settingsIconClicked,setSettingsIconClicked]=react.useState(false);
     const[profileIconClicked,setProfileIconClicked]=react.useState(false);
+    const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
+
     return(
         <div>
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
-            <ListsMenu />
-            <TheMiddle />
+            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked} />
         </div>
     );
 };
