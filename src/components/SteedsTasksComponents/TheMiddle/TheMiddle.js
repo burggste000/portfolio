@@ -1,9 +1,5 @@
 import "./theMiddle.css";
 import react from"react";
-import{useMsal}from"@azure/msal-react";
-import{loginRequest}from"../../../authConfig.js";
-import{}from"../../../graph.js";
-
 
 const TheMiddle=()=>{
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
