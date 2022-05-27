@@ -17,5 +17,5 @@ const SteedsTasks=()=>{
             <TheMiddle />
         </div>
     );
-}
+};
 export{SteedsTasks};

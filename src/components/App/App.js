@@ -3,15 +3,14 @@ import { AuthenticatedTemplate, UnauthenticatedTemplate} from "@azure/msal-react
 import { useIsAuthenticated } from "@azure/msal-react";
 import{LandingPage}from"../LandingPage.jsx";
 import{SignOutButton}from"../SignOutButton";
-import"./App.css";
 import{SteedsTasks}from"../SteedsTasksComponents/SteedsTasks.js";
+import"./App.css";
 //I got the code for connecting to Microsoft's Graph API from the following website:
 //  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
-function App() {
-
+function App(){
     const isAuthenticated = useIsAuthenticated();
 
-    return (
+    return(
         <main>
             <AuthenticatedTemplate>
                 <SteedsTasks />

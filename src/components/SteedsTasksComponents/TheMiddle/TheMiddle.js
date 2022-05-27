@@ -28,7 +28,7 @@ const TheMiddle=()=>{
         }
     };
 
-    const createTaskDecideClass=(listsMenuClicked,createTaskInputFocused)=>{
+    const createTaskDecideClass=listsMenuClicked=>{
         if(listsMenuClicked===true&&createTaskInputFocused===false){
             return"createTask";
         }
@@ -43,7 +43,6 @@ const TheMiddle=()=>{
         }
     };
 
-    
     return(
         <>
             <div id={listsMenuClicked===true?"centerPage":"wideCenterPage"}>
@@ -59,10 +58,10 @@ const TheMiddle=()=>{
                     <img className={shareHovered===false?"centerPageRightIcons":"centerPageRightIconsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
                     <h4 className={shareHovered===false?"centerPageRightWords":"centerPageRightWordsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
                 </div>
-                <div className={createTaskDecideClass(listsMenuClicked,createTaskInputFocused)}>
+                <div className={createTaskDecideClass(listsMenuClicked)}>
                     <img id={createTaskInputFocused===false?"createTaskPlus":"hideProfMenu"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                     <img id={createTaskInputFocused===false?"hideProfMenu":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
-                    <input className={createTaskInputDecideClass(listsMenuClicked,createTaskInputFocused)}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)} />
+                    <input className={createTaskInputDecideClass(listsMenuClicked)}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)} />
                     <div id={createTaskInputFocused===false?"hideProfMenu":"createTaskIconsDiv"}>
                         <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/black-calendar-icon-design-vector-600w-1818197549.jpg"alt="text" />
                         <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/bell-icon-design-600w-1250740630.jpg"alt="text" />
