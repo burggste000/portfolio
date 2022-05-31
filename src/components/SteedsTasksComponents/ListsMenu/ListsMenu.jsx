@@ -35,7 +35,7 @@ const ListsMenu=props=>{
 
     const findListByName=name=>lists.value.find(value=>value.displayName===name);
 
-    const findListIdByName=name=>findListByName(name).id;    
+    const findListIdByName=name=>findListByName(name).id; //Do I ever use this function?
 
     const{instance:instance2,accounts}=useMsal();
 
