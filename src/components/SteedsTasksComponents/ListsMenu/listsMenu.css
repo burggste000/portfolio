@@ -21,7 +21,7 @@
     background-color:rgb(231,231,231);
     z-index:1;
 }
-#listsMenuButton{
+#listsMenuButton{ /*This is where the menu button is*/
     height:30px;
     width:30px;
     position:fixed;

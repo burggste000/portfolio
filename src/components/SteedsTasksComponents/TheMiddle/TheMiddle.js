@@ -42,11 +42,12 @@ const TheMiddle=props=>{
         }
     };
 
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"centerPage":"wideCenterPage"}>
                 <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
-                    <img id={props.listsMenuClicked===true?"hideListsMenu":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>{console.log(props.listsMenuClicked);props.setListsMenuClicked(!props.listsMenuClicked);console.log(props.listsMenuClicked);}} />
+                    <img id={props.listsMenuClicked===true?"hideListsMenu":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
                     <h2 id="centerPageTitle">This List's Name</h2>
                     <img id="centerPageOptions"src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
                 </div>
@@ -57,6 +58,8 @@ const TheMiddle=props=>{
                     <img className={shareHovered===false?"centerPageRightIcons":"centerPageRightIconsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
                     <h4 className={shareHovered===false?"centerPageRightWords":"centerPageRightWordsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
                 </div>
+{/*working here*/}
+{/*The problem that I have is because both my functions(createTaskDecideClass and createTaskInputDecideClass are not giving the correct values. props.listsMenuClicked*/}
                 <div className={createTaskDecideClass(props.listsMenuClicked)}>
                     <img id={createTaskInputFocused===false?"createTaskPlus":"hideProfMenu"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                     <img id={createTaskInputFocused===false?"hideProfMenu":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />

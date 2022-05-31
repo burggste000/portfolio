@@ -27,5 +27,5 @@ function App(){
             </UnauthenticatedTemplate>
         </main>
     );
-}
+};
 export default App;

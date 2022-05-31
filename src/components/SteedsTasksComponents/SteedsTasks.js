@@ -11,13 +11,13 @@ const SteedsTasks=()=>{
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
 
     return(
-        <div>
+        <>
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked} />
             <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked} />
-        </div>
+        </>
     );
 };
 export{SteedsTasks};
