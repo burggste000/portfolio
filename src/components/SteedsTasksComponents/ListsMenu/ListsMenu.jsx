@@ -5,7 +5,7 @@ import{callMsGraphForListTasks,callMsGraphForLists,callMsGraphForCreateList}from
 import{useMsal}from"@azure/msal-react";
 
 
-const ListsMenu=()=>{
+const ListsMenu=props=>{
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
@@ -104,9 +104,9 @@ const ListsMenu=()=>{
     const[newList,setNewList]=react.useState('');
 
     return(
-        <div id={listsMenuId}>
+        <div id={props.listsMenuClicked===false?"hideListsMenu":listsMenuId}>
             <div id="listsMenuButtonDiv">
-                <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>setListsMenuClicked(!listsMenuClicked)} />
+                <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
                 <div id="listsMenuDayDiv">
