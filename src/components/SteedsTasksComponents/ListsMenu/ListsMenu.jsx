@@ -6,7 +6,6 @@ import{useMsal}from"@azure/msal-react";
 
 
 const ListsMenu=props=>{
-    const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
     const[lists,setLists]=react.useState(null);
@@ -14,18 +13,18 @@ const ListsMenu=props=>{
     const[currentList,setCurrentList]=react.useState(null);
 
     react.useEffect(()=>{
-        if(listsMenuClicked===true){
+        if(props.listsMenuClicked===true){
             setListsMenuId("listsMenu");
         }
         else{
             setListsMenuId("hideListsMenu");
         }
-    },[listsMenuClicked]);
+    },[props.listsMenuClicked]);
 
     const checkWindowSize=()=>{
         if(window.innerWidth<screenWidth){
             setListsMenuId("hideListsMenu");
-            setListsMenuClicked(false);
+            props.setListsMenuClicked(!props.listsMenuClicked);
             setScreenWidth(window.innerWidth);
         }
         else{
