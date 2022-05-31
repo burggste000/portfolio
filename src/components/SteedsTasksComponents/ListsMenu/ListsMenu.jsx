@@ -10,7 +10,6 @@ const ListsMenu=props=>{
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
     const[lists,setLists]=react.useState(null);
     const[currentListTasks,setCurrentListTasks]=react.useState(null);
-    const[currentList,setCurrentList]=react.useState(null);
 
     react.useEffect(()=>{
         if(props.listsMenuClicked===true){
@@ -42,20 +41,24 @@ const ListsMenu=props=>{
 
     const clickedList=event=>{
         let thisText=event.target.children[1].textContent;
-        setCurrentList(thisText);
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-            });
-        });
-    }
+        console.log(thisText);
+        props.setCurrentList(thisText);
+
+        
+        //Use the code below for getting the tasks for the list I have clicked.
+        // graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        // const request={
+        //     ...loginRequest,
+        //     account:accounts[0]
+        // };
+        // instance2.acquireTokenSilent(request).then(response=>{
+        //     callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+        // }).catch(()=>{
+        //     instance2.acquireTokenPopup(request).then(response=>{
+        //         callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
+        //     });
+        // });
+    };
 
     const createList=string=>{
         const request={
@@ -125,6 +128,7 @@ const ListsMenu=props=>{
                     <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                 </div>
                 <div id="listsMenuMyListsBigDiv">
+{/*Working here*/}
                     {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
