@@ -42,10 +42,8 @@ const TheMiddle=props=>{
         }
     };
 
-
     return(
-        <>
-            <div id={props.listsMenuClicked===true?"centerPage":"wideCenterPage"}>
+            <>
                 <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
                     <img id={props.listsMenuClicked===true?"hideListsMenu":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
                     <h2 id="centerPageTitle">This List's Name</h2>
@@ -71,8 +69,7 @@ const TheMiddle=props=>{
                     </div>
                     <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
                 </div>
-            </div>
-        </>
+            </>
     );
 };
 export{TheMiddle};
