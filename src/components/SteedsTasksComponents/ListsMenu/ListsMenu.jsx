@@ -39,12 +39,9 @@ const ListsMenu=props=>{
 
     const{instance:instance2,accounts}=useMsal();
 
-    const clickedList=event=>{
+    const clickedListDiv=event=>{
         let thisText=event.target.children[1].textContent;
-        console.log(thisText);
         props.setCurrentList(thisText);
-
-        
         //Use the code below for getting the tasks for the list I have clicked.
         // graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
         // const request={
@@ -60,6 +57,18 @@ const ListsMenu=props=>{
         // });
     };
 
+    const clickedListIcon=event=>{
+        //make the code for this function
+        let thisText=event.target.children[1].textContent;
+        props.setCurrentList(thisText);
+    };
+    
+    const clickedListText=event=>{
+        //make the code for this function
+        let thisText=event.target.children[1].textContent;
+        props.setCurrentList(thisText);
+    };
+    
     const createList=string=>{
         const request={
             ...loginRequest,
@@ -129,7 +138,7 @@ const ListsMenu=props=>{
                 </div>
                 <div id="listsMenuMyListsBigDiv">
 {/*Working here*/}
-                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedList}><img className="myListsImages"src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className="myListsDiv"key={index+0.5}onClick={clickedListDiv}><img className="myListsImages"onClick={clickedListIcon}src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list" /><h4 className="myListsText"onClick={clickedListText}key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
