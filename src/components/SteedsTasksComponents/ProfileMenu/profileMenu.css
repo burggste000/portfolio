@@ -61,9 +61,5 @@
 }
 .profMenuLinks{
     display:block;
-    text-decoration:none;
     margin-top:5px;
-}
-.profMenuLinks:hover{
-    text-decoration:underline;
 }
