@@ -9,7 +9,7 @@ const SteedsTasks=()=>{
     const[settingsIconClicked,setSettingsIconClicked]=react.useState(false);
     const[profileIconClicked,setProfileIconClicked]=react.useState(false);
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
-    const[currentList,setCurrentList]=react.useState(null);
+    const[currentList,setCurrentList]=react.useState("Tasks");
 
     return(
         <>

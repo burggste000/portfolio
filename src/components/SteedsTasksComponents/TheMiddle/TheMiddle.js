@@ -11,6 +11,20 @@ const TheMiddle=props=>{
     let year = newDate.getFullYear();
     let theDate=`${year}/${month<10?`0${month}`:`${month}`}/${date}`;
 
+    const dateId=()=>{
+        if(props.currentList==="My Day"){
+            if(props.listsMenuClicked===true){
+                return"date";
+            }
+            else{
+                return"wideDate";
+            }
+        }
+        else{
+            return"hide";
+        }
+    };
+
     const createTaskInputDecideClass=()=>{
         if(props.listsMenuClicked===true&&createTaskInputFocused===false){
             return"createTaskInput";
@@ -48,7 +62,7 @@ const TheMiddle=props=>{
                 <h2 id="centerPageTitle">{props.currentList}</h2>
                 <img id="centerPageOptions"src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
             </div>
-            <p id={props.listsMenuClicked===true?"date":"wideDate"}>{theDate}</p>
+            <p id={dateId()}>{theDate}</p>
             <div id="rightTopCenterPage">
                 <img className={sortHovered===false?"centerPageRightIcons":"centerPageRightIconsDark"}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}src="https://image.shutterstock.com/image-vector/down-black-arrow-icon-600w-1646995147.jpg"alt="text" />
                 <h4 className={sortHovered===false?"centerPageRightWords":"centerPageRightWordsDark"}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}>Sort</h4>
