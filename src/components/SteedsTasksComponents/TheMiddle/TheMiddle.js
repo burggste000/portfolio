@@ -55,6 +55,9 @@ const TheMiddle=props=>{
     };
 
     const shareButtonImgClass=()=>{
+        if(props.currentList==="My Day"||props.currentList==="Flagged email"||props.currentList==="Tasks"){
+            return"hide";
+        }
         if(props.currentList!=="Assigned To Me"){
             if(shareHovered===false){
                 return"centerPageRightIcons";
@@ -69,6 +72,9 @@ const TheMiddle=props=>{
     };
 
     const shareButtonTextClass=()=>{
+        if(props.currentList==="My Day"||props.currentList==="Flagged email"||props.currentList==="Tasks"){
+            return"hide";
+        }
         if(props.currentList!=="Assigned To Me"){
             if(shareHovered===false){
                 return"centerPageRightWords";
