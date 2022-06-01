@@ -120,19 +120,19 @@ const ListsMenu=props=>{
                 <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
-                <div id="listsMenuDayDiv">
+                <div id="listsMenuDayDiv"onClick={clickedListDiv}>
                     <img id="listsMenuDayImage"src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text" />
                     <h4 id="listsMenuDayText">My Day</h4>
                 </div>
-                <div id="listsMenuAssignedDiv">
+                <div id="listsMenuAssignedDiv"onClick={clickedListDiv}>
                     <img id="listsMenuAssignedImage"src="https://image.shutterstock.com/image-vector/flat-portrait-black-man-icon-600w-2134341081.jpg"alt="text" />
                     <h4 id="listsMenuAssignedText">Assigned To Me</h4>
                 </div>
-                <div id="listsMenuFlaggedDiv">
+                <div id="listsMenuFlaggedDiv"onClick={clickedListDiv}>
                     <img id="listsMenuFlaggedImage"src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text" />
                     <h4 id="listsMenuFlaggedText">Flagged email</h4>
                 </div>
-                <div id="listsMenuTasksDiv">
+                <div id="listsMenuTasksDiv"onClick={clickedListDiv}>
                     <img id="listsMenuTasksImage"src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
                     <h4 id="listsMenuTasksText">{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
                 </div>

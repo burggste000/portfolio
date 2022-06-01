@@ -25,6 +25,63 @@ const TheMiddle=props=>{
         }
     };
 
+    const sortButtonImgClass=()=>{
+        if(props.currentList!=="Assigned To Me"){
+            if(sortHovered===false){
+                return"centerPageRightIcons";
+            }
+            else{
+                return"centerPageRightIconsDark";
+            }
+        }
+        else{
+            return"hide";
+        }
+    };
+    
+    const sortButtonTextClass=()=>{
+        if(props.currentList!=="Assigned To Me"){
+            if(sortHovered===false){
+                return"centerPageRightWords";
+            }
+            else{
+                return"centerPageRightWordsDark";
+            }
+
+        }
+        else{
+            return"hide";
+        }
+    };
+
+    const shareButtonImgClass=()=>{
+        if(props.currentList!=="Assigned To Me"){
+            if(shareHovered===false){
+                return"centerPageRightIcons";
+            }
+            else{
+                return"centerPageRightIconsDark";
+            }
+        }
+        else{
+            return"hide";
+        }
+    };
+
+    const shareButtonTextClass=()=>{
+        if(props.currentList!=="Assigned To Me"){
+            if(shareHovered===false){
+                return"centerPageRightWords";
+            }
+            else{
+                return"centerPageRightWordsDark";
+            }
+        }
+        else{
+            return"hide";
+        }
+    };
+
     const createTaskInputDecideClass=()=>{
         if(props.listsMenuClicked===true&&createTaskInputFocused===false){
             return"createTaskInput";
@@ -64,10 +121,10 @@ const TheMiddle=props=>{
             </div>
             <p id={dateId()}>{theDate}</p>
             <div id="rightTopCenterPage">
-                <img className={sortHovered===false?"centerPageRightIcons":"centerPageRightIconsDark"}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}src="https://image.shutterstock.com/image-vector/down-black-arrow-icon-600w-1646995147.jpg"alt="text" />
-                <h4 className={sortHovered===false?"centerPageRightWords":"centerPageRightWordsDark"}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}>Sort</h4>
-                <img className={shareHovered===false?"centerPageRightIcons":"centerPageRightIconsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
-                <h4 className={shareHovered===false?"centerPageRightWords":"centerPageRightWordsDark"}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
+                <img className={sortButtonImgClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}src="https://image.shutterstock.com/image-vector/down-black-arrow-icon-600w-1646995147.jpg"alt="text" />
+                <h4 className={sortButtonTextClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}>Sort</h4>
+                <img className={shareButtonImgClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
+                <h4 className={shareButtonTextClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
             </div>
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
