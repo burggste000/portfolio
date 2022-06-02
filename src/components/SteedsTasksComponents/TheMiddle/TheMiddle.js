@@ -4,6 +4,7 @@ import react from"react";
 const TheMiddle=props=>{
     const[sortHovered,setSortHovered]=react.useState(false);
     const[shareHovered,setShareHovered]=react.useState(false);
+    const[suggestionsHovered,setSuggestionsHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
     let newDate = new Date()
     let date = newDate.getDate();
@@ -87,6 +88,33 @@ const TheMiddle=props=>{
             return"hide";
         }
     };
+    const suggestionsButtonImgClass=()=>{
+        if(props.currentList!=="My Day"){
+            return"hide";
+        }
+        else{
+            if(suggestionsHovered===false){
+                return"centerPageRightIcons";
+            }
+            else{
+                return"centerPageRightIconsDark";
+            }
+        }
+    };
+
+    const suggestionsButtonTextClass=()=>{
+        if(props.currentList!=="My Day"){
+            return"hide";
+        }
+        else{
+            if(suggestionsHovered===false){
+                return"centerPageRightWords";
+            }
+            else{
+                return"centerPageRightWordsDark";
+            }
+        }
+    };
 
     const createTaskInputDecideClass=()=>{
         if(props.listsMenuClicked===true&&createTaskInputFocused===false){
@@ -104,17 +132,22 @@ const TheMiddle=props=>{
     };
 
     const createTaskDecideClass=()=>{
-        if(props.listsMenuClicked===true&&createTaskInputFocused===false){
-            return"createTask";
+        if(props.currentList!=="Assigned To Me"){
+            if(props.listsMenuClicked===true&&createTaskInputFocused===false){
+                return"createTask";
+            }
+            if(props.listsMenuClicked===true&&createTaskInputFocused===true){
+                return"tallCreateTask";
+            }
+            if(props.listsMenuClicked===false&&createTaskInputFocused===false){
+                return"wideCreateTask";
+            }
+            if(props.listsMenuClicked===false&&createTaskInputFocused===true){
+                return"tallWideCreateTask";
+            }
         }
-        if(props.listsMenuClicked===true&&createTaskInputFocused===true){
-            return"tallCreateTask";
-        }
-        if(props.listsMenuClicked===false&&createTaskInputFocused===false){
-            return"wideCreateTask";
-        }
-        if(props.listsMenuClicked===false&&createTaskInputFocused===true){
-            return"tallWideCreateTask";
+        else{
+            return"hide";
         }
     };
 
@@ -131,6 +164,8 @@ const TheMiddle=props=>{
                 <h4 className={sortButtonTextClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}>Sort</h4>
                 <img className={shareButtonImgClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
                 <h4 className={shareButtonTextClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
+                <img className={suggestionsButtonImgClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}src="https://image.shutterstock.com/image-vector/idea-line-icon-600w-1033780723.jpg"alt="tips" />
+                <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}>Suggestions</h4>
             </div>
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
