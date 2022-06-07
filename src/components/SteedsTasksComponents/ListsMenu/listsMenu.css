@@ -81,6 +81,17 @@
     filter:brightness(120%);
     cursor:pointer;
 }
+#listsMenuDayDivDark{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:5px;
+    left:0px;
+    background-color:rgb(224, 224, 224);
+}
+#listsMenuDayDivDark:hover{
+    cursor:pointer;
+}
 #listsMenuDayImage{
     height:28px;
     width:28px;
@@ -104,6 +115,17 @@
 #listsMenuAssignedDiv:hover{
     background-color:white;
     filter:brightness(120%);
+    cursor:pointer;
+}
+#listsMenuAssignedDivDark{
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:35px;
+    left:0px;
+    background-color:rgb(224, 224, 224);
+}
+#listsMenuAssignedDivDark:hover{
     cursor:pointer;
 }
 #listsMenuAssignedImage{
@@ -131,6 +153,17 @@
     filter:brightness(120%);
     cursor:pointer;
 }
+#listsMenuFlaggedDivDark{
+    background-color:rgb(224, 224, 224);
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:65px;
+    left:0px;
+}
+#listsMenuFlaggedDivDark:hover{
+    cursor:pointer;
+}
 #listsMenuFlaggedImage{
     height:28px;
     width:28px;
@@ -150,9 +183,19 @@
     position:absolute;
     top:95px;
     left:0px;
-    background-color:rgb(224, 224, 224);
 }
 #listsMenuTasksDiv:hover{
+    cursor:pointer;
+}
+#listsMenuTasksDivDark{
+    background-color:rgb(224, 224, 224);
+    width:200px;
+    height:30px;
+    position:absolute;
+    top:95px;
+    left:0px;
+}
+#listsMenuTasksDivDark:hover{
     cursor:pointer;
 }
 #listsMenuTasksImage{
@@ -188,6 +231,16 @@
     cursor:pointer;
     background-color:white;
     filter:brightness(120%);
+}
+.myListsDivDark{
+    background-color:rgb(224, 224, 224);
+    display:flex;
+    align-items:center;
+    padding-left:17px;
+    height:28px;
+}
+.myListsDivDark:hover{
+    cursor:pointer;
 }
 .myListsImages{
     height:20px;
