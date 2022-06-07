@@ -86,6 +86,13 @@
     left:50px;
     top:-20px;
 }
+#listsMenuDayTextBlue{
+    font-weight:600;
+    position:absolute;
+    left:50px;
+    top:-20px;
+    color:#0769b4;
+}
 #listsMenuAssignedDiv{
     width:200px;
     height:30px;
@@ -128,6 +135,13 @@
     position:absolute;
     left:50px;
     top:-20px;
+}
+#listsMenuAssignedTextBlue{
+    font-weight:600;
+    position:absolute;
+    left:50px;
+    top:-20px;
+    color:#0769b4;
 }
 #listsMenuFlaggedDiv{
     width:200px;
@@ -172,6 +186,13 @@
     left:50px;
     top:-20px;
 }
+#listsMenuFlaggedTextBlue{
+    font-weight:600;
+    position:absolute;
+    left:50px;
+    top:-20px;
+    color:#0769b4;
+}
 #listsMenuTasksDiv{
     width:200px;
     height:30px;
@@ -208,6 +229,12 @@
     left:15px;
 }
 #listsMenuTasksText{
+    font-weight:400;
+    position:absolute;
+    left:50px;
+    top:-17px;
+}
+#listsMenuTasksTextBlue{
     font-weight:600;
     position:absolute;
     left:50px;
@@ -264,6 +291,14 @@
     margin-top:0px;
     margin-bottom:0px;
     font-weight:400;
+    position:relative;
+    left:14px;
+}
+.myListsTextBlue{
+    font-weight:600;
+    color:#0769b4;
+    margin-top:0px;
+    margin-bottom:0px;
     position:relative;
     left:14px;
 }
