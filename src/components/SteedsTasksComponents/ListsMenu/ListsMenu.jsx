@@ -50,10 +50,12 @@ const ListsMenu=props=>{
         });
     };
 
-    const findListByName=name=>lists.value.find(value=>value.displayName===name);
-
-    const findListIdByName=name=>findListByName(name).id;
-
+    const findListByName=name=>{
+        return lists.value.find(value=>value.displayName===name);
+    }
+    const findListIdByName=name=>{
+        return findListByName(name).id;
+    }
     const{instance:instance2,accounts}=useMsal();
 
     const clickedListDiv=event=>{
@@ -73,7 +75,7 @@ const ListsMenu=props=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
             });
         });
-        // console.log(currentListTasks.value[0].title);
+        //console.log(props.currentListTasks.value[0].title);
     };
 
     const clickedListText=event=>{
