@@ -33,13 +33,17 @@ const ListsMenu=props=>{
 
     window.onresize=checkWindowSize;
 
+    // const findListByName=name=>lists.value.find(value=>value.displayName===name);
+
+    // const findListIdByName=name=>findListByName(name).id;
+
     const{instance:instance2,accounts}=useMsal();
 
     const clickedListDiv=event=>{
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         //Use the code below for getting the tasks for the list I have clicked.
-        // graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        // graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";
         // const request={
         //     ...loginRequest,
         //     account:accounts[0]
