@@ -178,8 +178,9 @@ const TheMiddle=props=>{
                 </div>
                 <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
             </div>
-            <div id={props.currentListTasks!==null?"tasksDiv":"hide"}>
-            {/*{lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className={props.currentList!==value.displayName?"myListsDiv":"myListsDivDark"}key={index+0.5}onClick={clickedListDiv}><img className={props.currentList!==value.displayName?"myListsImages":"myListsImagesDark"}src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list"onClick={clickedListImg} /><h4 className={props.currentList!==value.displayName?"myListsText":"myListsTextBlue"}onClick={clickedListText}key={index}>{value.displayName}</h4></div>);}}):"loading..."}*/}
+            <div id="parentTasksDiv">
+                <p>{props.currentListTasks!==null&&props.currentListTasks[0].title!==undefined?props.currentListTasks[0].title:''}</p>
+                <p>{props.currentListTasks!==null&&props.currentListTasks[0].title!==undefined?props.currentListTasks[1].title:''}</p>
             </div>
         </>
     );

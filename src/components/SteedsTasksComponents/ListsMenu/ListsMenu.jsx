@@ -48,7 +48,7 @@ const ListsMenu=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks[30].status);});
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks[0].status);});
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));

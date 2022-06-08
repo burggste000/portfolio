@@ -246,10 +246,14 @@
     cursor:pointer;
 }
 /*The code below is for my tasks*/
-#tasksDiv{
+#parentTasksDiv{
     background-color:red;
     height:200px;
     width:300px;
+    display:flex;
+    position:absolute;
+    top:200px;
+    left:400px;
 }
 @media(max-width:770px){
     .centerPageRightWords{
