@@ -10,13 +10,15 @@ const SteedsTasks=()=>{
     const[profileIconClicked,setProfileIconClicked]=react.useState(false);
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
     const[currentList,setCurrentList]=react.useState("Tasks");
+    const[currentListTasks,setCurrentListTasks]=react.useState(null);
+
 
     return(
         <>
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
-            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList} />
+            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks} />
             <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList} />
         </>
     );
