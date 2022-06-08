@@ -9,7 +9,6 @@ const ListsMenu=props=>{
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
     const[lists,setLists]=react.useState(null);
-    const[currentListTasks,setCurrentListTasks]=react.useState(null);
 
     react.useEffect(()=>{
         if(props.listsMenuClicked===true){
@@ -33,9 +32,9 @@ const ListsMenu=props=>{
 
     window.onresize=checkWindowSize;
 
-    // const findListByName=name=>lists.value.find(value=>value.displayName===name);
+    const findListByName=name=>lists.value.find(value=>value.displayName===name);
 
-    // const findListIdByName=name=>findListByName(name).id;
+    const findListIdByName=name=>findListByName(name).id;
 
     const{instance:instance2,accounts}=useMsal();
 
@@ -43,18 +42,18 @@ const ListsMenu=props=>{
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         //Use the code below for getting the tasks for the list I have clicked.
-        // graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        // const request={
-        //     ...loginRequest,
-        //     account:accounts[0]
-        // };
-        // instance2.acquireTokenSilent(request).then(response=>{
-        //     callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-        // }).catch(()=>{
-        //     instance2.acquireTokenPopup(request).then(response=>{
-        //         callMsGraphForListTasks(response.accessToken).then(response=>setCurrentListTasks(response));
-        //     });
-        // });
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks[30].status);});
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+            });
+        });
     };
 
     const clickedListText=event=>{
@@ -79,7 +78,7 @@ const ListsMenu=props=>{
             .then(()=>{
                 getLists();
             })
-            .catch((err)=>console.log(err));
+            .catch(err=>console.log(err));
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCreateList(response.accessToken,string)

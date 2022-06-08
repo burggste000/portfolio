@@ -245,6 +245,12 @@
 #add:hover{
     cursor:pointer;
 }
+/*The code below is for my tasks*/
+#tasksDiv{
+    background-color:red;
+    height:200px;
+    width:300px;
+}
 @media(max-width:770px){
     .centerPageRightWords{
         display:none;
