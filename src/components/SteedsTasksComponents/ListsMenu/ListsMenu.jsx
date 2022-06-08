@@ -33,6 +33,10 @@ const ListsMenu=props=>{
 
     window.onresize=checkWindowSize;
 
+    // const findListByName=name=>lists.value.find(value=>value.displayName===name);
+
+    // const findListIdByName=name=>findListByName(name).id;
+
     const{instance:instance2,accounts}=useMsal();
 
     const clickedListDiv=event=>{
