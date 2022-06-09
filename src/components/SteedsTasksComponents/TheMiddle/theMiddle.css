@@ -246,14 +246,40 @@
     cursor:pointer;
 }
 /*The code below is for my tasks*/
-#parentTasksDiv{
+.parentTasksDiv{
     background-color:red;
-    height:200px;
-    width:300px;
-    display:flex;
+    height:80vh;
+    width:83vw;
+    display:block;
     position:absolute;
-    top:200px;
-    left:400px;
+    top:175px;
+    left:210px;
+}
+.tallParentTasksDiv{
+    background-color:red;
+    height:80vh;
+    width:83vw;
+    display:block;
+    position:absolute;
+    top:230px;
+    left:210px;
+}
+.wideParentTasksDiv{
+    background-color:red;
+    height:80vh;
+    width:99.2vw;
+    display:block;
+    position:absolute;
+    top:175px;
+    left:5px;
+}
+.taskDiv{
+    border-bottom-color:grey;
+    border-bottom-width:10px;
+    background-color:pink;
+}
+.taskText{
+    display:block;
 }
 @media(max-width:770px){
     .centerPageRightWords{

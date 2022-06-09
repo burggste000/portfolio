@@ -151,6 +151,25 @@ const TheMiddle=props=>{
         }
     };
 
+    const tasksDivDecideClass=()=>{
+        if(props.listsMenuClicked===true&&createTaskInputFocused===false){
+            console.log("parentTasksDiv");
+            return"parentTasksDiv";
+        }
+        if(props.listsMenuClicked===true&&createTaskInputFocused===true){
+            console.log("tallParentTasksDiv");
+            return"tallParentTasksDiv";
+        }
+        if(props.listsMenuClicked===false&&createTaskInputFocused===false){
+            console.log("wideParentTasksDiv");
+            return"wideParentTasksDiv";
+        }
+        if(props.listsMenuClicked===false&&createTaskInputFocused===true){
+            console.log("tallWideParentTasksDiv");
+            return"tallWideParentTasksDiv";
+        }
+    };
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
@@ -179,8 +198,8 @@ const TheMiddle=props=>{
                 <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
             </div>
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
-                <div id="parentTasksDiv">
-                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div key={index+0.5}><h4>{value.title}</h4></div>):''}
+                <div className={tasksDivDecideClass()}>
+                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div className="taskDiv"key={index+0.5}><p className="taskText">{value.title}</p></div>):''}
                 </div>:''
             }
         </>
