@@ -178,10 +178,11 @@ const TheMiddle=props=>{
                 </div>
                 <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
             </div>
-            <div id="parentTasksDiv">
-                <p>{props.currentListTasks!==null&&props.currentListTasks[0].title!==undefined?props.currentListTasks[0].title:''}</p>
-                <p>{props.currentListTasks!==null&&props.currentListTasks[0].title!==undefined?props.currentListTasks[1].title:''}</p>
-            </div>
+            {props.currentListTasks!==null&&props.currentListTasks.length>0?
+                <div id="parentTasksDiv">
+                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div key={index+0.5}><h4>{value.title}</h4></div>):''}
+                </div>:''
+            }
         </>
     );
 };
