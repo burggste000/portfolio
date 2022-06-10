@@ -247,7 +247,6 @@
 }
 /*The code below is for my tasks*/
 .parentTasksDiv{
-    height:80vh;
     width:83vw;
     display:block;
     position:absolute;
