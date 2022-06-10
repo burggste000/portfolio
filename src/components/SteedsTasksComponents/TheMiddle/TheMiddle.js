@@ -199,7 +199,7 @@ const TheMiddle=props=>{
             </div>
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksDivDecideClass()}>
-                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div className="taskDiv"key={index+0.5}><p className="taskText">{value.title}</p></div>):''}
+                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div className="taskDiv"key={index+0.5}><img id="completeTaskCircle"src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><p className="taskText">{value.title}</p></div>):''}
                 </div>:''
             }
         </>
