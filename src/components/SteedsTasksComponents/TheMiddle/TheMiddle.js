@@ -6,6 +6,7 @@ const TheMiddle=props=>{
     const[shareHovered,setShareHovered]=react.useState(false);
     const[suggestionsHovered,setSuggestionsHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
+    const[taskHoveredCircle,setTaskHoveredCircle]=react.useState(false);
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
@@ -199,7 +200,7 @@ const TheMiddle=props=>{
             </div>
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksDivDecideClass()}>
-                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div className="taskDiv"key={index+0.5}><img id="completeTaskCircle"src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><p className="taskText">{value.title}</p></div>):''}
+                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=><div className="taskDiv"key={index+0.5}><img id={taskHoveredCircle===false?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><img id={taskHoveredCircle===true?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-vector/tick-isolated-on-white-background-600w-1913803054.jpg"alt="checkmark" /><p className="taskText">{value.title}</p><img id="importantStar"src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /></div>):''}
                 </div>:''
             }
         </>
