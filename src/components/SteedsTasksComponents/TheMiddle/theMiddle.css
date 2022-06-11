@@ -314,12 +314,24 @@
     width:27px;
     position:absolute;
     right:20px;
-    padding-top:15px;
+    margin-top:15px;
     margin-right:0px;
     filter:brightness(130%);
 }
 #importantStar:hover{
     filter:brightness(100%);
+    cursor:pointer;
+}
+#importantStarBlue{
+    height:18px;
+    width:18px;
+    position:absolute;
+    right:25px;
+    margin-top:20px;
+    margin-right:0px;
+    filter:brightness(170%);
+}
+#importantStarBlue:hover{
     cursor:pointer;
 }
 @media(max-width:770px){
