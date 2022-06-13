@@ -246,35 +246,32 @@
     cursor:pointer;
 }
 /*The code below is for my tasks*/
-.parentTasksDiv{
+.tasksParent{
+    height:auto;
     width:83vw;
-    display:block;
     position:absolute;
-    top:171px;
+    top:170px;
     left:210px;
 }
-.tallParentTasksDiv{
-    height:80vh;
+.tallTasksParent{
+    height:auto;
     width:83vw;
-    display:block;
     position:absolute;
-    top:221px;
+    top:220px;
     left:210px;
 }
-.wideParentTasksDiv{
-    height:80vh;
+.wideTasksParent{
+    height:auto;
     width:99.2vw;
-    display:block;
     position:absolute;
-    top:171px;
+    top:170px;
     left:5px;
 }
-.tallWideParentTasksDiv{
-    height:80vh;
+.tallWideTasksParent{
+    height:auto;
     width:99.2vw;
-    display:block;
     position:absolute;
-    top:221px;
+    top:220px;
     left:5px;
 }
 .taskDiv{
@@ -335,17 +332,29 @@
     cursor:pointer;
 }
 /*The code below is for the completed tasks*/
-#completedDiv{
+.completedDiv{
+    height:35px;
     width:83vw;
-    display:block;
-    position:absolute;
-    top:240px;
-    left:210px;
     display:flex;
     border-bottom-color:rgb(227,227,227);
     border-bottom-style:solid;
     border-bottom-width:1px;
+    padding-top:10px;
+}
+.completedDiv:hover{
+    cursor:pointer;
+}
+.wideCompletedDiv{
     height:35px;
+    width:99.2vw;
+    display:flex;
+    border-bottom-color:rgb(227,227,227);
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    padding-top:10px;
+}
+.wideCompletedDiv:hover{
+    cursor:pointer;
 }
 #completedArrow{
     height:22px;

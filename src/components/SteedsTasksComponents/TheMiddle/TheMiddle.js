@@ -156,22 +156,31 @@ const TheMiddle=props=>{
         }
     };
 
-    const tasksDivDecideClass=()=>{
+    const tasksParentDivDecideClass=()=>{
         if(props.listsMenuClicked===true&&createTaskInputFocused===false){
-            console.log("parentTasksDiv");
-            return"parentTasksDiv";
+            return"tasksParent";
         }
         if(props.listsMenuClicked===true&&createTaskInputFocused===true){
-            console.log("tallParentTasksDiv");
-            return"tallParentTasksDiv";
+            return"tallTasksParent";
         }
         if(props.listsMenuClicked===false&&createTaskInputFocused===false){
-            console.log("wideParentTasksDiv");
-            return"wideParentTasksDiv";
+            return"wideTasksParent";
         }
         if(props.listsMenuClicked===false&&createTaskInputFocused===true){
-            console.log("tallWideParentTasksDiv");
-            return"tallWideParentTasksDiv";
+            return"tallWideTasksParent";
+        }
+    };
+    const completedTasksDivClass=()=>{
+        if(completedTasks===true){
+            if(props.listsMenuClicked===true){
+                return"completedDiv";
+            }
+            else{
+                return"wideCompletedDiv";
+            }
+        }
+        else{
+            return"hide";
         }
     };
 
@@ -203,16 +212,18 @@ const TheMiddle=props=>{
                 <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
             </div>
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
-                <div className={tasksDivDecideClass()}>
-                    {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<div className="taskDiv"key={index+0.5}><img id={taskHoveredCircle===false?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><img id={taskHoveredCircle===true?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-vector/tick-isolated-on-white-background-600w-1913803054.jpg"alt="checkmark" /><p className="taskText">{value.title}</p><img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /><img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star" /></div>}}):''}
+                <div className={tasksParentDivDecideClass()}>
+                    <div>
+                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<div className="taskDiv"key={index+0.5}><img id={taskHoveredCircle===false?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><img id={taskHoveredCircle===true?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-vector/tick-isolated-on-white-background-600w-1913803054.jpg"alt="checkmark" /><p className="taskText">{value.title}</p><img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /><img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star" /></div>}}):''}
+                    </div>
+                    <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
+                        <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
+                        <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
+                        <h4 id="completedText">Completed</h4>
+                        <p id="completedNumber">0</p>
+                    </div>
                 </div>:''
             }
-            <div id={completedTasks===true?"completedDiv":"hide"}>
-                <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
-                <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
-                <h4 id="completedText">Completed</h4>
-                <p id="completedNumber">0</p>
-            </div>
         </>
     );
 };
