@@ -334,6 +334,37 @@
 #importantStarBlue:hover{
     cursor:pointer;
 }
+/*The code below is for the completed tasks*/
+#completedDiv{
+    width:83vw;
+    display:block;
+    position:absolute;
+    top:240px;
+    left:210px;
+    display:flex;
+    border-bottom-color:rgb(227,227,227);
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    height:35px;
+}
+#completedArrow{
+    height:22px;
+    width:22px;
+    position:relative;
+    left:16px;
+}
+#completedText{
+    position:relative;
+    bottom:18px;
+    left:30px;
+    font-weight:500;
+    font-size:14px;
+}
+#completedNumber{
+    position:relative;
+    left:45px;
+    bottom:18px;
+}
 @media(max-width:770px){
     .centerPageRightWords{
         display:none;

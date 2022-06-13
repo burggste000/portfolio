@@ -8,6 +8,7 @@ const TheMiddle=props=>{
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
     const[taskHoveredCircle,setTaskHoveredCircle]=react.useState(false);
     const[starClicked,setStarClicked]=react.useState(false);
+    const[completedTasks,setCompletedTasks]=react.useState(true);
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
@@ -204,6 +205,11 @@ const TheMiddle=props=>{
                     {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<div className="taskDiv"key={index+0.5}><img id={taskHoveredCircle===false?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><img id={taskHoveredCircle===true?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-vector/tick-isolated-on-white-background-600w-1913803054.jpg"alt="checkmark" /><p className="taskText">{value.title}</p><img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /><img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star" /></div>}}):''}
                 </div>:''
             }
+            <div id={completedTasks===true?"completedDiv":"hide"}>
+                <img id="completedArrow"src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="arrow" />
+                <h4 id="completedText">Completed</h4>
+                <p id="completedNumber">number of completed</p>
+            </div>
         </>
     );
 };
