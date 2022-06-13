@@ -59,12 +59,40 @@ const ListsMenu=props=>{
     const clickedListText=event=>{
         let thisText=event.target.textContent;
         props.setCurrentList(thisText);
+
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks)});
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+            });
+        });
+
         event.stopPropagation();
     };
     
     const clickedListImg=event=>{
         let thisText=event.target.nextElementSibling.textContent;
         props.setCurrentList(thisText);
+        
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks)});
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+            });
+        });
+
         event.stopPropagation();
     };
     
