@@ -9,6 +9,8 @@ const TheMiddle=props=>{
     const[taskHoveredCircle,setTaskHoveredCircle]=react.useState(false);
     const[starClicked,setStarClicked]=react.useState(false);
     const[completedTasks,setCompletedTasks]=react.useState(true);
+    const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
+
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
@@ -206,9 +208,10 @@ const TheMiddle=props=>{
                 </div>:''
             }
             <div id={completedTasks===true?"completedDiv":"hide"}>
-                <img id="completedArrow"src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="arrow" />
+                <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
+                <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
                 <h4 id="completedText">Completed</h4>
-                <p id="completedNumber">number of completed</p>
+                <p id="completedNumber">0</p>
             </div>
         </>
     );
