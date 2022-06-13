@@ -306,6 +306,14 @@
     left:12px;
     bottom:7px;
 }
+.completedTaskText{
+    display:block;
+    position:relative;
+    left:12px;
+    bottom:7px;
+    font-weight:200;
+    text-decoration:line-through grey;
+}
 #importantStar{
     height:27px;
     width:27px;
