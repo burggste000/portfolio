@@ -282,7 +282,7 @@
     display:flex;
 }
 .taskDiv:hover{
-    filter:brightness(80%);
+    filter:brightness(88%);
     cursor:pointer;
 }
 #completeTaskCircle{
