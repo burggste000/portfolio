@@ -41,14 +41,23 @@ const ListsMenu=props=>{
     const clickedListDiv=event=>{
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
-        //Use the code below for getting the tasks for the list I have clicked.
+        
+        
+        // let completedTasks=[];
+        // for(let i=0;i<thisText.length;++i){
+        //     if(thisText[i].status==="completed"){
+        //         completedTasks.push(thisText[i]);
+        //         console.log(completedTasks);
+        //     }
+        // }
+        
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
         const request={
             ...loginRequest,
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks)});
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
@@ -58,6 +67,7 @@ const ListsMenu=props=>{
 
     const clickedListText=event=>{
         let thisText=event.target.textContent;
+        console.log(thisText);
         props.setCurrentList(thisText);
 
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
@@ -66,7 +76,7 @@ const ListsMenu=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks)});
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
@@ -78,6 +88,7 @@ const ListsMenu=props=>{
     
     const clickedListImg=event=>{
         let thisText=event.target.nextElementSibling.textContent;
+        console.log(thisText);
         props.setCurrentList(thisText);
         
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
@@ -86,7 +97,7 @@ const ListsMenu=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks)});
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
