@@ -46,6 +46,60 @@
     filter:brightness(101%);
     cursor:pointer;
 }
+#centerPageOptionsMenu{
+    position:absolute;
+    left:280px;
+    top:120px;
+    z-index:3;
+    height:100px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.5px;
+    border-bottom-width:1px;
+    border-left-width:0.5px;
+    border-right-width:1px;
+}
+#listOptionsDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-bottom-color:grey;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+#listOptionsText{
+    font-weight:600;
+    font-size:14.5px;
+}
+#printListDiv{
+    display:flex;
+    justify-content:flex-start;
+    height:50px;
+}
+#darkPrintListDiv{
+    display:flex;
+    justify-content:flex-start;
+    filter:brightness(90%);
+    cursor:pointer;
+    height:50px;
+}
+#printIcon{
+    height:35px;
+    width:35px;
+    margin-top:9px;
+    margin-left:5px;
+}
+#printListText{
+    margin-top:13px;
+    margin-left:10px;
+}
 #date{
     font-size:13px;
     position:absolute;

@@ -10,6 +10,8 @@ const TheMiddle=props=>{
     const[starClicked,setStarClicked]=react.useState(false);
     const[completedTasks,setCompletedTasks]=react.useState(true);
     const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
+    const[centerPageOptions,setCenterPageOptions]=react.useState(false);
+    const[printHovered,setPrintHovered]=react.useState(false);
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -189,7 +191,17 @@ const TheMiddle=props=>{
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
                 <img id={props.listsMenuClicked===true?"hide":"centerPageMenuButton"}src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
                 <h2 id="centerPageTitle">{props.currentList}</h2>
-                <img id="centerPageOptions"src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
+                <img id="centerPageOptions"onClick={()=>setCenterPageOptions(!centerPageOptions)}src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
+            </div>
+{/*Working here*/}
+            <div id={centerPageOptions===false?"hide":"centerPageOptionsMenu"}onMouseEnter={()=>setPrintHovered(true)}onMouseLeave={()=>setPrintHovered(false)}>
+                <div id="listOptionsDiv">
+                    <h4 id="listOptionsText">List options</h4>
+                </div>
+                <div id={printHovered===false?"printListDiv":"darkPrintListDiv"}>
+                    <img id="printIcon"src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
+                    <p id="printListText">Print list</p>
+                </div>
             </div>
             <p id={dateId()}>{theDate}</p>
             <div id="rightTopCenterPage">
