@@ -48,8 +48,8 @@
 }
 #centerPageOptionsMenu{
     position:absolute;
-    left:280px;
-    top:120px;
+    left:210px;
+    top:103px;
     z-index:3;
     height:100px;
     width:200px;
@@ -59,10 +59,10 @@
     border-radius:3px;
     border-style:solid;
     border-color:grey;
-    border-top-width:0.5px;
-    border-bottom-width:1px;
-    border-left-width:0.5px;
-    border-right-width:1px;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
 }
 #listOptionsDiv{
     height:50px;
@@ -86,15 +86,27 @@
 #darkPrintListDiv{
     display:flex;
     justify-content:flex-start;
-    filter:brightness(90%);
     cursor:pointer;
     height:50px;
+    background-color:rgb(238, 238, 238);
+    border-bottom-width:0.7px;
+    border-bottom-style:solid;
+    border-bottom-color:grey;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
 }
 #printIcon{
     height:35px;
     width:35px;
     margin-top:9px;
     margin-left:5px;
+}
+#darkPrintIcon{
+    height:35px;
+    width:35px;
+    margin-top:9px;
+    margin-left:5px;
+    filter:brightness(93%);
 }
 #printListText{
     margin-top:13px;
