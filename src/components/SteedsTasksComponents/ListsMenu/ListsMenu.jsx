@@ -42,15 +42,6 @@ const ListsMenu=props=>{
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         
-        
-        // let completedTasks=[];
-        // for(let i=0;i<thisText.length;++i){
-        //     if(thisText[i].status==="completed"){
-        //         completedTasks.push(thisText[i]);
-        //         console.log(completedTasks);
-        //     }
-        // }
-        
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
         const request={
             ...loginRequest,
@@ -67,7 +58,6 @@ const ListsMenu=props=>{
 
     const clickedListText=event=>{
         let thisText=event.target.textContent;
-        console.log(thisText);
         props.setCurrentList(thisText);
 
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
@@ -88,7 +78,6 @@ const ListsMenu=props=>{
     
     const clickedListImg=event=>{
         let thisText=event.target.nextElementSibling.textContent;
-        console.log(thisText);
         props.setCurrentList(thisText);
         
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
