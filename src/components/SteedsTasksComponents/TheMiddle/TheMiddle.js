@@ -186,6 +186,20 @@ const TheMiddle=props=>{
         }
     };
 
+    const centerPageOptionsMenuClass=()=>{
+        if(centerPageOptions===false){
+            return"hide";
+        }
+        else{
+            if(props.listsMenuClicked===true){
+                return"centerPageOptionsMenu";
+            }
+            if(props.listsMenuClicked===false){
+                return"wideCenterPageOptionsMenu";
+            }
+        }
+    };
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
@@ -194,7 +208,7 @@ const TheMiddle=props=>{
                 <img id="centerPageOptions"onClick={()=>setCenterPageOptions(!centerPageOptions)}src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
             </div>
 {/*Working here*/}
-            <div id={centerPageOptions===false?"hide":"centerPageOptionsMenu"}>
+            <div id={centerPageOptionsMenuClass()}>
                 <div id="listOptionsDiv">
                     <h4 id="listOptionsText">List options</h4>
                 </div>
