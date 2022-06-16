@@ -14,6 +14,7 @@ const TheMiddle=props=>{
     const[printHovered,setPrintHovered]=react.useState(false);
     const[showCompletedTasksHovered,setShowCompletedTasksHovered]=react.useState(false);
     const[changeThemeHovered,setChangeThemeHovered]=react.useState(false);
+    const[deleteListHovered,setDeleteListHovered]=react.useState(false);
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -193,6 +194,9 @@ const TheMiddle=props=>{
             return"hide";
         }
         else{
+            if(props.listsMenuClicked===true&&props.currentList!=="My Day"&&props.currentList!=="Assigned To Me"&&props.currentList!=="Flagged email"&&props.currentList!=="Tasks"){
+                return"myListsOptions";
+            }
             if(props.listsMenuClicked===true&&props.currentList==="My Day"){
                 return"myDayOptionsMenu";
             }
@@ -283,9 +287,13 @@ const TheMiddle=props=>{
                     <p id="printListText">Print list</p>
                 </div>
 {/*Working here*/}
+                <div id={deleteListHovered===false?"deleteList":"darkDeleteList"}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}>
+                    <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
+                    <p id="deleteListText">Delete List</p>
+                </div>
                 <div id={changeThemeHovered===false?"hide":"themes"}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                     <div id="darkBlue">
-                        <img id="selectedTheme"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
+                        <img id="selectedTheme"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="chosen theme" />
                     </div>
                     <div id="red"></div>
                     <div id="purple"></div>

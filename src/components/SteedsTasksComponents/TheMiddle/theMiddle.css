@@ -47,6 +47,24 @@
     cursor:pointer;
 }
 /*The code below is for the options menu*/
+#myListsOptions{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:200px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
 #myDayOptionsMenu{
     position:absolute;
     left:210px;
@@ -274,6 +292,40 @@
     margin-top:13px;
     margin-left:3px;
     font-size:14px;
+}
+#deleteList{
+    border-top-color:rgb(227, 227, 227);
+    border-top-style:solid;
+    border-top-width:1px;
+    display:flex;
+    align-items:center;
+}
+#darkDeleteList{
+    border-top-color:rgb(227, 227, 227);
+    border-top-style:solid;
+    border-top-width:1px;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#deleteListIcon{
+    height:28px;
+    width:18px;
+    margin-left:12px;
+    filter:opacity(70%);
+}
+#darkDeleteListIcon{
+    height:28px;
+    width:18px;
+    margin-left:12px;
+    filter:opacity(70%)brightness(94%);
+}
+#deleteListText{
+    color:red;
+    font-size:14px;
+    margin-left:12px;
+    filter:opacity(70%);
 }
 /*The code below is for the theme options*/
 #themes{
