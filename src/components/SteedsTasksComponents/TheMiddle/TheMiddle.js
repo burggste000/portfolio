@@ -238,6 +238,11 @@ const TheMiddle=props=>{
                     <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
                 </div>
 {/*Working here*/}
+                <div id="changeThemeDiv">
+                    <img id="changeThemeIcon"src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
+                    <p id="changeThemeText">Change theme</p>
+                    <img id="changeThemeArrow"src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="show themes" />
+                </div>
                 <div id={optionsCompletedShowDiv()}onMouseEnter={()=>setShowCompletedTasksHovered(true)}onMouseLeave={()=>setShowCompletedTasksHovered(false)}>
                     <img id={showCompletedTasksHovered===false?"completedIcon":"darkCompletedIcon"}src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
                     <p id="showCompletedText">Show completed tasks</p>
