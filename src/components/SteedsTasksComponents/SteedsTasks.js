@@ -3,6 +3,7 @@ import{TheMiddle}from"./TheMiddle/TheMiddle.js";
 import{ProfileMenu}from"./ProfileMenu/ProfileMenu.jsx";
 import{SettingsMenu}from"./SettingsMenu/SettingsMenu.jsx";
 import{ListsMenu}from"./ListsMenu/ListsMenu.jsx";
+import{OptionsMenu}from"./OptionsMenu/OptionsMenu.jsx";
 import react from"react";
 
 const SteedsTasks=()=>{
@@ -12,14 +13,16 @@ const SteedsTasks=()=>{
     const[currentList,setCurrentList]=react.useState("Tasks");
     const[currentListTasks,setCurrentListTasks]=react.useState(null);
     const[completedNumber,setCompletedNumber]=react.useState(0);
+    const[centerPageOptions,setCenterPageOptions]=react.useState(false);
 
     return(
         <>
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
+            <OptionsMenu centerPageOptions={centerPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions} />
         </>
     );
 };
