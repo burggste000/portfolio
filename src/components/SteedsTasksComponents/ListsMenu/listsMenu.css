@@ -201,6 +201,8 @@
     left:0px;
 }
 #listsMenuTasksDiv:hover{
+    background-color:white;
+    filter:brightness(120%);
     cursor:pointer;
 }
 #listsMenuTasksDivDark{
