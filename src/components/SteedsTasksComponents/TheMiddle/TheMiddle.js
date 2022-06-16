@@ -12,6 +12,7 @@ const TheMiddle=props=>{
     const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
     const[printHovered,setPrintHovered]=react.useState(false);
+    const[showCompletedTasksHovered,setShowCompletedTasksHovered]=react.useState(false);
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -191,12 +192,27 @@ const TheMiddle=props=>{
             return"hide";
         }
         else{
-            if(props.listsMenuClicked===true){
-                return"centerPageOptionsMenu";
+            if(props.listsMenuClicked===true&&props.currentList==="My Day"){
+                return"myDayOptionsMenu";
             }
-            if(props.listsMenuClicked===false){
-                return"wideCenterPageOptionsMenu";
+            if(props.listsMenuClicked===false&&props.currentList==="My Day"){
+                return"wideMyDayOptionsMenu";
             }
+            if(props.listsMenuClicked===true&&props.currentList==="Assigned To Me"){
+                return"assignedOptionsMenu";
+            }
+            if(props.listsMenuClicked===false&&props.currentList==="Assigned To Me"){
+                return"wideAssignedOptionsMenu";
+            }
+        }
+    };
+
+    const optionsCompletedShowDiv=()=>{
+        if(props.currentList==="Assigned To Me"||props.currentList==="Flagged email"&&showCompletedTasksHovered===false){
+            return"showCompletedTasksDiv";
+        }
+        else{
+            return"hide";
         }
     };
 
@@ -207,10 +223,14 @@ const TheMiddle=props=>{
                 <h2 id="centerPageTitle">{props.currentList}</h2>
                 <img id="centerPageOptions"onClick={()=>setCenterPageOptions(!centerPageOptions)}src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="text" />
             </div>
-{/*Working here*/}
             <div id={centerPageOptionsMenuClass()}>
                 <div id="listOptionsDiv">
-                    <h4 id="listOptionsText">List options</h4>
+                    <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
+                </div>
+{/*Working here*/}
+                <div id={optionsCompletedShowDiv()}onMouseEnter={()=>setShowCompletedTasksHovered(true)}onMouseLeave={()=>setShowCompletedTasksHovered(false)}>
+                    <img id="completedIcon"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
+                    <p id="showCompletedText">Show completed tasks</p>
                 </div>
                 <div id={printHovered===false?"printListDiv":"darkPrintListDiv"}onMouseEnter={()=>setPrintHovered(true)}onMouseLeave={()=>setPrintHovered(false)}>
                     <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />

@@ -46,7 +46,7 @@
     filter:brightness(101%);
     cursor:pointer;
 }
-#centerPageOptionsMenu{
+#myDayOptionsMenu{
     position:absolute;
     left:210px;
     top:103px;
@@ -64,12 +64,30 @@
     border-left-width:0.1px;
     border-right-width:0.7px;
 }
-#wideCenterPageOptionsMenu{
+#wideMyDayOptionsMenu{
     position:absolute;
     left:10px;
     top:103px;
     z-index:3;
     height:100px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#assignedOptionsMenu{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:155px;
     width:200px;
     display:flex;
     flex-direction:column;
@@ -88,13 +106,29 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    border-bottom-color:grey;
+    border-bottom-color:rgb(227, 227, 227);
     border-bottom-style:solid;
     border-bottom-width:1px;
 }
 #listOptionsText{
     font-weight:600;
     font-size:14.5px;
+}
+#showCompletedTasksDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+}
+#completedIcon{
+    height:20px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(300%);
+}
+#showCompletedText{
+    font-size:14px;
+    margin-left:10px;
 }
 #printListDiv{
     display:flex;
@@ -129,6 +163,7 @@
 #printListText{
     margin-top:13px;
     margin-left:10px;
+    font-size:14px;
 }
 #date{
     font-size:13px;
