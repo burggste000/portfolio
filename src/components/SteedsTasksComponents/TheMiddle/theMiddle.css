@@ -121,11 +121,25 @@
     display:flex;
     align-items:center;
 }
+#darkShowCompletedTasksDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
 #completedIcon{
     height:20px;
     width:20px;
     margin-left:12px;
     filter:brightness(300%);
+}
+#darkCompletedIcon{
+    height:20px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(94%);
 }
 #showCompletedText{
     font-size:14px;

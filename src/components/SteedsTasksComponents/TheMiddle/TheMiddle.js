@@ -208,11 +208,21 @@ const TheMiddle=props=>{
     };
 
     const optionsCompletedShowDiv=()=>{
-        if(props.currentList==="Assigned To Me"||props.currentList==="Flagged email"&&showCompletedTasksHovered===false){
-            return"showCompletedTasksDiv";
+        if(showCompletedTasksHovered===false){
+            if(props.currentList==="Assigned To Me"||props.currentList==="Flagged email"){
+                return"showCompletedTasksDiv";
+            }
+            else{
+                return"hide";
+            }
         }
-        else{
-            return"hide";
+        if(showCompletedTasksHovered===true){
+            if(props.currentList==="Assigned To Me"||props.currentList==="Flagged email"){
+                return"darkShowCompletedTasksDiv";
+            }
+            else{
+                return"hide";
+            }
         }
     };
 
@@ -229,7 +239,7 @@ const TheMiddle=props=>{
                 </div>
 {/*Working here*/}
                 <div id={optionsCompletedShowDiv()}onMouseEnter={()=>setShowCompletedTasksHovered(true)}onMouseLeave={()=>setShowCompletedTasksHovered(false)}>
-                    <img id="completedIcon"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
+                    <img id={showCompletedTasksHovered===false?"completedIcon":"darkCompletedIcon"}src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
                     <p id="showCompletedText">Show completed tasks</p>
                 </div>
                 <div id={printHovered===false?"printListDiv":"darkPrintListDiv"}onMouseEnter={()=>setPrintHovered(true)}onMouseLeave={()=>setPrintHovered(false)}>
