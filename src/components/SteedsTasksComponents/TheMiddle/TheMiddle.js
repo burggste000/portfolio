@@ -1,6 +1,6 @@
 import "./theMiddle.css";
-import{TaskListItem}from"./TaskListItem.jsx";
-import{CompletedTasks}from"./CompletedTasks.jsx";
+import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
+import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
 import react from"react";
 
 const TheMiddle=props=>{

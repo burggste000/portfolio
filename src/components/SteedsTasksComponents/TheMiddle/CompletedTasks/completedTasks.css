@@ -1,0 +1,62 @@
+.taskDiv{
+    border-bottom-style:solid;
+    border-bottom-color:rgb(227, 227, 227);
+    border-bottom-width:1px;
+    background-color:white;
+    display:flex;
+}
+.taskDiv:hover{
+    filter:brightness(88%);
+    cursor:pointer;
+}
+#completeTaskCircle{
+    height:15px;
+    width:15px;
+    border-radius:50px;
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    margin-top:13px;
+    margin-left:20px;
+    margin-right:8px;
+    filter:brightness(95%);
+}
+#completeTaskCircle:hover{
+    cursor:pointer;
+}
+#hide{
+    display:none;
+}
+.completedTaskText{
+    display:block;
+    position:relative;
+    left:12px;
+    bottom:7px;
+    font-weight:200;
+    text-decoration:line-through grey;
+}
+#importantStar{
+    height:27px;
+    width:27px;
+    position:absolute;
+    right:20px;
+    margin-top:15px;
+    margin-right:0px;
+    filter:brightness(130%);
+}
+#importantStar:hover{
+    filter:brightness(100%);
+    cursor:pointer;
+}
+#importantStarBlue{
+    height:18px;
+    width:18px;
+    position:absolute;
+    right:25px;
+    margin-top:20px;
+    margin-right:0px;
+    filter:brightness(170%);
+}
+#importantStarBlue:hover{
+    cursor:pointer;
+}
