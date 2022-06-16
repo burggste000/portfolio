@@ -211,6 +211,12 @@ const TheMiddle=props=>{
             if(props.listsMenuClicked===false&&props.currentList==="Flagged email"){
                 return"wideFlaggedOptionsMenu";
             }
+            if(props.listsMenuClicked===true&&props.currentList==="Tasks"){
+                return"assignedOptionsMenu";
+            }
+            if(props.listsMenuClicked===false&&props.currentList==="Tasks"){
+                return"wideAssignedOptionsMenu";
+            }
         }
     };
 
