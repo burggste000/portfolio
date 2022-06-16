@@ -263,7 +263,6 @@ const TheMiddle=props=>{
                 <div id="listOptionsDiv">
                     <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
                 </div>
-{/*Working here*/}
                 <div id={changeThemeId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                     <img id={changeThemeHovered===false?"changeThemeIcon":"darkChangeThemeIcon"}src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
                     <p id="changeThemeText">Change theme</p>
@@ -277,6 +276,16 @@ const TheMiddle=props=>{
                     <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
                     <p id="printListText">Print list</p>
                 </div>
+{/*Working here*/}
+                <div id={changeThemeHovered===false?"hide":"themes"}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
+                    <div id="darkBlue">
+                        <img id="selectedTheme"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
+                    </div>
+                    <div id="red"></div>
+                    <div id="purple"></div>
+                    <div id="green"></div>
+                    <div id="lightBlue"></div>
+                </div>                    
             </div>
             <p id={dateId()}>{theDate}</p>
             <div id="rightTopCenterPage">

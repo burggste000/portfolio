@@ -275,6 +275,86 @@
     margin-left:3px;
     font-size:14px;
 }
+/*The code below is for the theme options*/
+#themes{
+    height:80px;
+    width:280px;
+    z-index:4;
+    position:absolute;
+    left:200px;
+    top:50px;
+    background-color:white;
+    border-color:lightgrey;
+    border-style:solid;
+    border-width:1px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+#darkBlue{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:#0078d4;
+}
+#darkBlue:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#selectedTheme{
+    height:20px;
+    width:20px;
+    border-radius:15px;
+    position:relative;
+    top:10px;
+    left:9px;
+    filter:opacity(80%);
+}
+#red{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:red;
+}
+#red:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#purple{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:purple;
+}
+#purple:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#green{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:green;
+}
+#green:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#lightBlue{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:lightblue;
+}
+#lightBlue:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
 /*The code below is for the date*/
 #date{
     font-size:13px;
