@@ -175,10 +175,24 @@
     display:flex;
     align-items:center;
 }
+#darkChangeThemeDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
 #changeThemeIcon{
     height:30px;
     width:30px;
     margin-left:8px;
+}
+#darkChangeThemeIcon{
+    height:30px;
+    width:30px;
+    margin-left:8px;
+    filter:brightness(93%);
 }
 #changeThemeText{
     font-size:14px;
@@ -188,6 +202,12 @@
     height:25px;
     width:25px;
     filter:brightness(140%);
+    margin-left:40px;
+}
+#darkChangeThemeArrow{
+    height:25px;
+    width:25px;
+    filter:brightness(93%);
     margin-left:40px;
 }
 #showCompletedTasksDiv{

@@ -13,6 +13,7 @@ const TheMiddle=props=>{
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
     const[printHovered,setPrintHovered]=react.useState(false);
     const[showCompletedTasksHovered,setShowCompletedTasksHovered]=react.useState(false);
+    const[changeThemeHovered,setChangeThemeHovered]=react.useState(false);
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -233,11 +234,21 @@ const TheMiddle=props=>{
     };
 
     const changeThemeId=()=>{
-        if(props.currentList==="Assigned To Me"||props.currentList==="My Day"){
-            return"hide";
+        if(changeThemeHovered===false){
+            if(props.currentList==="Assigned To Me"||props.currentList==="My Day"){
+                return"hide";
+            }
+            else{
+                return"changeThemeDiv";
+            }
         }
-        else{
-            return"changeThemeDiv";
+        if(changeThemeHovered===true){
+            if(props.currentList==="Assigned To Me"||props.currentList==="My Day"){
+                return"hide";
+            }
+            else{
+                return"darkChangeThemeDiv";
+            }
         }
     };
 
@@ -253,10 +264,10 @@ const TheMiddle=props=>{
                     <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
                 </div>
 {/*Working here*/}
-                <div id={changeThemeId()}>
-                    <img id="changeThemeIcon"src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
+                <div id={changeThemeId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
+                    <img id={changeThemeHovered===false?"changeThemeIcon":"darkChangeThemeIcon"}src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
                     <p id="changeThemeText">Change theme</p>
-                    <img id="changeThemeArrow"src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="show themes" />
+                    <img id={changeThemeHovered===false?"changeThemeArrow":"darkChangeThemeArrow"}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="show themes" />
                 </div>
                 <div id={optionsCompletedShowDiv()}onMouseEnter={()=>setShowCompletedTasksHovered(true)}onMouseLeave={()=>setShowCompletedTasksHovered(false)}>
                     <img id={showCompletedTasksHovered===false?"completedIcon":"darkCompletedIcon"}src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="marked as completed task" />
