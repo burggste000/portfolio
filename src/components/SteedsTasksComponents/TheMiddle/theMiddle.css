@@ -101,6 +101,60 @@
     border-left-width:0.1px;
     border-right-width:0.7px;
 }
+#wideAssignedOptionsMenu{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:155px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#flaggedOptionsMenu{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:200px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideFlaggedOptionsMenu{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:200px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
 #listOptionsDiv{
     height:50px;
     width:auto;

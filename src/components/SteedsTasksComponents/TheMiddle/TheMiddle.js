@@ -204,6 +204,12 @@ const TheMiddle=props=>{
             if(props.listsMenuClicked===false&&props.currentList==="Assigned To Me"){
                 return"wideAssignedOptionsMenu";
             }
+            if(props.listsMenuClicked===true&&props.currentList==="Flagged email"){
+                return"flaggedOptionsMenu";
+            }
+            if(props.listsMenuClicked===false&&props.currentList==="Flagged email"){
+                return"wideFlaggedOptionsMenu";
+            }
         }
     };
 
@@ -226,6 +232,15 @@ const TheMiddle=props=>{
         }
     };
 
+    const changeThemeId=()=>{
+        if(props.currentList==="Assigned To Me"||props.currentList==="My Day"){
+            return"hide";
+        }
+        else{
+            return"changeThemeDiv";
+        }
+    };
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
@@ -238,7 +253,7 @@ const TheMiddle=props=>{
                     <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
                 </div>
 {/*Working here*/}
-                <div id="changeThemeDiv">
+                <div id={changeThemeId()}>
                     <img id="changeThemeIcon"src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
                     <p id="changeThemeText">Change theme</p>
                     <img id="changeThemeArrow"src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="show themes" />
