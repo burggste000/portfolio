@@ -1,4 +1,6 @@
 import "./theMiddle.css";
+import{TaskListItem}from"./TaskListItem.jsx";
+import{CompletedTasks}from"./CompletedTasks.jsx";
 import react from"react";
 
 const TheMiddle=props=>{
@@ -6,8 +8,6 @@ const TheMiddle=props=>{
     const[shareHovered,setShareHovered]=react.useState(false);
     const[suggestionsHovered,setSuggestionsHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
-    const[taskHoveredCircle,setTaskHoveredCircle]=react.useState(false);
-    const[starClicked,setStarClicked]=react.useState(false);
     const[completedTasks,setCompletedTasks]=react.useState(true);
     const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
@@ -260,7 +260,7 @@ const TheMiddle=props=>{
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
-                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<div className="taskDiv"key={index+0.5}><img id={taskHoveredCircle===false?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" /><img id={taskHoveredCircle===true?"completeTaskCircle":"hide"}onMouseEnter={()=>setTaskHoveredCircle(true)}onMouseLeave={()=>setTaskHoveredCircle(false)}src="https://image.shutterstock.com/image-vector/tick-isolated-on-white-background-600w-1913803054.jpg"alt="checkmark" /><p className="taskText">{value.title}</p><img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /><img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star" /></div>}}):''}
+                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem value={value}index={index} />}}):''}
                     </div>
                     <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
                         <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
@@ -269,7 +269,7 @@ const TheMiddle=props=>{
                         <p id="completedNumber">{props.completedNumber}</p>
                     </div>
                     <div id="completedTasks">
-                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<div className="taskDiv"key={index+0.5}><img id="completeTaskCircle"src="https://image.shutterstock.com/image-vector/blue-verified-check-mark-icon-600w-1971321881.jpg"alt="marked as completed task" /><p className="completedTaskText">{value.title}</p><img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star" /><img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star" /></div>}}):''}
+                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks value={value}index={index} />}}):''}
                     </div>
                 </div>:''
             }
