@@ -46,6 +46,7 @@
     filter:brightness(101%);
     cursor:pointer;
 }
+/*The code below is for the options menu*/
 #myDayOptionsMenu{
     position:absolute;
     left:210px;
@@ -165,6 +166,7 @@
     margin-left:10px;
     font-size:14px;
 }
+/*The code below is for the date*/
 #date{
     font-size:13px;
     position:absolute;
@@ -179,6 +181,7 @@
     top:86px;
     color:rgb(144, 143, 143);
 }
+/*The code below is for the top right division under the header*/
 #rightTopCenterPage{
     height:72px;
     width:300px;
