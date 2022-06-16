@@ -52,7 +52,25 @@
     left:210px;
     top:103px;
     z-index:3;
-    height:200px;
+    height:250px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideMyListsOptions{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:250px;
     width:200px;
     display:flex;
     flex-direction:column;
@@ -186,6 +204,35 @@
 #listOptionsText{
     font-weight:600;
     font-size:14.5px;
+}
+#renameList{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+}
+#darkRenameList{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#renameListIcon{
+    height:30px;
+    width:20px;
+    margin-left:12px;
+}
+#darkRenameListIcon{
+    height:30px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(94%);
+}
+#renameListText{
+    font-size:14px;
+    margin-left:10px;
 }
 #changeThemeDiv{
     height:50px;
@@ -329,6 +376,21 @@
 }
 /*The code below is for the theme options*/
 #themes{
+    height:80px;
+    width:280px;
+    z-index:4;
+    position:absolute;
+    left:200px;
+    top:100px;
+    background-color:white;
+    border-color:lightgrey;
+    border-style:solid;
+    border-width:1px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+#tasksChangeTheme{
     height:80px;
     width:280px;
     z-index:4;

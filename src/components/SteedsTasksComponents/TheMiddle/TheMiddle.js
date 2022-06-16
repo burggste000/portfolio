@@ -15,6 +15,7 @@ const TheMiddle=props=>{
     const[showCompletedTasksHovered,setShowCompletedTasksHovered]=react.useState(false);
     const[changeThemeHovered,setChangeThemeHovered]=react.useState(false);
     const[deleteListHovered,setDeleteListHovered]=react.useState(false);
+    const[renameListHovered,setRenameListHovered]=react.useState(false);
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -197,6 +198,9 @@ const TheMiddle=props=>{
             if(props.listsMenuClicked===true&&props.currentList!=="My Day"&&props.currentList!=="Assigned To Me"&&props.currentList!=="Flagged email"&&props.currentList!=="Tasks"){
                 return"myListsOptions";
             }
+            if(props.listsMenuClicked===false&&props.currentList!=="My Day"&&props.currentList!=="Assigned To Me"&&props.currentList!=="Flagged email"&&props.currentList!=="Tasks"){
+                return"wideMyListsOptions";
+            }
             if(props.listsMenuClicked===true&&props.currentList==="My Day"){
                 return"myDayOptionsMenu";
             }
@@ -243,6 +247,22 @@ const TheMiddle=props=>{
         }
     };
 
+    const renameListId=()=>{
+        if(renameListHovered===false){
+            if(props.currentList==="My Day"||props.currentList==="Assigned To Me"||props.currentList==="Flagged email"||props.currentList==="Tasks"){
+                return"hide";
+            }
+            else{
+                return"renameList";
+            }
+        }
+        if(renameListHovered===true){
+            if(props.currentList!=="My Day"||props.currentList!=="Assigned To Me"||props.currentList!=="Flagged email"||props.currentList!=="Tasks"){
+                return"darkRenameList";
+            }
+        }
+    };
+
     const changeThemeId=()=>{
         if(changeThemeHovered===false){
             if(props.currentList==="Assigned To Me"||props.currentList==="My Day"){
@@ -262,6 +282,37 @@ const TheMiddle=props=>{
         }
     };
 
+    const deleteListOptionId=()=>{
+        if(deleteListHovered===false){
+            if(props.currentList==="My Day"||props.currentList==="Assigned To Me"||props.currentList==="Flagged email"||props.currentList==="Tasks"){
+                return"hide";
+            }
+            else{
+                return"deleteList";
+            }
+        }
+        if(deleteListHovered===true){
+            if(props.currentList!=="My Day"||props.currentList!=="Assigned To Me"||props.currentList!=="Flagged email"||props.currentList!=="Tasks"){
+                return"darkDeleteList";
+            }
+        }
+    };
+
+    const themesOptionsId=()=>{
+        if(changeThemeHovered===false){
+            return"hide";
+        }
+        if(changeThemeHovered===true&&props.currentList==="Tasks"){
+            return"tasksChangeTheme";
+        }
+        if(changeThemeHovered===true&&props.currentList==="Flagged email"){
+            return"tasksChangeTheme";
+        }
+        else{
+            return"themes";
+        }
+    };
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
@@ -272,6 +323,11 @@ const TheMiddle=props=>{
             <div id={centerPageOptionsMenuClass()}>
                 <div id="listOptionsDiv">
                     <h4 id="listOptionsText">{props.currentList==="Assigned To Me"||props.currentList==="Flagged email"?"Options":"List options"}</h4>
+                </div>
+{/*Working here*/}
+                <div id={renameListId()}onMouseEnter={()=>setRenameListHovered(true)}onMouseLeave={()=>setRenameListHovered(false)}>
+                    <img id={renameListHovered===false?"renameListIcon":"darkRenameListIcon"}src="https://image.shutterstock.com/image-vector/modern-flat-text-cursor-colorful-600w-1943695351.jpg"alt="input icon" />
+                    <p id="renameListText">Rename list</p>
                 </div>
                 <div id={changeThemeId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                     <img id={changeThemeHovered===false?"changeThemeIcon":"darkChangeThemeIcon"}src="https://image.shutterstock.com/image-vector/palette-icon-line-art-style-600w-2162922165.jpg"alt="theme icon" />
@@ -286,12 +342,11 @@ const TheMiddle=props=>{
                     <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
                     <p id="printListText">Print list</p>
                 </div>
-{/*Working here*/}
-                <div id={deleteListHovered===false?"deleteList":"darkDeleteList"}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}>
+                <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}>
                     <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
                     <p id="deleteListText">Delete List</p>
                 </div>
-                <div id={changeThemeHovered===false?"hide":"themes"}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
+                <div id={themesOptionsId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                     <div id="darkBlue">
                         <img id="selectedTheme"src="https://image.shutterstock.com/image-vector/checkmark-vector-icon-600w-556878373.jpg"alt="chosen theme" />
                     </div>
