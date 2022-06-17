@@ -4,6 +4,11 @@ import react from"react";
 const SuggestionsMenu=props=>{
     const[suggestionsMenuXhovered,setSuggestionsMenuXhovered]=react.useState(false);
 
+    // react.useEffect(()=>{
+        //Make a function that will get all of the names of the lists that I have, then I need to make a function to get all the tasks from those lists.
+    // });
+
+
     return(
         <div id={props.suggestionsClicked===false?"hide":"suggestionsParentDiv"}>
                 <h2 id="SuggestionsTitle">Suggestions</h2>
