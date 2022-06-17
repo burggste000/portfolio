@@ -4,6 +4,7 @@ import{ProfileMenu}from"./ProfileMenu/ProfileMenu.jsx";
 import{SettingsMenu}from"./SettingsMenu/SettingsMenu.jsx";
 import{ListsMenu}from"./ListsMenu/ListsMenu.jsx";
 import{OptionsMenu}from"./OptionsMenu/OptionsMenu.jsx";
+import{SortMenu}from"./SortMenu/SortMenu.jsx";
 import react from"react";
 
 const SteedsTasks=()=>{
@@ -14,6 +15,7 @@ const SteedsTasks=()=>{
     const[currentListTasks,setCurrentListTasks]=react.useState(null);
     const[completedNumber,setCompletedNumber]=react.useState(0);
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
+    const[sortMenuClicked,setSortMenuClicked]=react.useState(false);
 
     return(
         <>
@@ -21,8 +23,9 @@ const SteedsTasks=()=>{
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
             <OptionsMenu centerPageOptions={centerPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked} />
+            <SortMenu sortMenuClicked={sortMenuClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked} />
         </>
     );
 };

@@ -1,0 +1,128 @@
+#myDaySortDiv{
+    height:181px;
+    width:200px;
+    background-color:white;
+    border-style:solid;
+    border-radius:3px;
+    border-color:lightgrey;
+    border-width:1px;
+    position:absolute;
+    right:10px;
+    top:110px;
+    display:flex;
+    flex-direction:column;
+    z-index:1;
+}
+#sortByDiv{
+    display:flex;
+    border-bottom-style:solid;
+    border-bottom-color:rgb(227, 227, 227);
+    border-bottom-width:1px;
+    align-items:center;
+    justify-content:center;
+    height:40px;
+}
+#sortByText{
+    font-size:14.5px;
+    font-weight:600;
+}
+#importanceDiv{
+    display:flex;
+    align-items:center;
+    height:35px;
+}
+#importanceDiv:hover{
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#importanceIcon{
+    height:25px;
+    width:25px;
+    margin-left:7px;
+}
+#darkImportanceIcon{
+    height:25px;
+    width:25px;
+    margin-left:7px;
+    filter:brightness(93.5%);
+}
+#importanceText{
+    font-size:14px;
+    margin-left:10px;
+}
+#dueDateDiv{
+    display:flex;
+    align-items:center;
+    height:35px;
+}
+#dueDateDiv:hover{
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#dueDateIcon{
+    height:22px;
+    width:22px;
+    margin-left:8px;
+}
+#darkDueDateIcon{
+    height:22px;
+    width:22px;
+    margin-left:8px;
+    filter:brightness(93.5%);
+}
+#dueDateText{
+    font-size:14px;
+    margin-left:12px;
+}
+#alphabeticallyDiv{
+    display:flex;
+    align-items:center;
+    height:35px;
+}
+#alphabeticallyDiv:hover{
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#alphabeticallyIcon{
+    height:33px;
+    width:33px;
+    margin-left:2px;
+}
+#darkAlphabeticallyIcon{
+    height:33px;
+    width:33px;
+    margin-left:2px;
+    filter:brightness(93%);
+}
+#alphabeticallyText{
+    font-size:14px;
+    margin-left:7px;
+}
+#creationDateDiv{
+    display:flex;
+    align-items:center;
+    height:35px;
+}
+#creationDateDiv:hover{
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#creationDateIcon{
+    height:35px;
+    width:38px;
+}
+#darkCreationDateIcon{
+    height:35px;
+    width:38px;
+    filter:brightness(94%);
+}
+#plusSign{
+    position:relative;
+    right:24px;
+    bottom:1px;
+}
+#creationDateText{
+    font-size:14px;
+    position:relative;
+    right:7px;
+}
