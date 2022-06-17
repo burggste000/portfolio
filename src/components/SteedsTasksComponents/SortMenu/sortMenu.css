@@ -13,6 +13,21 @@
     flex-direction:column;
     z-index:1;
 }
+#largeSortDiv{
+    height:228px;
+    width:200px;
+    background-color:white;
+    border-style:solid;
+    border-radius:3px;
+    border-color:lightgrey;
+    border-width:1px;
+    position:absolute;
+    right:10px;
+    top:110px;
+    display:flex;
+    flex-direction:column;
+    z-index:1;
+}
 #sortByDiv{
     display:flex;
     border-bottom-style:solid;
@@ -71,6 +86,29 @@
     filter:brightness(93.5%);
 }
 #dueDateText{
+    font-size:14px;
+    margin-left:12px;
+}
+#addedToMyDayDiv{
+    display:flex;
+    align-items:center;
+}
+#addedToMyDayDiv:hover{
+    background-color:rgb(238,238,238);
+    cursor:pointer;
+}
+#addedToMyDayIcon{
+    height:25px;
+    width:25px;
+    margin-left:5px;
+}
+#darkAddedToMyDayIcon{
+    height:25px;
+    width:25px;
+    margin-left:5px;
+    filter:brightness(93.5%);
+}
+#addedToMyDayText{
     font-size:14px;
     margin-left:12px;
 }
