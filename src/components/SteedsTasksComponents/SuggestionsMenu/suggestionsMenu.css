@@ -43,3 +43,7 @@
     height:18px;
     filter:brightness(83%);
 }
+#tasksDate{
+    font-size:14px;
+    font-weight:600;
+}
