@@ -5,6 +5,7 @@ import{SettingsMenu}from"./SettingsMenu/SettingsMenu.jsx";
 import{ListsMenu}from"./ListsMenu/ListsMenu.jsx";
 import{OptionsMenu}from"./OptionsMenu/OptionsMenu.jsx";
 import{SortMenu}from"./SortMenu/SortMenu.jsx";
+import{SuggestionsMenu}from"./SuggestionsMenu/SuggestionsMenu.jsx";
 import react from"react";
 
 const SteedsTasks=()=>{
@@ -16,6 +17,7 @@ const SteedsTasks=()=>{
     const[completedNumber,setCompletedNumber]=react.useState(0);
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
     const[sortMenuClicked,setSortMenuClicked]=react.useState(false);
+    const[suggestionsClicked,setSuggestionsClicked]=react.useState(false);
 
     return(
         <>
@@ -24,8 +26,9 @@ const SteedsTasks=()=>{
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
             <OptionsMenu centerPageOptions={centerPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked} />
             <SortMenu sortMenuClicked={sortMenuClicked}currentList={currentList} />
+            <SuggestionsMenu suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
         </>
     );
 };
