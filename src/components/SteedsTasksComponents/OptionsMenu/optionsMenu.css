@@ -1,0 +1,425 @@
+#hide{
+    display:none;
+}
+#myListsOptions{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:250px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideMyListsOptions{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:250px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#myDayOptionsMenu{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:100px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideMyDayOptionsMenu{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:100px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#assignedOptionsMenu{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:150px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideAssignedOptionsMenu{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:150px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#flaggedOptionsMenu{
+    position:absolute;
+    left:210px;
+    top:103px;
+    z-index:3;
+    height:200px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#wideFlaggedOptionsMenu{
+    position:absolute;
+    left:10px;
+    top:103px;
+    z-index:3;
+    height:200px;
+    width:200px;
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    border-radius:3px;
+    border-style:solid;
+    border-color:grey;
+    border-top-width:0.1px;
+    border-bottom-width:0.7px;
+    border-left-width:0.1px;
+    border-right-width:0.7px;
+}
+#listOptionsDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-bottom-color:rgb(227, 227, 227);
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+#listOptionsText{
+    font-weight:600;
+    font-size:14.5px;
+}
+#renameList{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+}
+#darkRenameList{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#renameListIcon{
+    height:30px;
+    width:20px;
+    margin-left:12px;
+}
+#darkRenameListIcon{
+    height:30px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(94%);
+}
+#renameListText{
+    font-size:14px;
+    margin-left:10px;
+}
+#changeThemeDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+}
+#darkChangeThemeDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#changeThemeIcon{
+    height:30px;
+    width:30px;
+    margin-left:8px;
+}
+#darkChangeThemeIcon{
+    height:30px;
+    width:30px;
+    margin-left:8px;
+    filter:brightness(93%);
+}
+#changeThemeText{
+    font-size:14px;
+    margin-left:4px;
+}
+#changeThemeArrow{
+    height:25px;
+    width:25px;
+    filter:brightness(140%);
+    margin-left:40px;
+}
+#darkChangeThemeArrow{
+    height:25px;
+    width:25px;
+    filter:brightness(93%);
+    margin-left:40px;
+}
+#showCompletedTasksDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+}
+#darkShowCompletedTasksDiv{
+    height:50px;
+    width:auto;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#completedIcon{
+    height:20px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(300%);
+}
+#darkCompletedIcon{
+    height:20px;
+    width:20px;
+    margin-left:12px;
+    filter:brightness(94%);
+}
+#showCompletedText{
+    font-size:14px;
+    margin-left:10px;
+}
+#printListDiv{
+    display:flex;
+    justify-content:flex-start;
+    height:50px;
+}
+#darkPrintListDiv{
+    display:flex;
+    justify-content:flex-start;
+    cursor:pointer;
+    height:50px;
+    background-color:rgb(238, 238, 238);
+    border-bottom-width:0.7px;
+    border-bottom-style:solid;
+    border-bottom-color:grey;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+}
+#printIcon{
+    height:35px;
+    width:35px;
+    margin-top:9px;
+    margin-left:5px;
+}
+#darkPrintIcon{
+    height:35px;
+    width:35px;
+    margin-top:9px;
+    margin-left:5px;
+    filter:brightness(93%);
+}
+#printListText{
+    margin-top:13px;
+    margin-left:3px;
+    font-size:14px;
+}
+#deleteList{
+    border-top-color:rgb(227, 227, 227);
+    border-top-style:solid;
+    border-top-width:1px;
+    display:flex;
+    align-items:center;
+}
+#darkDeleteList{
+    border-top-color:rgb(227, 227, 227);
+    border-top-style:solid;
+    border-top-width:1px;
+    display:flex;
+    align-items:center;
+    background-color:rgb(238, 238, 238);
+    cursor:pointer;
+}
+#deleteListIcon{
+    height:28px;
+    width:18px;
+    margin-left:12px;
+    filter:opacity(70%);
+}
+#darkDeleteListIcon{
+    height:28px;
+    width:18px;
+    margin-left:12px;
+    filter:opacity(70%)brightness(94%);
+}
+#deleteListText{
+    color:red;
+    font-size:14px;
+    margin-left:12px;
+    filter:opacity(70%);
+}
+/*The code below is for the theme options*/
+#themes{
+    height:80px;
+    width:280px;
+    z-index:4;
+    position:absolute;
+    left:200px;
+    top:100px;
+    background-color:white;
+    border-color:lightgrey;
+    border-style:solid;
+    border-width:1px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+#tasksChangeTheme{
+    height:80px;
+    width:280px;
+    z-index:4;
+    position:absolute;
+    left:200px;
+    top:50px;
+    background-color:white;
+    border-color:lightgrey;
+    border-style:solid;
+    border-width:1px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+#darkBlue{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:#0078d4;
+}
+#darkBlue:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#selectedTheme{
+    height:20px;
+    width:20px;
+    border-radius:15px;
+    position:relative;
+    top:10px;
+    left:9px;
+    filter:opacity(80%);
+}
+#red{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:red;
+}
+#red:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#purple{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:purple;
+}
+#purple:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#green{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:green;
+}
+#green:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+#lightBlue{
+    height:38px;
+    width:38px;
+    border-radius:50px;
+    background-color:lightblue;
+}
+#lightBlue:hover{
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}

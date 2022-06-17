@@ -1,3 +1,4 @@
+import"./optionsMenu.css";
 import react from"react";
 
 const OptionsMenu=props=>{
