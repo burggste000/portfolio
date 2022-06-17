@@ -72,6 +72,16 @@
     align-items:center;
     justify-content:flex-end;
 }
+#movedRightTopCenterPage{
+    height:72px;
+    width:300px;
+    position:absolute;
+    right:370px;
+    top:60px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
 .centerPageRightIcons{
     height:30px;
     width:30px;

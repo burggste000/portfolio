@@ -193,7 +193,7 @@ const TheMiddle=props=>{
                 <img id="centerPageOptions"onClick={()=>props.setCenterPageOptions(!props.centerPageOptions)}src="https://image.shutterstock.com/image-vector/instagram-menu-icon-vector-gradient-600w-442224592.jpg"alt="close button" />
             </div>
             <p id={dateId()}>{theDate}</p>
-            <div id="rightTopCenterPage">
+            <div id={props.suggestionsClicked===false?"rightTopCenterPage":"movedRightTopCenterPage"}>
                 <img className={sortButtonImgClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}onClick={()=>props.setSortMenuClicked(!props.sortMenuClicked)}src="https://image.shutterstock.com/image-vector/down-black-arrow-icon-600w-1646995147.jpg"alt="text" />
                 <h4 className={sortButtonTextClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}onClick={()=>props.setSortMenuClicked(!props.sortMenuClicked)}>Sort</h4>
                 <img className={shareButtonImgClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
