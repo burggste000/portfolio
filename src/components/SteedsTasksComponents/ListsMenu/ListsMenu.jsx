@@ -9,6 +9,7 @@ const ListsMenu=props=>{
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
     const[lists,setLists]=react.useState(null);
+    const[newList,setNewList]=react.useState('');
 
     react.useEffect(()=>{
         if(props.listsMenuClicked===true){
@@ -125,6 +126,7 @@ const ListsMenu=props=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForLists(response.accessToken).then(response=>{
                 setLists(response);
+                console.log(lists);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
@@ -138,8 +140,17 @@ const ListsMenu=props=>{
     react.useEffect(()=>{
         getLists();
     },[]);
-
-    const[newList,setNewList]=react.useState('');
+{/*Working here*/}
+    const collectListNames=()=>{
+        let nameArr=[];
+        let list=document.getElementById("listsMenu").children[1].children[4].children;
+        for(let i=0;i<(list.length-3);++i){
+            //I had to put -3 in the conditional for this loop to remove blank indexes
+            nameArr.push(document.getElementById("listsMenu").children[1].children[4].children[i].innerText);
+        }
+        console.log("my list names array: "+nameArr);
+        console.log(nameArr);
+    };
 
     return(
         <div id={props.listsMenuClicked===false?"hideListsMenu":listsMenuId}>
@@ -179,7 +190,7 @@ const ListsMenu=props=>{
                     </div>
                     <div>
                         <img className="apiButtons"src="https://image.shutterstock.com/image-vector/google-docs-app-icon-vector-600w-1844051089.jpg"alt="api choices" />
-                        <img id="myAppButton"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
+                        <img id="myAppButton"onClick={collectListNames}src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="api choices" />
                         <img className="apiButtons"src="https://image.shutterstock.com/image-vector/check-mark-icon-vector-illustration-600w-1740969311.jpg"alt="api choices" />
                     </div>
                 </div>
