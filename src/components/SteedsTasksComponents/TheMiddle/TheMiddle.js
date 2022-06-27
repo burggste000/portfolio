@@ -121,6 +121,16 @@ const TheMiddle=props=>{
         }
     };
 
+    const collectListNames=()=>{
+        let nameArr=[];
+        let list=document.getElementById("listsMenu").children[1].children[4].children;
+        for(let i=0;i<(list.length-3);++i){
+            //I had to put -3 in the conditional for this loop to remove blank indexes
+            nameArr.push(document.getElementById("listsMenu").children[1].children[4].children[i].innerText);
+        }
+        console.log("my list names array: "+nameArr);
+    };
+
     const createTaskInputDecideClass=()=>{
         if(props.listsMenuClicked===true&&createTaskInputFocused===false){
             return"createTaskInput";
@@ -198,8 +208,8 @@ const TheMiddle=props=>{
                 <h4 className={sortButtonTextClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}onClick={()=>props.setSortMenuClicked(!props.sortMenuClicked)}>Sort</h4>
                 <img className={shareButtonImgClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
                 <h4 className={shareButtonTextClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
-                <img className={suggestionsButtonImgClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>props.setSuggestionsClicked(!props.suggestionsClicked)}src="https://image.shutterstock.com/image-vector/idea-line-icon-600w-1033780723.jpg"alt="tips" />
-                <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>props.setSuggestionsClicked(!props.suggestionsClicked)}>Suggestions</h4>
+                <img className={suggestionsButtonImgClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>{collectListNames();props.setSuggestionsClicked(!props.suggestionsClicked);}}src="https://image.shutterstock.com/image-vector/idea-line-icon-600w-1033780723.jpg"alt="tips" />
+                <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>{collectListNames();props.setSuggestionsClicked(!props.suggestionsClicked);}}>Suggestions</h4>
             </div>
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
