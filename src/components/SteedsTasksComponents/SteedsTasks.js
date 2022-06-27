@@ -9,6 +9,7 @@ import{SuggestionsMenu}from"./SuggestionsMenu/SuggestionsMenu.jsx";
 import react from"react";
 
 const SteedsTasks=()=>{
+    const[lists,setLists]=react.useState(null);
     const[settingsIconClicked,setSettingsIconClicked]=react.useState(false);
     const[profileIconClicked,setProfileIconClicked]=react.useState(false);
     const[listsMenuClicked,setListsMenuClicked]=react.useState(true);
@@ -19,6 +20,7 @@ const SteedsTasks=()=>{
     const[sortMenuClicked,setSortMenuClicked]=react.useState(false);
     const[suggestionsClicked,setSuggestionsClicked]=react.useState(false);
 
+
     return(
         <>
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
@@ -27,8 +29,8 @@ const SteedsTasks=()=>{
             <OptionsMenu centerPageOptions={centerPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked} />
             <SortMenu sortMenuClicked={sortMenuClicked}currentList={currentList} />
             <SuggestionsMenu suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
-            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
+            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber}lists={lists}setLists={setLists} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked}lists={lists}setLists={setLists} />
         </>
     );
 };

@@ -8,7 +8,6 @@ import{useMsal}from"@azure/msal-react";
 const ListsMenu=props=>{
     const[listsMenuId,setListsMenuId]=react.useState("listsMenu");
     const[screenWidth,setScreenWidth]=react.useState(window.innerWidth);
-    const[lists,setLists]=react.useState(null);
     const[newList,setNewList]=react.useState('');
 
     react.useEffect(()=>{
@@ -33,7 +32,7 @@ const ListsMenu=props=>{
 
     window.onresize=checkWindowSize;
 
-    const findListByName=name=>lists.value.find(value=>value.displayName===name);
+    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
 
     const findListIdByName=name=>findListByName(name).id;
 
@@ -125,12 +124,12 @@ const ListsMenu=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForLists(response.accessToken).then(response=>{
-                setLists(response);
+                props.setLists(response);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForLists(response.accessToken).then(response=>{
-                    setLists(response);
+                    props.setLists(response);
                 });
             });
         });
@@ -160,10 +159,10 @@ const ListsMenu=props=>{
                 </div>
                 <div id={props.currentList!=="Tasks"?"listsMenuTasksDiv":"listsMenuTasksDivDark"}onClick={clickedListDiv}>
                     <img id={props.currentList!=="Tasks"?"listsMenuTasksImage":"listsMenuTasksImageDark"}src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text"onClick={clickedListImg} />
-                    <h4 id={props.currentList!=="Tasks"?"listsMenuTasksText":"listsMenuTasksTextBlue"}onClick={clickedListText}>{lists!==null?lists.value[0].displayName:"loading lists"}</h4>
+                    <h4 id={props.currentList!=="Tasks"?"listsMenuTasksText":"listsMenuTasksTextBlue"}onClick={clickedListText}>{props.lists!==null?props.lists.value[0].displayName:"loading lists"}</h4>
                 </div>
                 <div id="listsMenuMyListsBigDiv">
-                    {lists!==null?lists.value.map((value,index)=>{if(index>0){return(<div className={props.currentList!==value.displayName?"myListsDiv":"myListsDivDark"}key={index+0.5}onClick={clickedListDiv}><img className={props.currentList!==value.displayName?"myListsImages":"myListsImagesDark"}src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list"onClick={clickedListImg} /><h4 className={props.currentList!==value.displayName?"myListsText":"myListsTextBlue"}onClick={clickedListText}key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                    {props.lists!==null?props.lists.value.map((value,index)=>{if(index>0){return(<div className={props.currentList!==value.displayName?"myListsDiv":"myListsDivDark"}key={index+0.5}onClick={clickedListDiv}><img className={props.currentList!==value.displayName?"myListsImages":"myListsImagesDark"}src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list"onClick={clickedListImg} /><h4 className={props.currentList!==value.displayName?"myListsText":"myListsTextBlue"}onClick={clickedListText}key={index}>{value.displayName}</h4></div>);}}):"loading..."}
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>

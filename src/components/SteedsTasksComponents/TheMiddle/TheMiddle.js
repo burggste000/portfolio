@@ -1,6 +1,9 @@
 import "./theMiddle.css";
 import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
 import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
+import{callMsGraphForListTasks}from"../../../graph.js";
+import{graphConfig,loginRequest}from"../../../authConfig.js";
+import{useMsal}from"@azure/msal-react";
 import react from"react";
 
 const TheMiddle=props=>{
@@ -128,7 +131,31 @@ const TheMiddle=props=>{
             //I had to put -3 in the conditional for this loop to remove blank indexes
             nameArr.push(document.getElementById("listsMenu").children[1].children[4].children[i].innerText);
         }
-        console.log("my list names array: "+nameArr);
+        return nameArr;
+    };
+
+    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
+
+    const findListIdByName=name=>findListByName(name).id;
+
+    const{instance:instance2,accounts}=useMsal();
+
+    const getListTasks=()=>{
+        let listsNamesArr=collectListNames();
+        
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(listsNamesArr[0])+"/tasks";  
+
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+            });
+        });
     };
 
     const createTaskInputDecideClass=()=>{
@@ -208,8 +235,8 @@ const TheMiddle=props=>{
                 <h4 className={sortButtonTextClass()}onMouseEnter={()=>setSortHovered(true)}onMouseLeave={()=>setSortHovered(false)}onClick={()=>props.setSortMenuClicked(!props.sortMenuClicked)}>Sort</h4>
                 <img className={shareButtonImgClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}src="https://image.shutterstock.com/image-illustration/add-friends-icon-600w-1184815669.jpg"alt="text" />
                 <h4 className={shareButtonTextClass()}onMouseEnter={()=>setShareHovered(true)}onMouseLeave={()=>setShareHovered(false)}>Share</h4>
-                <img className={suggestionsButtonImgClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>{collectListNames();props.setSuggestionsClicked(!props.suggestionsClicked);}}src="https://image.shutterstock.com/image-vector/idea-line-icon-600w-1033780723.jpg"alt="tips" />
-                <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>{collectListNames();props.setSuggestionsClicked(!props.suggestionsClicked);}}>Suggestions</h4>
+                <img className={suggestionsButtonImgClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>props.setSuggestionsClicked(!props.suggestionsClicked)}src="https://image.shutterstock.com/image-vector/idea-line-icon-600w-1033780723.jpg"alt="tips" />
+                <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>props.setSuggestionsClicked(!props.suggestionsClicked)}>Suggestions</h4>
             </div>
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
