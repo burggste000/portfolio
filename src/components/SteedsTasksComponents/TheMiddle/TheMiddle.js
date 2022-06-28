@@ -1,9 +1,6 @@
 import "./theMiddle.css";
 import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
 import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
-import{callMsGraphForListTasks}from"../../../graph.js";
-import{graphConfig,loginRequest}from"../../../authConfig.js";
-import{useMsal}from"@azure/msal-react";
 import react from"react";
 
 const TheMiddle=props=>{
@@ -96,6 +93,7 @@ const TheMiddle=props=>{
             return"hide";
         }
     };
+    
     const suggestionsButtonImgClass=()=>{
         if(props.currentList!=="My Day"){
             return"hide";
@@ -122,40 +120,6 @@ const TheMiddle=props=>{
                 return"centerPageRightWordsDark";
             }
         }
-    };
-
-    const collectListNames=()=>{
-        let nameArr=[];
-        let list=document.getElementById("listsMenu").children[1].children[4].children;
-        for(let i=0;i<(list.length-3);++i){
-            //I had to put -3 in the conditional for this loop to remove blank indexes
-            nameArr.push(document.getElementById("listsMenu").children[1].children[4].children[i].innerText);
-        }
-        return nameArr;
-    };
-
-    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
-
-    const findListIdByName=name=>findListByName(name).id;
-
-    const{instance:instance2,accounts}=useMsal();
-
-    const getListTasks=()=>{
-        let listsNamesArr=collectListNames();
-        
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(listsNamesArr[0])+"/tasks";  
-
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
-            });
-        });
     };
 
     const createTaskInputDecideClass=()=>{
