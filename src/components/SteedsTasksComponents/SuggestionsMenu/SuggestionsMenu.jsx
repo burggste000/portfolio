@@ -55,6 +55,7 @@ const SuggestionsMenu=props=>{
         }
     };
 
+//Put a break point in this, to see what is happening when it is called. Why isn't the console printing "hit hook"?
     react.useEffect(()=>{
         if(props.suggestionsClicked===true){
             getListTasks();
