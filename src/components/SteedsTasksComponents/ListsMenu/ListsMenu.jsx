@@ -1,7 +1,9 @@
 import"./listsMenu.css";
 import react from"react";
-import{graphConfig,loginRequest}from"../../../authConfig.js";
-import{callMsGraphForListTasks,callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{loginRequest}from"../../../authConfig.js";
+import{callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{StaticLists}from"./StaticLists/StaticLists.jsx";
+import{DynamicLists}from"./DynamicLists/DynamicLists.jsx";
 import{useMsal}from"@azure/msal-react";
 
 
@@ -32,69 +34,7 @@ const ListsMenu=props=>{
 
     window.onresize=checkWindowSize;
 
-    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
-
-    const findListIdByName=name=>findListByName(name).id;
-
-    const{instance:instance2,accounts}=useMsal();
-
-    const clickedListDiv=event=>{
-        let thisText=event.target.children[1].textContent;
-        props.setCurrentList(thisText);
-        
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
-            });
-        });
-    };
-
-    const clickedListText=event=>{
-        let thisText=event.target.textContent;
-        props.setCurrentList(thisText);
-
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
-            });
-        });
-
-        event.stopPropagation();
-    };
-    
-    const clickedListImg=event=>{
-        let thisText=event.target.nextElementSibling.textContent;
-        props.setCurrentList(thisText);
-        
-        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
-            });
-        });
-
-        event.stopPropagation();
-    };
+    const{instance:instance2,accounts}=useMsal();    
     
     const createList=string=>{
         const request={
@@ -145,24 +85,9 @@ const ListsMenu=props=>{
                 <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
-                <div id={props.currentList!=="My Day"?"listsMenuDayDiv":"listsMenuDayDivDark"}onClick={clickedListDiv}>
-                    <img id={props.currentList!=="My Day"?"listsMenuDayImage":"listsMenuDayImageDark"}src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text"onClick={clickedListImg} />
-                    <h4 id={props.currentList!=="My Day"?"listsMenuDayText":"listsMenuDayTextBlue"}onClick={clickedListText}>My Day</h4>
-                </div>
-                <div id={props.currentList!=="Assigned To Me"?"listsMenuAssignedDiv":"listsMenuAssignedDivDark"}onClick={clickedListDiv}>
-                    <img id={props.currentList!=="Assigned To Me"?"listsMenuAssignedImage":"listsMenuAssignedImageDark"}src="https://image.shutterstock.com/image-vector/flat-portrait-black-man-icon-600w-2134341081.jpg"alt="text"onClick={clickedListImg} />
-                    <h4 id={props.currentList!=="Assigned To Me"?"listsMenuAssignedText":"listsMenuAssignedTextBlue"}onClick={clickedListText}>Assigned To Me</h4>
-                </div>
-                <div id={props.currentList!=="Flagged email"?"listsMenuFlaggedDiv":"listsMenuFlaggedDivDark"}onClick={clickedListDiv}>
-                    <img id={props.currentList!=="Flagged email"?"listsMenuFlaggedImage":"listsMenuFlaggedImageDark"}src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text"onClick={clickedListImg} />
-                    <h4 id={props.currentList!=="Flagged email"?"listsMenuFlaggedText":"listsMenuFlaggedTextBlue"}onClick={clickedListText}>Flagged email</h4>
-                </div>
-                <div id={props.currentList!=="Tasks"?"listsMenuTasksDiv":"listsMenuTasksDivDark"}onClick={clickedListDiv}>
-                    <img id={props.currentList!=="Tasks"?"listsMenuTasksImage":"listsMenuTasksImageDark"}src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text"onClick={clickedListImg} />
-                    <h4 id={props.currentList!=="Tasks"?"listsMenuTasksText":"listsMenuTasksTextBlue"}onClick={clickedListText}>{props.lists!==null?props.lists.value[0].displayName:"loading lists"}</h4>
-                </div>
+                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists} />
                 <div id="listsMenuMyListsBigDiv">
-                    {props.lists!==null?props.lists.value.map((value,index)=>{if(index>0){return(<div className={props.currentList!==value.displayName?"myListsDiv":"myListsDivDark"}key={index+0.5}onClick={clickedListDiv}><img className={props.currentList!==value.displayName?"myListsImages":"myListsImagesDark"}src="https://image.shutterstock.com/image-vector/modern-flat-sliders-icon-symbol-600w-2108399819.jpg"alt="list"onClick={clickedListImg} /><h4 className={props.currentList!==value.displayName?"myListsText":"myListsTextBlue"}onClick={clickedListText}key={index}>{value.displayName}</h4></div>);}}):"loading..."}
+                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList} />
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
