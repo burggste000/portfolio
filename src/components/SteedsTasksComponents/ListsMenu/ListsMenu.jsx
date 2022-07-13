@@ -87,7 +87,7 @@ const ListsMenu=props=>{
             <div id="listsScrollDiv">
                 <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists} />
                 <div id="listsMenuMyListsBigDiv">
-                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList} />
+                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks} />
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>
