@@ -21,7 +21,20 @@ const DynamicLists=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                console.log("response.value: "+response.value);
+                let thisResponse=response.value;
+                console.log("thisResponse: "+thisResponse);
+                props.setCurrentListTasks(thisResponse);
+                console.log("props.currentListTasks: "+props.currentListTasks);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks[i].status==="completed"){
+                        ++count;
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
@@ -39,7 +52,20 @@ const DynamicLists=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                console.log("response.value: "+response.value);
+                let thisResponse=response.value;
+                console.log("thisResponse: "+thisResponse);
+                props.setCurrentListTasks(thisResponse);
+                console.log("props.currentListTasks: "+props.currentListTasks);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks[i].status==="completed"){
+                        ++count;
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
@@ -59,7 +85,20 @@ const DynamicLists=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForListTasks(response.accessToken).then(response=>{props.setCurrentListTasks(response.value);console.log(props.currentListTasks);let count=0;for(let i=0;i<props.currentListTasks.length;++i){if(props.currentListTasks[i].status==="completed"){++count;}}props.setCompletedNumber(count);});
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                console.log("response.value: "+response.value);
+                let thisResponse=response.value;
+                console.log("thisResponse: "+thisResponse);
+                props.setCurrentListTasks(thisResponse);
+                console.log("props.currentListTasks: "+props.currentListTasks);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks[i].status==="completed"){
+                        ++count;
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
