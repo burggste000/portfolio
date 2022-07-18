@@ -22,11 +22,8 @@ const DynamicLists=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
-                console.log("response.value: "+response.value);
                 let thisResponse=response.value;
-                console.log("thisResponse: "+thisResponse);
                 props.setCurrentListTasks(thisResponse);
-                console.log("props.currentListTasks: "+props.currentListTasks);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
                     if(props.currentListTasks[i].status==="completed"){
@@ -53,11 +50,8 @@ const DynamicLists=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
-                console.log("response.value: "+response.value);
                 let thisResponse=response.value;
-                console.log("thisResponse: "+thisResponse);
                 props.setCurrentListTasks(thisResponse);
-                console.log("props.currentListTasks: "+props.currentListTasks);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
                     if(props.currentListTasks[i].status==="completed"){
@@ -86,15 +80,14 @@ const DynamicLists=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
-                console.log("response.value: "+response.value);
                 let thisResponse=response.value;
-                console.log("thisResponse: "+thisResponse);
                 props.setCurrentListTasks(thisResponse);
-                console.log("props.currentListTasks: "+props.currentListTasks);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks[i].status==="completed"){
-                        ++count;
+                    if(props.currentListTasks!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
                     }
                 }
                 props.setCompletedNumber(count);
