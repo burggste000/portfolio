@@ -186,6 +186,9 @@
 #createTaskCircle:hover{
     cursor:pointer;
 }
+#createTaskForm{
+    display:inline-block;
+}
 .createTaskInput{
     height:30px;
     width:71.8vw;
