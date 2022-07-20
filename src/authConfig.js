@@ -21,5 +21,6 @@ export const msalConfig = {
       graphMePhotoEndpoint:"https://graph.microsoft.com/v1.0/me/photos/48x48/$value",
       graphMeListsEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists",
       graphMeCreateListEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists",
-      graphMeListTasksEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/AQMkADAwATdiZmYAZC04MjFkLTI4OAA1LTAwAi0wMAoALgAAA_IJgNVBHrVJiNZpiwJkUGwBAPXTwCAk02VAkfFU3LpCzLUABTdRA9QAAAA=/tasks"
+      graphMeListTasksEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/AQMkADAwATdiZmYAZC04MjFkLTI4OAA1LTAwAi0wMAoALgAAA_IJgNVBHrVJiNZpiwJkUGwBAPXTwCAk02VAkfFU3LpCzLUABTdRA9QAAAA=/tasks",
+      graphMeCreateTaskEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/"
   };

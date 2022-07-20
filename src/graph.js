@@ -42,7 +42,7 @@ export function callMsGraphForLists(accessToken){
     return fetch(graphConfig.graphMeListsEndpoint, {
         method:"GET",
         headers:{ "Authorization":`Bearer ${accessToken}`}
-        })
+    })
     .then(response=>response.json())
     .catch(error=>console.log(error));
 }
@@ -55,7 +55,7 @@ export function callMsGraphForCreateList(accessToken,str){
             "Content-Type":"application/json"
             },
         body:JSON.stringify({displayName:str})
-        });
+    });
 }
 
 export async function callMsGraphForListTasks(accessToken){
@@ -69,4 +69,15 @@ export async function callMsGraphForListTasks(accessToken){
     return fetch(graphConfig.graphMeListTasksEndpoint,options)
     .then(response=>response.json())
     .catch(error=>console.log(error));
+}
+
+export async function callMsGraphForCreateTask(accessToken,string){
+    return fetch(graphConfig.graphMeCreateTaskEndpoint,{
+        method:"POST",
+        headers:{
+            "Authorization":`Bearer ${accessToken}`,
+            "content-Type":"application/json"
+        },
+        body:JSON.stringify({title:string})
+    });
 }

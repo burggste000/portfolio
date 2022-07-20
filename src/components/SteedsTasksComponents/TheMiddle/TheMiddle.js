@@ -1,7 +1,11 @@
 import "./theMiddle.css";
 import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
 import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
+import{loginRequest,graphConfig}from"../../../authConfig.js";
+import{callMsGraphForLists,callMsGraphForCreateTask}from"../../../graph.js";
 import react from"react";
+import{useMsal}from"@azure/msal-react";
+
 
 const TheMiddle=props=>{
     const[sortHovered,setSortHovered]=react.useState(false);
@@ -10,6 +14,7 @@ const TheMiddle=props=>{
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
     const[completedTasks,setCompletedTasks]=react.useState(true);
     const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
+    const[newTask,setNewTask]=react.useState('');
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -185,6 +190,51 @@ const TheMiddle=props=>{
         }
     };
 
+    const findListId=()=>{
+        return props.lists.value.find(value=>value.displayName===props.currentList?value.id:'').id;
+    };
+
+    const{instance:instance2,accounts}=useMsal();
+
+    const getLists=()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>{
+                props.setLists(response);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>{
+                    props.setLists(response);
+                });
+            });
+        });
+    };
+
+    const createTask=string=>{
+        graphConfig.graphMeCreateTaskEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListId()+"/tasks"
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForCreateTask(response.accessToken,string)
+            .then(()=>{
+                getLists();
+            })
+            .catch(err=>console.log(err));
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForCreateTask(response.accessToken,string)
+                .then(()=>{
+                    getLists();
+                });
+            });
+        });
+    };
 
     return(
         <>
@@ -205,7 +255,10 @@ const TheMiddle=props=>{
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                 <img id={createTaskInputFocused===false?"hide":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
-                <input className={createTaskInputDecideClass()}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)} />
+{/*Working here*/}
+                <form onSubmit={event=>{event.preventDefault();createTask(newTask);setNewTask('');}}>
+                    <input className={createTaskInputDecideClass()}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)}onChange={event=>setNewTask(event.target.value)}value={newTask} />
+                </form>
                 <div id={createTaskInputFocused===false?"hideProfMenu":"createTaskIconsDiv"}>
                     <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/black-calendar-icon-design-vector-600w-1818197549.jpg"alt="calandar" />
                     <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/bell-icon-design-600w-1250740630.jpg"alt="bell" />

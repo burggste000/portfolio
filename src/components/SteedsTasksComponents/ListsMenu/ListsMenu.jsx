@@ -31,11 +31,29 @@ const ListsMenu=props=>{
             setScreenWidth(window.innerWidth);
         }
     };
-
+    
     window.onresize=checkWindowSize;
-
+    
     const{instance:instance2,accounts}=useMsal();    
     
+    const getLists=()=>{
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>{
+                props.setLists(response);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>{
+                    props.setLists(response);
+                });
+            });
+        });
+    };
+
     const createList=string=>{
         const request={
             ...loginRequest,
@@ -52,24 +70,6 @@ const ListsMenu=props=>{
                 callMsGraphForCreateList(response.accessToken,string)
                 .then(()=>{
                     getLists();
-                });
-            });
-        });
-    };
-
-    const getLists=()=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForLists(response.accessToken).then(response=>{
-                props.setLists(response);
-            });
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForLists(response.accessToken).then(response=>{
-                    props.setLists(response);
                 });
             });
         });
