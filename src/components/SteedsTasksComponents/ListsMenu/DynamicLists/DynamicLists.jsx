@@ -34,7 +34,7 @@ const DynamicLists=props=>{
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
             });
         });
     };
@@ -62,7 +62,7 @@ const DynamicLists=props=>{
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
             });
         });
 
@@ -94,7 +94,7 @@ const DynamicLists=props=>{
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response));
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
             });
         });
 
