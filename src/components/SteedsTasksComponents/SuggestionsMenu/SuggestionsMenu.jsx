@@ -7,7 +7,6 @@ import react from"react";
 const SuggestionsMenu=props=>{
     const[suggestionsMenuXhovered,setSuggestionsMenuXhovered]=react.useState(false);
 
-    {/*Working here*/}
     //Make a function that will get all the tasks from those lists.
 
     // const collectListNames=()=>{

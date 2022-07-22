@@ -254,7 +254,6 @@ const TheMiddle=props=>{
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                 <img id={createTaskInputFocused===false?"hide":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
-{/*Working here*/}
                 <form id="createTaskForm"onSubmit={event=>{event.preventDefault();createTask(newTask);setNewTask('');}}>
                     <input className={createTaskInputDecideClass()}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)}onChange={event=>setNewTask(event.target.value)}value={newTask} />
                 </form>
@@ -268,7 +267,6 @@ const TheMiddle=props=>{
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
-{/*Working here*/}
                         {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem value={value}index={index}key={index+0.5} />}}):''}
                     </div>
                     <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
