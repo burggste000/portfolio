@@ -26,8 +26,10 @@ const DynamicLists=props=>{
                 props.setCurrentListTasks(thisResponse);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks[i].status==="completed"){
-                        ++count;
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
                     }
                 }
                 props.setCompletedNumber(count);
@@ -54,8 +56,10 @@ const DynamicLists=props=>{
                 props.setCurrentListTasks(thisResponse);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks[i].status==="completed"){
-                        ++count;
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
                     }
                 }
                 props.setCompletedNumber(count);
@@ -84,7 +88,7 @@ const DynamicLists=props=>{
                 props.setCurrentListTasks(thisResponse);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks!==null){
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
                         if(props.currentListTasks[i].status==="completed"){
                             ++count;
                         }

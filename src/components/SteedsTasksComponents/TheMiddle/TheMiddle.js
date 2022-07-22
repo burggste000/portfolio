@@ -196,24 +196,6 @@ const TheMiddle=props=>{
 
     const{instance:instance2,accounts}=useMsal();
 
-    const getLists=()=>{
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForLists(response.accessToken).then(response=>{
-                props.setLists(response);
-            });
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForLists(response.accessToken).then(response=>{
-                    props.setLists(response);
-                });
-            });
-        });
-    };
-
     const createTask=string=>{
         graphConfig.graphMeCreateTaskEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListId()+"/tasks"
         const request={
@@ -223,14 +205,14 @@ const TheMiddle=props=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForCreateTask(response.accessToken,string)
             .then(()=>{
-                getLists();
+                console.log("The new task has been added.");
             })
             .catch(err=>console.log(err));
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCreateTask(response.accessToken,string)
                 .then(()=>{
-                    getLists();
+                    console.log("The new task has been added.");
                 });
             });
         });
