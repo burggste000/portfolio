@@ -30,7 +30,7 @@ const SteedsTasks=()=>{
             <SortMenu sortMenuClicked={sortMenuClicked}currentList={currentList} />
             <SuggestionsMenu suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber}lists={lists}setLists={setLists} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}completedNumber={completedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked}lists={lists}setLists={setLists} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}setCurrentListTasks={setCurrentListTasks}completedNumber={completedNumber}setCompletedNumber={setCompletedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked}lists={lists}setLists={setLists} />
         </>
     );
 };

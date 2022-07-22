@@ -2,7 +2,7 @@ import "./theMiddle.css";
 import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
 import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
 import{loginRequest,graphConfig}from"../../../authConfig.js";
-import{callMsGraphForLists,callMsGraphForCreateTask}from"../../../graph.js";
+import{callMsGraphForListTasks,callMsGraphForCreateTask}from"../../../graph.js";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 
@@ -194,6 +194,10 @@ const TheMiddle=props=>{
         return props.lists.value.find(value=>value.displayName===props.currentList?value.id:'').id;
     };
 
+    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
+
+    const findListIdByName=name=>findListByName(name).id;
+
     const{instance:instance2,accounts}=useMsal();
 
     const createTask=string=>{
@@ -205,8 +209,21 @@ const TheMiddle=props=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForCreateTask(response.accessToken,string)
             .then(()=>{
-                console.log("The new task has been added.");
-            })
+                graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(props.currentList)+"/tasks";  
+                callMsGraphForListTasks(response.accessToken).then(response=>{
+                    let thisResponse=response.value;
+                    props.setCurrentListTasks(thisResponse);
+                    let count=0;
+                    for(let i=0;i<thisResponse.length;++i){
+                        if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                            if(props.currentListTasks[i].status==="completed"){
+                                ++count;
+                            }
+                        }
+                    }
+                    props.setCompletedNumber(count);
+                });
+                })
             .catch(err=>console.log(err));
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
