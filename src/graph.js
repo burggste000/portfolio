@@ -20,8 +20,6 @@ export async function callMsGraphForUser(accessToken) {
 }
 // The links below were for accessing the tokens in the function directly under them:
 // https://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0
-// https://docs.microsoft.com/en-us/graph/api/profilephoto-get?view=graph-rest-1.0
-// https://developer.mozilla.org/en-US/docs/Web/API/Response/blob
 
 export async function callMsGraphForPhoto(accessToken){
     const headers=new Headers();
