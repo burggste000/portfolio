@@ -74,8 +74,19 @@ export async function callMsGraphForCreateTask(accessToken,string){
         method:"POST",
         headers:{
             "Authorization":`Bearer ${accessToken}`,
-            "content-Type":"application/json"
+            "Content-Type":"application/json"
         },
         body:JSON.stringify({title:string})
+    });
+}
+
+export async function callMsGraphForCompleteTask(accessToken){
+    return fetch(graphConfig.graphMeCompleteTaskEndpoint,{
+        method:"PATCH",
+        headers:{
+            "Authorization":`Bearer ${accessToken}`,
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({status:"completed"})
     });
 }
