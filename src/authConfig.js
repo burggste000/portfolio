@@ -2,7 +2,7 @@ export const msalConfig = {
     auth: {
       clientId: "9d2af0e5-ef8d-4586-a7be-927b7f9b5182",
       authority: "https://login.microsoftonline.com/common", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-      redirectUri: "http://localhost:3000",
+      redirectUri: "https://burggste000.github.io/task-integration",
     },
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
