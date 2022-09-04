@@ -1,4 +1,4 @@
-### **Steeds Tasks**
+### **Task Integration**
 ## **Detailed Project Functionality** 
 ### **Front End**
 ##### **Sign-in Page**
