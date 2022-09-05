@@ -8,8 +8,7 @@ img{
     width:150px;
 }
 p{
-    display:flex;
-    justify-content:center;
+    text-align:center;
 }
 #appName{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

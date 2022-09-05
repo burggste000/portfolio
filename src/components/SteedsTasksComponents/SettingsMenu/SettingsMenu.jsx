@@ -419,7 +419,7 @@ const SettingsMenu=props=>{
                     <img id="settingsLogo"src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="text" />
                 </div>
                 <div id="settingsCopyRight">
-                    <h3 id="copyRightsHeader">Steeds Tasks</h3>
+                    <h3 id="copyRightsHeader">Task Management</h3>
                     <p className="settingsCopyRightText">Copyright &copy; 2022 Task Management</p>
                     <p className="settingsCopyRightText">All rights reserved</p>
                     <p className="settingsCopyRightText">Version 3.19.0</p>
