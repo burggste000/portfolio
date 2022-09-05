@@ -413,16 +413,14 @@ const SettingsMenu=props=>{
 
             <a className="settingsMenuThinLinks"href="microsoftprivacy.com">Privacy and cookies</a>
             <a className="settingsMenuThinLinks"href="microsoftexport.com">Export your info</a>
-            <p id="settingsMenuText">Use of the Steeds Tasks web app is governed by the</p>
-            <a className="settingsMenuThinLinks"href="microsoftservices.com">Microsoft Services Agreement</a>
             <a className="settingsMenuFatLinks"href="microsoftpartynotices.com">Third Party Notices</a>
             <div>
                 <div id="settingsLogoDiv">
-                    <img id="settingsLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
+                    <img id="settingsLogo"src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="text" />
                 </div>
                 <div id="settingsCopyRight">
                     <h3 id="copyRightsHeader">Steeds Tasks</h3>
-                    <p className="settingsCopyRightText">Copyright &copy; 2022 Steeds Tasks</p>
+                    <p className="settingsCopyRightText">Copyright &copy; 2022 Task Management</p>
                     <p className="settingsCopyRightText">All rights reserved</p>
                     <p className="settingsCopyRightText">Version 3.19.0</p>
                 </div>

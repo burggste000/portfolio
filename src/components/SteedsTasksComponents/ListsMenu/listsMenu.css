@@ -120,17 +120,3 @@
     position:fixed;
     bottom:-11px;
 }
-.apiButtons{
-    height:40px;
-    width:40px;
-}
-.apiButtons:hover{
-    cursor:pointer;
-}
-#myAppButton{
-    height:41px;
-    width:120px;
-}
-#myAppButton:hover{
-    cursor:pointer;
-}
