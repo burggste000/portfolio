@@ -17,9 +17,9 @@ function App(){
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>
                 <div id="logo">
-                <img src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
+                <img src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="text" />
                 </div>
-                <p id="appName">Steed's Tasks</p>
+                <p id="appName">Task Management</p>
                 <p id="motto">The better organized, the better your day will go!</p>
                 <div id="signBtn">
                     { isAuthenticated ? <SignOutButton /> : <LandingPage /> }
