@@ -46,7 +46,7 @@ const TheHeader=(props)=>{
     return(
         <header>
             <div id="leftHeader">
-                <h1>Steeds Tasks</h1>
+                <h1>Task Management</h1>
             </div>
             <div id={searchHovered===false?"middleHeader":"brightMiddleHeader"}onMouseEnter={()=>setSearchHovered(true)}onMouseLeave={()=>searchFocused===true?null:setSearchHovered(false)}>
                 <img className={searchImgClass}onClick={clickSearchPic}src="https://image.shutterstock.com/image-vector/search-icon-flat-vector-graphic-600w-1582905133.jpg"alt="text" />
