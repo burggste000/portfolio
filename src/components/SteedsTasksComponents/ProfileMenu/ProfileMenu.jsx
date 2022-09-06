@@ -49,7 +49,7 @@ const ProfileMenu=props=>{
     return(
         <div id={props.profileIconClicked===false?"hideProfMenu":"profMenu"}onMouseLeave={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}onScroll={()=>{props.setProfileIconClicked(!props.profileIconClicked)}}>
             <div>
-                <img id="profLogo"src="https://image.shutterstock.com/image-vector/silhouette-horses-running-blue-background-600w-704541676.jpg"alt="text" />
+                <img id="profLogo"src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="text" />
                 <div>
                     <h5 id="signOut"onClick={()=>handleLogout(instance)}>Sign out</h5>
                 </div>
