@@ -12,7 +12,6 @@ const StaticLists=props=>{
     const{instance:instance2,accounts}=useMsal();    
 
     const clickedListDiv=event=>{
-        console.log(props.lists);
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         
@@ -24,7 +23,6 @@ const StaticLists=props=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
                 let thisResponse=response.value;
-                console.log(thisResponse);
                 props.setCurrentListTasks(thisResponse);
                 let count=0;
                 for(let i=0;i<thisResponse.length;++i){
