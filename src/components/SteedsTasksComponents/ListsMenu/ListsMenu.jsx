@@ -85,7 +85,7 @@ const ListsMenu=props=>{
                 <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
-                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists} />
+                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists}setCurrentListTasks={props.setCurrentListTasks}setCompletedNumber={props.setCompletedNumber} />
                 <div id="listsMenuMyListsBigDiv">
                     <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks}setCompletedNumber={props.setCompletedNumber} />
                     <div id="listsMenuNewListDiv">

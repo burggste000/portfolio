@@ -5,9 +5,42 @@ import{useMsal}from"@azure/msal-react";
 
 const StaticLists=props=>{
 
+    const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
+
+    const findListIdByName=name=>findListByName(name).id;
+
+    const{instance:instance2,accounts}=useMsal();    
+
     const clickedListDiv=event=>{
+        console.log(props.lists);
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
+        
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                let thisResponse=response.value;
+                console.log(thisResponse);
+                props.setCurrentListTasks(thisResponse);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
+            });
+        });
     };
     
     const clickedListImg=event=>{
