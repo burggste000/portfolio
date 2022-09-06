@@ -267,8 +267,6 @@ const TheMiddle=props=>{
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
-{/*Make a function that gets the array index number of the task I am on so I can access it's .status and change it to completed with an on click event*/}
-{/*Working here*/}
                         {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}}):''}
                     </div>
                     <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
