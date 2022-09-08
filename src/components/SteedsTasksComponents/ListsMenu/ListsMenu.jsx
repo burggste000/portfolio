@@ -1,7 +1,7 @@
 import"./listsMenu.css";
 import react from"react";
-import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForLists,callMsGraphForCreateList}from"../../../graph.js";
+import{loginRequest,graphConfig}from"../../../authConfig.js";
+import{callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
 import{StaticLists}from"./StaticLists/StaticLists.jsx";
 import{DynamicLists}from"./DynamicLists/DynamicLists.jsx";
 import{useMsal}from"@azure/msal-react";
@@ -36,7 +36,9 @@ const ListsMenu=props=>{
     
     const{instance:instance2,accounts}=useMsal();    
     
+
     const getLists=()=>{
+        let tasksListId;
         const request={
             ...loginRequest,
             account:accounts[0]
@@ -44,6 +46,26 @@ const ListsMenu=props=>{
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForLists(response.accessToken).then(response=>{
                 props.setLists(response);
+                tasksListId=response.value[0].id;
+                console.log(response);
+                console.log(tasksListId);
+                graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+tasksListId+"/tasks";
+            }).then(()=>{
+                instance2.acquireTokenSilent(request).then(response=>{
+                    callMsGraphForListTasks(response.accessToken).then(response=>{
+                        let thisResponse=response.value;
+                        props.setCurrentListTasks(thisResponse);
+                        let count=0;
+                        for(let i=0;i<thisResponse.length;++i){
+                            if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                                if(props.currentListTasks[i].status==="completed"){
+                                    ++count;
+                                }
+                            }
+                        }
+                        props.setCompletedNumber(count);
+                    });
+                });
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
