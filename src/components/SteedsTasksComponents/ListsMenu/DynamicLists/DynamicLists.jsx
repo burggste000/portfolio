@@ -15,7 +15,6 @@ const DynamicLists=props=>{
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         
-        console.log(props.lists);
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
         const request={
             ...loginRequest,

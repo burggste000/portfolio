@@ -135,8 +135,13 @@ const OptionsMenu=props=>{
     };
 
     const deleteList=()=>{
-        //Make a loop through lists to find the id of currentList.
-        let thisListId="AQMkADAwATdiZmYAZC04MjFkLTI4OAA1LTAwAi0wMAoALgAAA_IJgNVBHrVJiNZpiwJkUGwBAPXTwCAk02VAkfFU3LpCzLUABayOM78AAAA=";
+        let thisListId;
+        for(let i=0;i<props.lists.value.length;++i){
+            if(props.lists.value[i].displayName===props.currentList){
+                thisListId=props.lists.value[i].id;
+                break;
+            }
+        }
         graphConfig.graphMeDeleteListEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+thisListId;
         const request={
             ...loginRequest,
