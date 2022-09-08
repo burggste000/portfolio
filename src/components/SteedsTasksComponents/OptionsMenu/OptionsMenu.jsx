@@ -182,10 +182,9 @@ const OptionsMenu=props=>{
                 <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
                 <p id="printListText">Print list</p>
             </div>
-{/*Working here*/}
             <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}onClick={()=>deleteList()}>
-                <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
-                <p id="deleteListText">Delete List</p>
+                <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}onClick={()=>deleteList()}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
+                <p id="deleteListText"onClick={()=>deleteList()}>Delete List</p>
             </div>
             <div id={themesOptionsId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                 <div id="darkBlue">
