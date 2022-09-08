@@ -44,12 +44,60 @@ const StaticLists=props=>{
     const clickedListImg=event=>{
         let thisText=event.target.nextElementSibling.textContent;
         props.setCurrentList(thisText);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                let thisResponse=response.value;
+                props.setCurrentListTasks(thisResponse);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
+            });
+        });
         event.stopPropagation();
     };
 
     const clickedListText=event=>{
         let thisText=event.target.textContent;
         props.setCurrentList(thisText);
+        graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForListTasks(response.accessToken).then(response=>{
+                let thisResponse=response.value;
+                props.setCurrentListTasks(thisResponse);
+                let count=0;
+                for(let i=0;i<thisResponse.length;++i){
+                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                        if(props.currentListTasks[i].status==="completed"){
+                            ++count;
+                        }
+                    }
+                }
+                props.setCompletedNumber(count);
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForListTasks(response.accessToken).then(response=>props.setCurrentListTasks(response.value));
+            });
+        });
         event.stopPropagation();
     };
     
