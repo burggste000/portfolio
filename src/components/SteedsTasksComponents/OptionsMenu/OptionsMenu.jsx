@@ -1,5 +1,8 @@
 import"./optionsMenu.css";
+import{graphConfig,loginRequest}from"../../../authConfig.js";
+import{callMsGraphForDeleteList}from"../../../graph.js";
 import react from"react";
+import{useMsal}from"@azure/msal-react";
 
 const OptionsMenu=props=>{
     const[renameListHovered,setRenameListHovered]=react.useState(false);
@@ -131,6 +134,27 @@ const OptionsMenu=props=>{
         }
     };
 
+    const deleteList=()=>{
+        //Make a loop through lists to find the id of currentList.
+        let thisListId="AQMkADAwATdiZmYAZC04MjFkLTI4OAA1LTAwAi0wMAoALgAAA_IJgNVBHrVJiNZpiwJkUGwBAPXTwCAk02VAkfFU3LpCzLUABayOM78AAAA=";
+        graphConfig.graphMeDeleteListEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+thisListId;
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForDeleteList(response.accessToken).then(()=>{
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForDeleteList(response.accessToken).then(()=>{
+                });
+            });
+        });
+    };
+
+    const{instance:instance2,accounts}=useMsal();    
+
     return(
         <div id={centerPageOptionsMenuClass()}>
             <div id="listOptionsDiv">
@@ -153,7 +177,8 @@ const OptionsMenu=props=>{
                 <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
                 <p id="printListText">Print list</p>
             </div>
-            <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}>
+{/*Working here*/}
+            <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}onClick={()=>deleteList()}>
                 <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
                 <p id="deleteListText">Delete List</p>
             </div>

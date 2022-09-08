@@ -47,8 +47,6 @@ const ListsMenu=props=>{
             callMsGraphForLists(response.accessToken).then(response=>{
                 props.setLists(response);
                 tasksListId=response.value[0].id;
-                console.log(response);
-                console.log(tasksListId);
                 graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+tasksListId+"/tasks";
             }).then(()=>{
                 instance2.acquireTokenSilent(request).then(response=>{

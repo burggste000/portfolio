@@ -25,12 +25,10 @@ const TaskListItem=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForCompleteTask(response.accessToken).then(response=>{
-                console.log("entered .then");
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
                 callMsGraphForCompleteTask(response.accessToken).then(response=>{
-                    console.log("entered .then");
                 });
             });
         });

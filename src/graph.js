@@ -90,3 +90,13 @@ export async function callMsGraphForCompleteTask(accessToken){
         body:JSON.stringify({status:"completed"})
     });
 }
+
+export async function callMsGraphForDeleteList(accessToken){
+    return fetch(graphConfig.graphMeDeleteListEndpoint,{
+        method:"DELETE",
+        headers:{
+            "Authorization":`Bearer ${accessToken}`,
+            "Content-Type":"application/json"
+        }
+    });
+}
