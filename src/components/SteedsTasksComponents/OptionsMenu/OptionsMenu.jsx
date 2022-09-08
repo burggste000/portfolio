@@ -1,6 +1,6 @@
 import"./optionsMenu.css";
 import{graphConfig,loginRequest}from"../../../authConfig.js";
-import{callMsGraphForDeleteList}from"../../../graph.js";
+import{callMsGraphForLists,callMsGraphForListTasks,callMsGraphForDeleteList}from"../../../graph.js";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 
@@ -134,6 +134,43 @@ const OptionsMenu=props=>{
         }
     };
 
+    const getLists=()=>{
+        let tasksListId;
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>{
+                props.setLists(response);
+                tasksListId=response.value[0].id;
+                graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+tasksListId+"/tasks";
+            }).then(()=>{
+                instance2.acquireTokenSilent(request).then(response=>{
+                    callMsGraphForListTasks(response.accessToken).then(response=>{
+                        let thisResponse=response.value;
+                        props.setCurrentListTasks(thisResponse);
+                        let count=0;
+                        for(let i=0;i<thisResponse.length;++i){
+                            if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
+                                if(props.currentListTasks[i].status==="completed"){
+                                    ++count;
+                                }
+                            }
+                        }
+                        props.setCompletedNumber(count);
+                    });
+                });
+            });
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>{
+                    props.setLists(response);
+                });
+            });
+        });
+    };
+
     const deleteList=()=>{
         let thisListId;
         for(let i=0;i<props.lists.value.length;++i){
@@ -149,6 +186,9 @@ const OptionsMenu=props=>{
         };
         instance2.acquireTokenSilent(request).then(response=>{
             callMsGraphForDeleteList(response.accessToken).then(()=>{
+                getLists();
+            }).then(()=>{
+                props.setCurrentList("Tasks");
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
