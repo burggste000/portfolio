@@ -36,8 +36,31 @@ const ListsMenu=props=>{
     
     const{instance:instance2,accounts}=useMsal();    
     
-
     const getLists=()=>{
+        let tasksListId;
+        const request={
+            ...loginRequest,
+            account:accounts[0]
+        };
+        instance2.acquireTokenSilent(request).then(response=>{
+            callMsGraphForLists(response.accessToken).then(response=>{
+                props.setCurrentList(newList);
+                props.setLists(response);
+                props.setCurrentListTasks('');
+                tasksListId=response.value[0].id;
+                graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+tasksListId+"/tasks";
+            })
+        }).catch(()=>{
+            instance2.acquireTokenPopup(request).then(response=>{
+                callMsGraphForLists(response.accessToken).then(response=>{
+                    props.setLists(response);
+                });
+            });
+        });
+    };
+
+
+    const getListsWhenPageLoads=()=>{
         let tasksListId;
         const request={
             ...loginRequest,
@@ -96,7 +119,7 @@ const ListsMenu=props=>{
     };
 
     react.useEffect(()=>{
-        getLists();
+        getListsWhenPageLoads();
     },[]);
 
     return(
