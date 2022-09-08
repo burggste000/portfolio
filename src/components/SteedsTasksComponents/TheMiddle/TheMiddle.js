@@ -264,6 +264,7 @@ const TheMiddle=props=>{
                 </div>
                 <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
             </div>
+{/*Working here*/}
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
