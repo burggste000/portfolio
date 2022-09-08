@@ -213,15 +213,6 @@ const TheMiddle=props=>{
                 callMsGraphForListTasks(response.accessToken).then(response=>{
                     let thisResponse=response.value;
                     props.setCurrentListTasks(thisResponse);
-                    let count=0;
-                    for(let i=0;i<thisResponse.length;++i){
-                        if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
-                            if(props.currentListTasks[i].status==="completed"){
-                                ++count;
-                            }
-                        }
-                    }
-                    props.setCompletedNumber(count);
                 });
                 })
             .catch(err=>console.log(err));
@@ -273,6 +264,7 @@ const TheMiddle=props=>{
                         <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
                         <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
                         <h4 id="completedText">Completed</h4>
+{/*Working here*/}
                         <p id="completedNumber">{props.completedNumber}</p>
                     </div>
                     <div id="completedTasks">

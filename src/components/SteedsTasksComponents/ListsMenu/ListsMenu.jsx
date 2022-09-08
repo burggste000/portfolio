@@ -76,15 +76,6 @@ const ListsMenu=props=>{
                     callMsGraphForListTasks(response.accessToken).then(response=>{
                         let thisResponse=response.value;
                         props.setCurrentListTasks(thisResponse);
-                        let count=0;
-                        for(let i=0;i<thisResponse.length;++i){
-                            if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
-                                if(props.currentListTasks[i].status==="completed"){
-                                    ++count;
-                                }
-                            }
-                        }
-                        props.setCompletedNumber(count);
                     });
                 });
             });
@@ -128,9 +119,9 @@ const ListsMenu=props=>{
                 <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
-                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists}setCurrentListTasks={props.setCurrentListTasks}setCompletedNumber={props.setCompletedNumber} />
+                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists}setCurrentListTasks={props.setCurrentListTasks} />
                 <div id="listsMenuMyListsBigDiv">
-                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks}setCompletedNumber={props.setCompletedNumber} />
+                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks} />
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>

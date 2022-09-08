@@ -24,15 +24,6 @@ const StaticLists=props=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
                 let thisResponse=response.value;
                 props.setCurrentListTasks(thisResponse);
-                let count=0;
-                for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
-                        if(props.currentListTasks[i].status==="completed"){
-                            ++count;
-                        }
-                    }
-                }
-                props.setCompletedNumber(count);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
@@ -53,15 +44,6 @@ const StaticLists=props=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
                 let thisResponse=response.value;
                 props.setCurrentListTasks(thisResponse);
-                let count=0;
-                for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
-                        if(props.currentListTasks[i].status==="completed"){
-                            ++count;
-                        }
-                    }
-                }
-                props.setCompletedNumber(count);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
@@ -83,15 +65,6 @@ const StaticLists=props=>{
             callMsGraphForListTasks(response.accessToken).then(response=>{
                 let thisResponse=response.value;
                 props.setCurrentListTasks(thisResponse);
-                let count=0;
-                for(let i=0;i<thisResponse.length;++i){
-                    if(props.currentListTasks!==undefined&&props.currentListTasks!==null&&props.currentListTasks[i]!==undefined&&props.currentListTasks[i]!==null&&props.currentListTasks[i].status!==undefined&&props.currentListTasks[i].status!==null){
-                        if(props.currentListTasks[i].status==="completed"){
-                            ++count;
-                        }
-                    }
-                }
-                props.setCompletedNumber(count);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{
@@ -104,7 +77,7 @@ const StaticLists=props=>{
     return(
         <>
             <div id={props.currentList!=="My Day"?"listsMenuDayDiv":"listsMenuDayDivDark"}onClick={clickedListDiv}>
-                <img id={props.currentList!=="My Day"?"listsMenuDayImage":"listsMenuDayImageDark"}src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text"onClick={clickedListImg} />
+                <img id={props.currentList!=="My Day"?"listsMenuDayImage":"listsMenuDayImageDark"}onClick={clickedListImg}src="https://image.shutterstock.com/image-vector/sun-vector-icon-modern-design-600w-1415031134.jpg"alt="text" />
                 <h4 id={props.currentList!=="My Day"?"listsMenuDayText":"listsMenuDayTextBlue"}onClick={clickedListText}>My Day</h4>
             </div>
             <div id={props.currentList!=="Assigned To Me"?"listsMenuAssignedDiv":"listsMenuAssignedDivDark"}onClick={clickedListDiv}>
@@ -112,11 +85,11 @@ const StaticLists=props=>{
                 <h4 id={props.currentList!=="Assigned To Me"?"listsMenuAssignedText":"listsMenuAssignedTextBlue"}onClick={clickedListText}>Assigned To Me</h4>
             </div>
             <div id={props.currentList!=="Flagged email"?"listsMenuFlaggedDiv":"listsMenuFlaggedDivDark"}onClick={clickedListDiv}>
-                <img id={props.currentList!=="Flagged email"?"listsMenuFlaggedImage":"listsMenuFlaggedImageDark"}src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text"onClick={clickedListImg} />
+                <img id={props.currentList!=="Flagged email"?"listsMenuFlaggedImage":"listsMenuFlaggedImageDark"}onClick={clickedListImg}src="https://image.shutterstock.com/image-vector/line-icon-flag-600w-654361600.jpg"alt="text" />
                 <h4 id={props.currentList!=="Flagged email"?"listsMenuFlaggedText":"listsMenuFlaggedTextBlue"}onClick={clickedListText}>Flagged email</h4>
             </div>
             <div id={props.currentList!=="Tasks"?"listsMenuTasksDiv":"listsMenuTasksDivDark"}onClick={clickedListDiv}>
-                <img id={props.currentList!=="Tasks"?"listsMenuTasksImage":"listsMenuTasksImageDark"}src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text"onClick={clickedListImg} />
+                <img id={props.currentList!=="Tasks"?"listsMenuTasksImage":"listsMenuTasksImageDark"}onClick={clickedListImg}src="https://image.shutterstock.com/image-vector/home-icon-trendy-flat-style-600w-675381382.jpg"alt="text" />
                 <h4 id={props.currentList!=="Tasks"?"listsMenuTasksText":"listsMenuTasksTextBlue"}onClick={clickedListText}>{props.lists!==null?props.lists.value[0].displayName:"loading lists"}</h4>
             </div>
         </>

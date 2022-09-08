@@ -38,13 +38,6 @@ const SuggestionsMenu=props=>{
     //             callMsGraphForListTasks(response.accessToken).then(response=>{
     //                 props.setCurrentListTasks(response.value);
     //                 console.log(props.currentListTasks);
-    //                 let count=0;
-    //                 for(let i=0;i<props.currentListTasks.length;++i){
-    //                     if(props.currentListTasks[i].status==="completed"){
-    //                         ++count;
-    //                     }
-    //                 }
-    //                 props.setCompletedNumber(count);
     //             });
     //         }).catch(()=>{
     //             instance2.acquireTokenPopup(request).then(response=>{
