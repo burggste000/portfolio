@@ -189,6 +189,7 @@ const OptionsMenu=props=>{
                 getLists();
             }).then(()=>{
                 props.setCurrentList("Tasks");
+                props.setCenterPageOptions(false);
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{

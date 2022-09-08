@@ -26,7 +26,7 @@ const SteedsTasks=()=>{
             <TheHeader settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked}profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <ProfileMenu profileIconClicked={profileIconClicked}setProfileIconClicked={setProfileIconClicked} />
             <SettingsMenu settingsIconClicked={settingsIconClicked}setSettingsIconClicked={setSettingsIconClicked} />
-            <OptionsMenu centerPageOptions={centerPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked}lists={lists}setLists={setLists}setCurrentListTasks={setCurrentListTasks}setCompletedNumber={setCompletedNumber}setCurrentList={setCurrentList} />
+            <OptionsMenu centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked}lists={lists}setLists={setLists}setCurrentListTasks={setCurrentListTasks}setCompletedNumber={setCompletedNumber}setCurrentList={setCurrentList} />
             <SortMenu sortMenuClicked={sortMenuClicked}currentList={currentList} />
             <SuggestionsMenu suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
             <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber}lists={lists}setLists={setLists} />
