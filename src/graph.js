@@ -91,16 +91,16 @@ export async function callMsGraphForCompleteTask(accessToken){
     });
 }
 
-export async function callMsGraphForIncompleteTask(accessToken){
-    return fetch(graphConfig.graphMeIncompleteTaskEndpoint,{
-        method:"PATCH",
-        headers:{
-            "Authorization":`Bearer ${accessToken}`,
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({status:"notStarted"})
-    });
-}
+// export async function callMsGraphForIncompleteTask(accessToken){
+//     return fetch(graphConfig.graphMeIncompleteTaskEndpoint,{
+//         method:"PATCH",
+//         headers:{
+//             "Authorization":`Bearer ${accessToken}`,
+//             "Content-Type":"application/json"
+//         },
+//         body:JSON.stringify({status:"notStarted"})
+//     });
+// }
 
 export async function callMsGraphForDeleteList(accessToken){
     return fetch(graphConfig.graphMeDeleteListEndpoint,{

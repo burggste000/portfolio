@@ -1,8 +1,8 @@
-import{graphConfig,loginRequest}from "../../../../authConfig.js";
+// import{graphConfig,loginRequest}from "../../../../authConfig.js";
 import"./completedTasks.css";
 import react from"react";
-import{useMsal}from"@azure/msal-react";
-import{callMsGraphForIncompleteTask,callMsGraphForListTasks}from"../../../../graph.js";
+// import{useMsal}from"@azure/msal-react";
+// import{callMsGraphForIncompleteTask,callMsGraphForListTasks}from"../../../../graph.js";
 
 const CompletedTasks=props=>{
     const[starClicked,setStarClicked]=react.useState(false);
