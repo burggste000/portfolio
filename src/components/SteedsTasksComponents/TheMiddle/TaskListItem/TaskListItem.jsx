@@ -1,7 +1,7 @@
 import"./taskListItem.css";
 import react from"react";
 import{graphConfig,loginRequest}from"../../../../authConfig.js";
-import{callMsGraphForCompleteTask}from"../../../../graph.js";
+import{callMsGraphForCompleteTask,callMsGraphForListTasks}from"../../../../graph.js";
 import{useMsal}from"@azure/msal-react";
 
 const TaskListItem=props=>{
@@ -24,7 +24,14 @@ const TaskListItem=props=>{
             account:accounts[0]
         };
         instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForCompleteTask(response.accessToken).then(response=>{
+            callMsGraphForCompleteTask(response.accessToken).then(()=>{
+            }).then(()=>{
+                instance2.acquireTokenSilent(request).then(response=>{
+                    callMsGraphForListTasks(response.accessToken).then(response=>{
+                        let thisResponse=response.value;
+                        props.setCurrentListTasks(thisResponse);
+                    });
+                });
             });
         }).catch(()=>{
             instance2.acquireTokenPopup(request).then(response=>{

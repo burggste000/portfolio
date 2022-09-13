@@ -258,7 +258,7 @@ const TheMiddle=props=>{
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
-                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}}):''}
+                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}setCurrentListTasks={props.setCurrentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}}):''}
                     </div>
                     <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
                         <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
