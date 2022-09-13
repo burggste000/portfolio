@@ -264,8 +264,6 @@ const TheMiddle=props=>{
                         <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
                         <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
                         <h4 id="completedText">Completed</h4>
-{/*Working here*/}
-                        <p id="completedNumber">{props.completedNumber}</p>
                     </div>
                     <div id="completedTasks">
                         {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks value={value}index={index} />}}):''}
