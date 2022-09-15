@@ -18,6 +18,9 @@ export async function callMsGraphForUser(accessToken) {
         .then(response => response.json())
         .catch(error => console.log(error));
 }
+//I got all of the code for setting up this entire project from the following website:
+//  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
+
 // The links below were for accessing the tokens in the function directly under them:
 // https://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0
 // https://docs.microsoft.com/en-us/graph/api/resources/todotask?view=graph-rest-1.0
