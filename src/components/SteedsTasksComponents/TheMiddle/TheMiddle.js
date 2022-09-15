@@ -12,7 +12,7 @@ const TheMiddle=props=>{
     const[shareHovered,setShareHovered]=react.useState(false);
     const[suggestionsHovered,setSuggestionsHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
-    const[completedTasks,setCompletedTasks]=react.useState(true);
+    const[completedTasks]=react.useState(true);
     const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
     const[newTask,setNewTask]=react.useState('');
 
@@ -258,7 +258,7 @@ const TheMiddle=props=>{
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
                     <div>
-                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}setCurrentListTasks={props.setCurrentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}}):''}
+                        {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}setCurrentListTasks={props.setCurrentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}else{return'';}}):''}
                     </div>
                     <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
                         <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
@@ -266,7 +266,7 @@ const TheMiddle=props=>{
                         <h4 id="completedText">Completed</h4>
                     </div>
                     <div id="completedTasks">
-                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks value={value}index={index} />}}):''}
+                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks value={value}index={index} />}else{return'';}}):''}
                     </div>
                 </div>:''
             }

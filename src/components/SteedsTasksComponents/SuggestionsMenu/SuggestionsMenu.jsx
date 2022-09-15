@@ -1,7 +1,4 @@
 import"./suggestionsMenu.css";
-import{callMsGraphForListTasks}from"../../../graph.js";
-import{graphConfig,loginRequest}from"../../../authConfig.js";
-import{useMsal}from"@azure/msal-react";
 import react from"react";
 
 const SuggestionsMenu=props=>{
