@@ -27,5 +27,5 @@ export const msalConfig = {
       graphMeCreateTaskEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/",
       graphMeCompleteTaskEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/",
     //   graphMeIncompleteTaskEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/",
-      graphMeDeleteListEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/"
+    //   graphMeDeleteListEndpoint:"https://graph.microsoft.com/v1.0/me/todo/lists/"
   };

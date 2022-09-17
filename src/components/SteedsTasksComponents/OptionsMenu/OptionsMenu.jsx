@@ -162,33 +162,33 @@ const OptionsMenu=props=>{
         });
     };
 
-    const deleteList=()=>{
-        let thisListId;
-        for(let i=0;i<props.lists.value.length;++i){
-            if(props.lists.value[i].displayName===props.currentList){
-                thisListId=props.lists.value[i].id;
-                break;
-            }
-        }
-        graphConfig.graphMeDeleteListEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+thisListId;
-        const request={
-            ...loginRequest,
-            account:accounts[0]
-        };
-        instance2.acquireTokenSilent(request).then(response=>{
-            callMsGraphForDeleteList(response.accessToken).then(()=>{
-                getLists();
-            }).then(()=>{
-                props.setCurrentList("Tasks");
-                props.setCenterPageOptions(false);
-            });
-        }).catch(()=>{
-            instance2.acquireTokenPopup(request).then(response=>{
-                callMsGraphForDeleteList(response.accessToken).then(()=>{
-                });
-            });
-        });
-    };
+    // const deleteList=()=>{
+    //     let thisListId;
+    //     for(let i=0;i<props.lists.value.length;++i){
+    //         if(props.lists.value[i].displayName===props.currentList){
+    //             thisListId=props.lists.value[i].id;
+    //             break;
+    //         }
+    //     }
+    //     graphConfig.graphMeDeleteListEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+thisListId;
+    //     const request={
+    //         ...loginRequest,
+    //         account:accounts[0]
+    //     };
+    //     instance2.acquireTokenSilent(request).then(response=>{
+    //         callMsGraphForDeleteList(response.accessToken).then(()=>{
+    //             getLists();
+    //         }).then(()=>{
+    //             props.setCurrentList("Tasks");
+    //             props.setCenterPageOptions(false);
+    //         });
+    //     }).catch(()=>{
+    //         instance2.acquireTokenPopup(request).then(response=>{
+    //             callMsGraphForDeleteList(response.accessToken).then(()=>{
+    //             });
+    //         });
+    //     });
+    // };
 
     const{instance:instance2,accounts}=useMsal();    
 
@@ -214,9 +214,9 @@ const OptionsMenu=props=>{
                 <img id={printHovered===false?"printIcon":"darkPrintIcon"}src="https://image.shutterstock.com/image-vector/printer-icon-vector-design-illustration-600w-1492370306.jpg"alt="print icon" />
                 <p id="printListText">Print list</p>
             </div>
-            <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}onClick={()=>deleteList()}>
-                <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}onClick={()=>deleteList()}src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
-                <p id="deleteListText"onClick={()=>deleteList()}>Delete List</p>
+            <div id={deleteListOptionId()}onMouseEnter={()=>setDeleteListHovered(true)}onMouseLeave={()=>setDeleteListHovered(false)}/*onClick={()=>deleteList()}*/>
+                <img id={deleteListHovered===false?"deleteListIcon":"darkDeleteListIcon"}/*onClick={()=>deleteList()}*/src="https://image.shutterstock.com/image-vector/flat-delete-icons-red-trash-600w-1251122569.jpg"alt="trash can" />
+                <p id="deleteListText"/*onClick={()=>deleteList()}*/>Delete List</p>
             </div>
             <div id={themesOptionsId()}onMouseEnter={()=>setChangeThemeHovered(true)}onMouseLeave={()=>setChangeThemeHovered(false)}>
                 <div id="darkBlue">
