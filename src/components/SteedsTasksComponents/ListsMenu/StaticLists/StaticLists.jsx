@@ -4,9 +4,6 @@ import{callMsGraphForListTasks}from"../../../../graph.js";
 import{useMsal}from"@azure/msal-react";
 
 const StaticLists=props=>{
-    if(props.lists!==null&&props.lists.value!==null&&props.lists.value[0]!==null){
-        console.log("props.lists.value[0]: "+props.lists.value[0]);
-    }
     const findListByName=name=>props.lists.value.find(value=>value.displayName===name);
 
     const findListIdByName=name=>findListByName(name).id;
