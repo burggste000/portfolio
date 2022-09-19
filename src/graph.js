@@ -105,12 +105,12 @@ export async function callMsGraphForCompleteTask(accessToken){
 //     });
 // }
 
-// export async function callMsGraphForDeleteList(accessToken){
-//     return fetch(graphConfig.graphMeDeleteListEndpoint,{
-//         method:"DELETE",
-//         headers:{
-//             "Authorization":`Bearer ${accessToken}`,
-//             "Content-Type":"application/json"
-//         }
-//     });
-// }
+export async function callMsGraphForDeleteList(accessToken){
+    return fetch(graphConfig.graphMeDeleteListEndpoint,{
+        method:"DELETE",
+        headers:{
+            "Authorization":`Bearer ${accessToken}`,
+            "Content-Type":"application/json"
+        }
+    });
+}
