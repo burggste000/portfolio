@@ -225,6 +225,14 @@ const TheMiddle=props=>{
         });
     };
 
+
+    const addTask=()=>{
+        createTask(newTask);
+        setNewTask('');
+    };
+
+
+
     return(
         <>
             <div id={props.listsMenuClicked===true?"leftTopCenterPage":"wideLeftTopCenterPage"}>
@@ -244,6 +252,7 @@ const TheMiddle=props=>{
             <div className={createTaskDecideClass()}>
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                 <img id={createTaskInputFocused===false?"hide":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
+{/*Working here*/}
                 <form id="createTaskForm"onSubmit={event=>{event.preventDefault();createTask(newTask);setNewTask('');}}>
                     <input className={createTaskInputDecideClass()}type="text"placeholder="Add a task"onFocus={()=>setCreateTaskInputFocused(true)}onBlur={()=>setCreateTaskInputFocused(false)}onChange={event=>setNewTask(event.target.value)}value={newTask} />
                 </form>
@@ -252,7 +261,7 @@ const TheMiddle=props=>{
                     <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/bell-icon-design-600w-1250740630.jpg"alt="bell" />
                     <img className="createTaskIcons"src="https://image.shutterstock.com/image-vector/update-organizer-vector-icon-style-600w-338278388.jpg"alt="calandar" />
                 </div>
-                <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}>Add</h5>
+                <h5 id={createTaskInputFocused===false?"hideProfMenu":"add"}onClick={()=>addTask()}>Add</h5>
             </div>
             {props.currentListTasks!==null&&props.currentListTasks.length>0?
                 <div className={tasksParentDivDecideClass()}>
