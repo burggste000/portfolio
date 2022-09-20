@@ -74,7 +74,6 @@ const ListsMenu=props=>{
                 instance2.acquireTokenSilent(request).then(response=>{
                     callMsGraphForListTasks(response.accessToken).then(response=>{
                         let thisResponse=response.value;
-                        console.log(response.value);
                         props.setCurrentListTasks(thisResponse);
                     });
                 });
