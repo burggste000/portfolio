@@ -118,9 +118,9 @@ const ListsMenu=props=>{
                 <img id="listsMenuButton"src="https://image.shutterstock.com/image-vector/menu-icon-trendy-flat-style-600w-1350292571.jpg"alt="text"onClick={()=>props.setListsMenuClicked(!props.listsMenuClicked)} />
             </div>
             <div id="listsScrollDiv">
-                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists}setCurrentListTasks={props.setCurrentListTasks} />
+                <StaticLists currentList={props.currentList}setCurrentList={props.setCurrentList}lists={props.lists}setCurrentListTasks={props.setCurrentListTasks}setShowCompletedTasks={props.setShowCompletedTasks} />
                 <div id="listsMenuMyListsBigDiv">
-                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks} />
+                    <DynamicLists lists={props.lists}currentList={props.currentList}setCurrentList={props.setCurrentList}setCurrentListTasks={props.setCurrentListTasks}currentListTasks={props.currentListTasks}setShowCompletedTasks={props.setShowCompletedTasks} />
                     <div id="listsMenuNewListDiv">
                         <img id="listsMenuNewListImage"src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                         <form onSubmit={e=>{e.preventDefault();createList(newList);setNewList('');}}>

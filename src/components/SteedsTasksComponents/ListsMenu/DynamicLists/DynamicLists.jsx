@@ -12,6 +12,8 @@ const DynamicLists=props=>{
     const{instance:instance2,accounts}=useMsal();    
 
     const clickedListDiv=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         
@@ -33,6 +35,8 @@ const DynamicLists=props=>{
     };
 
     const clickedListImg=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.nextElementSibling.textContent;
         props.setCurrentList(thisText);
         
@@ -56,6 +60,8 @@ const DynamicLists=props=>{
     };
 
     const clickedListText=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.textContent;
         props.setCurrentList(thisText);
 

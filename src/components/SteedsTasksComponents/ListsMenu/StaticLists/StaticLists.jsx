@@ -11,6 +11,8 @@ const StaticLists=props=>{
     const{instance:instance2,accounts}=useMsal();    
 
     const clickedListDiv=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.children[1].textContent;
         props.setCurrentList(thisText);
         
@@ -32,6 +34,8 @@ const StaticLists=props=>{
     };
     
     const clickedListImg=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.nextElementSibling.textContent;
         props.setCurrentList(thisText);
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  
@@ -53,6 +57,8 @@ const StaticLists=props=>{
     };
 
     const clickedListText=event=>{
+        props.setCurrentListTasks(null);
+        props.setShowCompletedTasks(false);
         let thisText=event.target.textContent;
         props.setCurrentList(thisText);
         graphConfig.graphMeListTasksEndpoint="https://graph.microsoft.com/v1.0/me/todo/lists/"+findListIdByName(thisText)+"/tasks";  

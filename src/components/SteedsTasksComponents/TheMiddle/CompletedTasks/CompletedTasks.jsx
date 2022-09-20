@@ -44,11 +44,11 @@ const CompletedTasks=props=>{
     };
 
     return(
-        <div className="taskDiv"key={props.index+0.5}>
-            <img id="completeTaskCircle"onClick={taskIncomplete}src="https://image.shutterstock.com/image-vector/blue-verified-check-mark-icon-600w-1971321881.jpg"alt="marked as completed task"key={props.index+0.51} />
-            <p className="completedTaskText"key={props.index+0.52}>{props.value.title}</p>
-            <img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star"key={props.index+0.53} />
-            <img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star"key={props.index+0.54} />
+        <div className="taskDiv"key={props.index+0.59}>
+            <img id="completeTaskCircle"onClick={taskIncomplete}src="https://image.shutterstock.com/image-vector/blue-verified-check-mark-icon-600w-1971321881.jpg"alt="marked as completed task"key={props.index+0.58} />
+            <p className="completedTaskText"key={props.index+0.57}>{props.value.title}</p>
+            <img id={starClicked===false?"importantStar":"hide"}onClick={()=>setStarClicked(true)}src="https://image.shutterstock.com/image-vector/star-vector-icon-600w-1155631591.jpg"alt="star"key={props.index+0.56} />
+            <img id={starClicked===true?"importantStarBlue":"hide"}onClick={()=>setStarClicked(false)}src="https://image.shutterstock.com/image-vector/blue-vector-star-600w-389172595.jpg"alt="blue star"key={props.index+0.511} />
         </div>
     );
 };

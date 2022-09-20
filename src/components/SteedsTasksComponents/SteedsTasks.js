@@ -19,6 +19,7 @@ const SteedsTasks=()=>{
     const[centerPageOptions,setCenterPageOptions]=react.useState(false);
     const[sortMenuClicked,setSortMenuClicked]=react.useState(false);
     const[suggestionsClicked,setSuggestionsClicked]=react.useState(false);
+    const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
 
 
     return(
@@ -29,8 +30,8 @@ const SteedsTasks=()=>{
             <OptionsMenu centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}currentList={currentList}listsMenuClicked={listsMenuClicked}lists={lists}setLists={setLists}setCurrentListTasks={setCurrentListTasks}setCompletedNumber={setCompletedNumber}setCurrentList={setCurrentList} />
             <SortMenu sortMenuClicked={sortMenuClicked}currentList={currentList} />
             <SuggestionsMenu suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked} />
-            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber}lists={lists}setLists={setLists} />
-            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}setCurrentListTasks={setCurrentListTasks}completedNumber={completedNumber}setCompletedNumber={setCompletedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked}lists={lists}setLists={setLists} />
+            <ListsMenu listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}setCurrentList={setCurrentList}currentList={currentList}setCurrentListTasks={setCurrentListTasks}currentListTasks={currentListTasks}setCompletedNumber={setCompletedNumber}lists={lists}setLists={setLists}setShowCompletedTasks={setShowCompletedTasks} />
+            <TheMiddle listsMenuClicked={listsMenuClicked}setListsMenuClicked={setListsMenuClicked}currentList={currentList}currentListTasks={currentListTasks}setCurrentListTasks={setCurrentListTasks}completedNumber={completedNumber}setCompletedNumber={setCompletedNumber}centerPageOptions={centerPageOptions}setCenterPageOptions={setCenterPageOptions}sortMenuClicked={sortMenuClicked}setSortMenuClicked={setSortMenuClicked}suggestionsClicked={suggestionsClicked}setSuggestionsClicked={setSuggestionsClicked}lists={lists}setLists={setLists}showCompletedTasks={showCompletedTasks}setShowCompletedTasks={setShowCompletedTasks} />
         </>
     );
 };

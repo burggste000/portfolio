@@ -13,7 +13,6 @@ const TheMiddle=props=>{
     const[suggestionsHovered,setSuggestionsHovered]=react.useState(false);
     const[createTaskInputFocused,setCreateTaskInputFocused]=react.useState(false);
     const[completedTasks]=react.useState(true);
-    const[showCompletedTasks,setShowCompletedTasks]=react.useState(false);
     const[newTask,setNewTask]=react.useState('');
 
     let newDate = new Date()
@@ -260,13 +259,13 @@ const TheMiddle=props=>{
                     <div>
                         {props.currentListTasks!==null?props.currentListTasks.map((value,index)=>{if(value.status!=="completed"){return<TaskListItem currentListTasks={props.currentListTasks}setCurrentListTasks={props.setCurrentListTasks}currentList={props.currentList}lists={props.lists}value={value}index={index}key={index+0.5} />}else{return'';}}):''}
                     </div>
-                    <div className={completedTasksDivClass()}onClick={()=>setShowCompletedTasks(!showCompletedTasks)}>
-                        <img id={showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
-                        <img id={showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
+                    <div className={completedTasksDivClass()}onClick={()=>props.setShowCompletedTasks(!props.showCompletedTasks)}>
+                        <img id={props.showCompletedTasks===false?"completedArrow":"hide"}onClick={()=>props.setShowCompletedTasks(true)}src="https://image.shutterstock.com/image-vector/arrow-icon-trendy-flat-style-600w-747358468.jpg"alt="right arrow" />
+                        <img id={props.showCompletedTasks===true?"completedArrow":"hide"}onClick={()=>props.setShowCompletedTasks(false)}src="https://image.shutterstock.com/image-vector/arrow-icon-vector-on-white-600w-1638136570.jpg"alt="down arrow" />
                         <h4 id="completedText">Completed</h4>
                     </div>
                     <div id="completedTasks">
-                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks currentListTasks={props.currentListTasks}lists={props.lists}currentList={props.currentList}setCurrentListTasks={props.setCurrentListTasks}value={value}index={index} />}else{return'';}}):''}
+                        {props.currentListTasks!==null&&props.showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks currentListTasks={props.currentListTasks}lists={props.lists}currentList={props.currentList}setCurrentListTasks={props.setCurrentListTasks}value={value}index={index} />}else{return'';}}):''}
                     </div>
                 </div>:''
             }
