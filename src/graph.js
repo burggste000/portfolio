@@ -24,6 +24,9 @@ export async function callMsGraphForUser(accessToken) {
 // The links below were for accessing the tokens in the function directly under them:
 // https://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0
 // https://docs.microsoft.com/en-us/graph/api/resources/todotask?view=graph-rest-1.0
+
+// The link below is Microsof't API interface for sending requests to their server:
+//   developer.microsoft.com/en-us/graph/graph-explorer
 export async function callMsGraphForPhoto(accessToken){
     const headers=new Headers();
     const bearer=`Bearer ${accessToken}`;
