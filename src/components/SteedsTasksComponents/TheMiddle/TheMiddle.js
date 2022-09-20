@@ -266,7 +266,7 @@ const TheMiddle=props=>{
                         <h4 id="completedText">Completed</h4>
                     </div>
                     <div id="completedTasks">
-                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks value={value}index={index} />}else{return'';}}):''}
+                        {props.currentListTasks!==null&&showCompletedTasks===true?props.currentListTasks.map((value,index)=>{if(value.status==="completed"){return<CompletedTasks currentListTasks={props.currentListTasks}lists={props.lists}currentList={props.currentList}setCurrentListTasks={props.setCurrentListTasks}value={value}index={index} />}else{return'';}}):''}
                     </div>
                 </div>:''
             }
