@@ -4,7 +4,7 @@ import{loginRequest}from"../../../authConfig.js";
 import{useMsal}from"@azure/msal-react";
 import{callMsGraphForPhoto}from"../../../graph.js";
 
-const TheHeader=props=>{
+const TheHeader=(props)=>{
 
     const[searchHovered,setSearchHovered]=react.useState(false);
     const[searchFocused,setSearchFocused]=react.useState(false);
@@ -13,7 +13,7 @@ const TheHeader=props=>{
 
     const clickSearchPic=()=>{
         if(searchBarClass==="search hideSearch"){
-            setSearchBarClass("search smallSearch");
+            setSearchBarClass("search smallSearch");   
         }
         else{
             setSearchBarClass("search hideSearch");
@@ -24,7 +24,7 @@ const TheHeader=props=>{
         else{
             setSearchImgClass("searchPic");
         }
-    };
+    }
 
     const{instance:instance2,accounts}=useMsal();
     const[photo,setPhoto]=react.useState(null);
@@ -50,8 +50,7 @@ const TheHeader=props=>{
             </div>
             <div id={searchHovered===false?"middleHeader":"brightMiddleHeader"}onMouseEnter={()=>setSearchHovered(true)}onMouseLeave={()=>searchFocused===true?null:setSearchHovered(false)}>
                 <img className={searchImgClass}onClick={clickSearchPic}src="https://image.shutterstock.com/image-vector/search-icon-flat-vector-graphic-600w-1582905133.jpg"alt="text" />
-{/*Working here*/}
-                <input className={searchBarClass}type="text"onFocus={()=>setSearchFocused(true)}onBlur={()=>{setSearchFocused(false);setSearchHovered(false);}} />
+                <input className={searchBarClass}type="text"onFocus={(e)=>{setSearchFocused(true);}}onBlur={()=>{setSearchFocused(false);setSearchHovered(false);}} />
                 <img id={searchFocused===false?"displayNone":"searchX"}src="https://image.shutterstock.com/image-vector/cancel-cross-close-icon-vector-600w-294801173.jpg"alt="text" />
             </div>
             <div id="rightHeader">
