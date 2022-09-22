@@ -51,7 +51,7 @@ const TheHeader=props=>{
             <div id={searchHovered===false?"middleHeader":"brightMiddleHeader"}onMouseEnter={()=>setSearchHovered(true)}onMouseLeave={()=>searchFocused===true?null:setSearchHovered(false)}>
                 <img className={searchImgClass}onClick={clickSearchPic}src="https://image.shutterstock.com/image-vector/search-icon-flat-vector-graphic-600w-1582905133.jpg"alt="text" />
 {/*Working here*/}
-                <input className={searchBarClass}type="text"onFocus={()=>setSearchFocused(true)}onBlur={()=>{setSearchFocused(false);setSearchHovered(false);setSearchBarClass("search hideSearch");}} />
+                <input className={searchBarClass}type="text"onFocus={()=>setSearchFocused(true)}onBlur={()=>{setSearchFocused(false);setSearchHovered(false);}} />
                 <img id={searchFocused===false?"displayNone":"searchX"}src="https://image.shutterstock.com/image-vector/cancel-cross-close-icon-vector-600w-294801173.jpg"alt="text" />
             </div>
             <div id="rightHeader">
