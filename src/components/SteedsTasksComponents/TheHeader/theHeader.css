@@ -152,12 +152,10 @@ h1:hover{
         width:150px;
     }
     .smallSearch{
-        height:29px;
+        height:27px;
         width:120px;
         margin-top:auto;
         margin-bottom:auto;
-        border-top-left-radius:0px;
-        border-bottom-left-radius:0px;
         border-top-right-radius:3px;
         border-bottom-right-radius:3px;
         border:#0078d4;
