@@ -13,16 +13,16 @@ const TheHeader=(props)=>{
 
     const clickSearchPic=()=>{
         if(searchBarClass==="search hideSearch"){
-            setSearchImgClass("searchPic searchPicSquare");
-        }
-        else{
-            setSearchImgClass("searchPic");
-        }
-        if(searchBarClass==="search hideSearch"){
             setSearchBarClass("search smallSearch");   
         }
         else{
             setSearchBarClass("search hideSearch");
+        }
+        if(searchBarClass==="search hideSearch"){
+            setSearchImgClass("searchPic searchPicSquare");
+        }
+        else{
+            setSearchImgClass("searchPic");
         }
     }
 
