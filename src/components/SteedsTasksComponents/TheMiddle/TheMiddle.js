@@ -250,7 +250,6 @@ const TheMiddle=props=>{
                 <h4 className={suggestionsButtonTextClass()}onMouseEnter={()=>setSuggestionsHovered(true)}onMouseLeave={()=>setSuggestionsHovered(false)}onClick={()=>props.setSuggestionsClicked(!props.suggestionsClicked)}>Suggestions</h4>
             </div>
             <div className={createTaskDecideClass()}>
-{/*Working here*/}
                 <img id={createTaskInputFocused===false?"createTaskPlus":"hide"}src="https://image.shutterstock.com/image-vector/colored-plus-symbol-cross-icon-600w-494267107.jpg"alt="text" />
                 <img id={createTaskInputFocused===false?"hide":"createTaskCircle"}src="https://image.shutterstock.com/image-photo/white-paper-texture-background-cardboard-600w-1384887293.jpg"alt="text" />
                 <form id="createTaskForm"onSubmit={event=>{event.preventDefault();createTask(newTask);setNewTask('');}}>
