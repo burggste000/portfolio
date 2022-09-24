@@ -29,10 +29,12 @@
 // export default App;
 import{Routes,Route}from"react-router-dom";
 import{TaskManagementParentComponent}from"../TaskManagementParentComponent/TaskManagementParentComponent.jsx";
+import{RootLandingPage}from"../RootLandingPage/RootLandingPage.jsx";
 const App=()=>{
     return(
         <Routes>
-            <Route path='/'element={<TaskManagementParentComponent />}></Route>
+            <Route path='/'element={<RootLandingPage />} />
+            <Route path="taskManagement"element={<TaskManagementParentComponent />} />
         </Routes>
     );
 };
