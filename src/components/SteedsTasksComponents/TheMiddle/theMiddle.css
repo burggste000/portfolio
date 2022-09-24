@@ -179,8 +179,8 @@
     border-style:solid;
     border-width:1px;
     margin-top:13px;
-    margin-left:2px;
-    margin-right:2px;
+    margin-left:20px;
+    margin-right:8px;
     filter:brightness(95%);
 }
 #createTaskCircle:hover{
@@ -368,4 +368,18 @@
         height:100px;
         width:97vw;
     }
+    #createTaskCircle{
+        height:15px;
+        width:15px;
+        border-radius:50px;
+        border-color:black;
+        border-style:solid;
+        border-width:1px;
+        margin-top:13px;
+        margin-left:2px;
+        margin-right:2px;
+        filter:brightness(95%);
+        position:relative;
+        top:3px;
+    }    
 }
