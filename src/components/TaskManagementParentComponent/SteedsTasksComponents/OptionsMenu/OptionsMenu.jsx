@@ -1,6 +1,6 @@
 import"./optionsMenu.css";
-import{graphConfig,loginRequest}from"../../../authConfig.js";
-import{callMsGraphForLists,callMsGraphForListTasks,callMsGraphForDeleteList}from"../../../graph.js";
+import{graphConfig,loginRequest}from"../../../../authConfig.js";
+import{callMsGraphForLists,callMsGraphForListTasks,callMsGraphForDeleteList}from"../../../../graph.js";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 

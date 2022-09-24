@@ -18,6 +18,7 @@ export async function callMsGraphForUser(accessToken) {
         .then(response => response.json())
         .catch(error => console.log(error));
 }
+//I need to make and pay for an accout(Dad did this for this project) on the website for "Microsoft Azure", and "azure active directory", "app registrations", create one. 
 //I got all of the code for setting up this entire project from the following website:
 //  https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
 

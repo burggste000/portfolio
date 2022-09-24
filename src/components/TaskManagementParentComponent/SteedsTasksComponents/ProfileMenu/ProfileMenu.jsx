@@ -1,8 +1,8 @@
 import react from"react";
 import"./profileMenu.css";
 import{useMsal}from"@azure/msal-react";
-import{loginRequest}from"../../../authConfig.js";
-import{callMsGraphForPhoto,callMsGraphForUser}from"../../../graph.js";
+import{loginRequest}from"../../../../authConfig.js";
+import{callMsGraphForPhoto,callMsGraphForUser}from"../../../../graph.js";
 const ProfileMenu=props=>{
 
     react.useEffect(()=>{

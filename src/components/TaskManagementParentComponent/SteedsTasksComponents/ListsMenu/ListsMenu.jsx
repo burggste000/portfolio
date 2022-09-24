@@ -1,7 +1,7 @@
 import"./listsMenu.css";
 import react from"react";
-import{loginRequest,graphConfig}from"../../../authConfig.js";
-import{callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../graph.js";
+import{loginRequest,graphConfig}from"../../../../authConfig.js";
+import{callMsGraphForLists,callMsGraphForCreateList,callMsGraphForListTasks}from"../../../../graph.js";
 import{StaticLists}from"./StaticLists/StaticLists.jsx";
 import{DynamicLists}from"./DynamicLists/DynamicLists.jsx";
 import{useMsal}from"@azure/msal-react";

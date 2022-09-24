@@ -1,8 +1,8 @@
 import"./theHeader.css";
 import react from"react";
-import{loginRequest}from"../../../authConfig.js";
+import{loginRequest}from"../../../../authConfig.js";
 import{useMsal}from"@azure/msal-react";
-import{callMsGraphForPhoto}from"../../../graph.js";
+import{callMsGraphForPhoto}from"../../../../graph.js";
 
 const TheHeader=(props)=>{
 

@@ -1,8 +1,8 @@
 import "./theMiddle.css";
 import{TaskListItem}from"./TaskListItem/TaskListItem.jsx";
 import{CompletedTasks}from"./CompletedTasks/CompletedTasks.jsx";
-import{loginRequest,graphConfig}from"../../../authConfig.js";
-import{callMsGraphForListTasks,callMsGraphForCreateTask}from"../../../graph.js";
+import{loginRequest,graphConfig}from"../../../../authConfig.js";
+import{callMsGraphForListTasks,callMsGraphForCreateTask}from"../../../../graph.js";
 import react from"react";
 import{useMsal}from"@azure/msal-react";
 

@@ -1,7 +1,7 @@
 import"./taskListItem.css";
 import react from"react";
-import{graphConfig,loginRequest}from"../../../../authConfig.js";
-import{callMsGraphForCompleteTask,callMsGraphForListTasks}from"../../../../graph.js";
+import{graphConfig,loginRequest}from"../../../../../authConfig.js";
+import{callMsGraphForCompleteTask,callMsGraphForListTasks}from"../../../../../graph.js";
 import{useMsal}from"@azure/msal-react";
 
 const TaskListItem=props=>{

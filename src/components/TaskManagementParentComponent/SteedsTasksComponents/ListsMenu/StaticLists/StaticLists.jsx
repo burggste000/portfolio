@@ -1,6 +1,6 @@
 import"./staticLists.css";
-import{graphConfig,loginRequest}from"../../../../authConfig.js";
-import{callMsGraphForListTasks}from"../../../../graph.js";
+import{graphConfig,loginRequest}from"../../../../../authConfig.js";
+import{callMsGraphForListTasks}from"../../../../../graph.js";
 import{useMsal}from"@azure/msal-react";
 
 const StaticLists=props=>{

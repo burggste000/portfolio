@@ -1,4 +1,4 @@
-const redirect=process.env.NODE_ENV !== "production"?"http://localhost:3000":"https://burggste000.github.io/task-integration";
+const redirect=process.env.NODE_ENV !== "production"?"http://localhost:3000/taskManagement":"https://burggste000.github.io/task-integration";
 
 export const msalConfig = {
     auth: {
