@@ -1,3 +1,4 @@
+import"./theMiddle.css";
 import{Skills}from"./Skills/Skills.jsx";
 
 const TheMiddle=()=>{
