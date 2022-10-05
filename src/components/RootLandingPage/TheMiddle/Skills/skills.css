@@ -1,12 +1,14 @@
 #background1{
     background:url("https://cdn.pixabay.com/photo/2016/07/29/06/31/abandoned-1550545_960_720.jpg");
-    height:60vh;
+    height:75vh;
     width:100vw;
     display:flex;
     justify-content:center;
     max-height:640px;
+    flex-direction:column;
 }
 #me{
+    display:flex;
     margin-top:30px;
     height:30vh;
     width:30vw;
@@ -14,9 +16,16 @@
     max-width:500px;
     min-height:120px;
     max-height:500px;
+    position:relative;
+    bottom:3vh;
+}
+.skillsDivs{
+    display:flex;
+    justify-content:center;
+    margin-top:2vh;
 }
 .skills{
     display:flex;
-    height:70px;
-    width:70px;
+    height:8vh;
+    width:8vh;
 }
