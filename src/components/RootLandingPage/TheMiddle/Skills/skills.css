@@ -1,0 +1,22 @@
+#background1{
+    background:url("https://cdn.pixabay.com/photo/2016/07/29/06/31/abandoned-1550545_960_720.jpg");
+    height:60vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    max-height:640px;
+}
+#me{
+    margin-top:30px;
+    height:30vh;
+    width:30vw;
+    min-width:200px;
+    max-width:500px;
+    min-height:120px;
+    max-height:500px;
+}
+.skills{
+    display:flex;
+    height:70px;
+    width:70px;
+}

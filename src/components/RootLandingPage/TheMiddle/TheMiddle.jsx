@@ -1,6 +1,11 @@
+import{Skills}from"./Skills/Skills.jsx";
+
 const TheMiddle=()=>{
     return(
-        <p>This is the parent landing page!</p>
+        <>
+            <p id="welcome">Hi, I'm Stephen</p>
+            <Skills />
+        </>
     );
 };
 export{TheMiddle};
