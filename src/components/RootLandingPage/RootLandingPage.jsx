@@ -1,8 +1,9 @@
 import"./rootLandingPage.css";
+import{TheMiddle}from"./TheMiddle/TheMiddle.jsx";
 
 const RootLandingPage=()=>{
     return(
-            <p>This is the parent landing page!</p>
+        <TheMiddle />
     );
 };
 export{RootLandingPage};
