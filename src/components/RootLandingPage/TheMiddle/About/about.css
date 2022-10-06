@@ -1,0 +1,6 @@
+#aboutDiv{
+    background-color:rgb(232, 231, 231);
+    height:30vh;
+    display:flex;
+    align-items:center;
+}
