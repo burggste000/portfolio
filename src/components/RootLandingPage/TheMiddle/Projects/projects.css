@@ -4,6 +4,7 @@
     width:100vw;
     display:flex;
     justify-content:center;
+    align-items:center;
     max-height:640px;
     flex-direction:column;
 }
@@ -20,6 +21,7 @@
     max-width:500px;
     min-height:120px;
     max-height:500px;
-    position:relative;
-    bottom:3vh;
+}
+.projectImages{
+    border-radius:75px;
 }

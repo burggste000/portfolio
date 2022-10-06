@@ -2,6 +2,9 @@ import"./skills.css";
 const Skills=()=>{
     return(
         <div id="background2">
+            <div id="skillsTitleDiv">
+                <h2 id="skillsTitle">My Skills</h2>
+            </div>
             <div className="skillsDivs">
                 <img id="javascriptPic"className="skills"src="https://live.staticflickr.com/3708/14102205140_d25a5588ea_m.jpg"alt="javascript" />
                 <img id="reactPic"className="skills"src="https://live.staticflickr.com/4779/25850433237_f57ce6b815_m.jpg"alt="reactjs" />
