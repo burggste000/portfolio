@@ -3,12 +3,12 @@ import{TheMiddle}from"./TheMiddle/TheMiddle.jsx";
 import{Start}from"./Start/Start.jsx";
 import react from"react";
 
-const[viewClicked,setViewClicked]=react.useState(false);
 
 const RootLandingPage=()=>{
+    const[viewClicked,setViewClicked]=react.useState(false);
     return(
         <>
-            <Start setViewClicked={setViewClicked} />
+            <Start viewClicked={viewClicked}setViewClicked={setViewClicked} />
             <TheMiddle viewClicked={viewClicked} />
         </>
     );
