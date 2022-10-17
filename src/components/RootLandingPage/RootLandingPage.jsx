@@ -10,8 +10,8 @@ const RootLandingPage=()=>{
     const[introVideoShowing,setIntroVideoShowing]=react.useState(false);
     return(
         <>
-            <Start viewClicked={viewClicked}setViewClicked={setViewClicked}introVideoShowing={introVideoShowing}setIntroVideoShowing={setIntroVideoShowing} />
             <TransitionVideo viewClicked={viewClicked}introVideoShowing={introVideoShowing} />
+            <Start viewClicked={viewClicked}setViewClicked={setViewClicked}introVideoShowing={introVideoShowing}setIntroVideoShowing={setIntroVideoShowing} />
             <TheMiddle viewClicked={viewClicked}introVideoShowing={introVideoShowing} />
         </>
     );
