@@ -1,3 +1,5 @@
+import"./transitionVideo.css";
+
 const TransitionVideo=props=>{
     return(
     <video id={props.viewClicked===false&&props.introVideoShowing===false||props.viewClicked===true&&props.introVideoShowing===false?"hide":"transitionVideo"}autoPlay="true" loop="true"muted="true">

@@ -9,7 +9,7 @@ const Start=props=>{
 
     return(
         <div id="viewDiv">
-            <p id="welcome">Hi, I'm Stephen</p>
+            <p id={props.introVideoShowing===false?"welcome":"hide"}>Hi, I'm Stephen</p>
             <button id={props.viewClicked===true?"hide":"startButton"}onClick={()=>{props.setViewClicked(true);props.setIntroVideoShowing(true);showIntroVideo();}}>View</button>
         </div>
     );
