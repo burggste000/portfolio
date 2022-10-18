@@ -8,10 +8,17 @@ const Start=props=>{
     }
 
     return(
-        <div id="viewDiv">
-            <p id={props.introVideoShowing===false?"welcome":"hide"}>Hi, I'm Stephen</p>
-            <button id={props.viewClicked===true?"hide":"startButton"}onClick={()=>{props.setViewClicked(true);props.setIntroVideoShowing(true);showIntroVideo();}}>View</button>
-        </div>
+        <>
+            <div id="viewDiv">
+                <video id="startBackgroundVid"autoPlay="true"loop="true"muted="true">
+                    <source src="https://ak.picdn.net/shutterstock/videos/1082922796/preview/stock-footage-mirror-ball-disco-lights-star-glitter-club-dance-party-background.webm"type="video/webm" />
+                </video>
+            </div>
+            <div id="interactDiv">
+                <p id={props.introVideoShowing===false?"welcome":"hide"}>Hi, I'm Stephen</p>
+                <button id={props.viewClicked===true?"hide":"startButton"}onClick={()=>{props.setViewClicked(true);props.setIntroVideoShowing(true);showIntroVideo();}}>View</button>
+            </div>
+        </>
     );
 };
 export{Start};
