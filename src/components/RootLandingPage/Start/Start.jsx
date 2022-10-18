@@ -9,7 +9,7 @@ const Start=props=>{
 
     return(
         <>
-            <div id="viewDiv">
+            <div>
                 <video id={props.viewClicked===true?"hide":"startBackgroundVid"}autoPlay="true"loop="true"muted="true">
                     <source src="https://ak.picdn.net/shutterstock/videos/1082922796/preview/stock-footage-mirror-ball-disco-lights-star-glitter-club-dance-party-background.webm"type="video/webm" />
                 </video>
