@@ -5,7 +5,7 @@ import{About}from"./About/About.jsx";
 
 const TheMiddle=props=>{
     return(
-        <div id={props.viewClicked===true&&props.introVideoShowing===false||props.viewClicked===false&&props.introVideoShowing===true?'':"hide"}>
+        <div id={((props.viewClicked===true&&props.introVideoShowing===false)||(props.viewClicked===false&&props.introVideoShowing===true))?'':"hide"}>
             <Projects />
             <About />
             <Skills />
