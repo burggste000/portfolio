@@ -1,5 +1,4 @@
 import"./start.css";
-import myVid from"./videos/file.mp4";
 
 const Start=props=>{
 
@@ -11,10 +10,6 @@ const Start=props=>{
 
     return(
         <>
-            <video autoPlay loop muted>
-                <source src={myVid}type="video/mp4" />
-            </video>
-
             <div>
                 <video id={props.viewClicked===true?"hide":"startBackgroundVid"}autoPlay="true"loop="true"muted="true">
                     <source src="https://ak.picdn.net/shutterstock/videos/1082922796/preview/stock-footage-mirror-ball-disco-lights-star-glitter-club-dance-party-background.webm"type="video/webm" />
