@@ -7,7 +7,7 @@ const Projects=()=>{
             <div id="myPicDiv">
                 <img id="me"src="https://avatars.githubusercontent.com/u/88006165?s=400&u=29c195b17d259548806350d632fc4f20d67c8aac&v=4"alt="me" />
             </div>
-            <h2>How the skills pay the bills</h2>
+            <h2>My websites and projects</h2>
             <div id="projectsDiv">
                 <img className="projectImages"src="https://live.staticflickr.com/8536/10187142295_8a12343d8e_n.jpg"alt="organization project" />
 
