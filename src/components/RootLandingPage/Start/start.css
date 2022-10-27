@@ -3,25 +3,25 @@
     width:100%;
 }
 #interactDiv{
+    background:url("../../../../public/images/startBackground.jpg");
     background-color:black;
     display:flex;
     justify-content:space-evenly;
     align-items:center;
-    height:16vh;
+    height:100vh;
     width:100vw;
-    position:absolute;
-    top:60vh;
-    opacity:0.8;
 }
 #welcome{
     font-weight:900;
     color:white;
-    font-size:1000%;
+    font-size:700%;
 }
 #startButton{
-    background-color:red;
+    background-color:brown;
     height:80px;
     width:150px;
+    position:relative;
+    top:20px;
 }
 #startButton:hover{
     border-bottom-color:black;
