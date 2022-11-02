@@ -11,7 +11,7 @@ const Projects=()=>{
             <div id="projectsDiv">
                 <img className="projectImages"src="https://live.staticflickr.com/8536/10187142295_8a12343d8e_n.jpg"alt="organization project" />
 
-                <img src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="task project" />
+                <img className="projectImages"src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="task project" />
 
                 <img className="projectImages"src="https://images.squarespace-cdn.com/content/v1/62bbaaef7cc39c494bcaba86/8eab7f38-b20d-4bc5-9f5a-bf99f770c6cc/Untitled+1517+%281%29.png?format=1500w"alt="company website project" />
             </div>

@@ -1,11 +1,10 @@
 #background1{
     background:url("../../../../../public/images/projectsBackground.jpg");
-    height:75vh;
     width:100vw;
+    height:75vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    max-height:640px;
     flex-direction:column;
     background-repeat:no-repeat;
     background-size:cover;
@@ -13,6 +12,7 @@
 #myPicDiv{
     display:flex;
     justify-content:center;
+    margin-bottom:2vw;
 }
 #me{
     display:flex;
@@ -23,6 +23,12 @@
     max-width:500px;
     min-height:120px;
     max-height:500px;
+}
+#projectsDiv{
+    display:flex;
+    justify-content:space-evenly;
+    width:100vw;
+    margin-top:2vh;
 }
 .projectImages{
     border-radius:75px;
