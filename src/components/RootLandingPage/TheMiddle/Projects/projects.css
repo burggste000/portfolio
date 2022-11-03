@@ -33,3 +33,9 @@
 .projectImages{
     border-radius:75px;
 }
+@media(max-width:770px){
+    .projectImages{
+        height:100px;
+        width:100px;
+    }
+}
