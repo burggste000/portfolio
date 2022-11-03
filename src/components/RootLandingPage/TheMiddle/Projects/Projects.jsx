@@ -17,7 +17,7 @@ const Projects=()=>{
                     <img className="projectImages"src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_960_720.png"alt="task project" />
                     <figcaption>Task Management Website</figcaption>
                 </figure>
-                <figure className="projectLabels">
+                <figure className="projectLabels" >
                     <img className="projectImages"src="https://live.staticflickr.com/8536/10187142295_8a12343d8e_n.jpg"alt="organization project" />
                     <figcaption>Organization Chart (Demo)</figcaption>
                 </figure>
