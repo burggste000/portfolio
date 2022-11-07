@@ -7,7 +7,7 @@
   flex-direction: column;
   min-height: 500px;
 }
-#aboutParagraph {
+.aboutParagraph {
   width: 70vw;
 }
 #aboutLinksDiv {
@@ -17,6 +17,6 @@
 }
 @media (max-width: 770px) {
   #aboutDiv {
-    min-height: 1100px;
+    min-height: 1200px;
   }
 }
