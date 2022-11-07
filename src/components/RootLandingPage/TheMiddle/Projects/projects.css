@@ -8,6 +8,7 @@
   flex-direction: column;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 800px;
 }
 #myPicDiv {
   display: flex;
@@ -37,10 +38,10 @@
   font-weight: 700;
   font-size: large;
   text-align: center;
+  color: white;
 }
 .projectLabels:hover {
   cursor: pointer;
-  color: blue;
 }
 .projectImages {
   border-radius: 75px;
