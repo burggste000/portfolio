@@ -3,10 +3,11 @@
   height: 35vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 #aboutParagraph {
-  margin-top: 5vh;
+  width: 70vw;
 }
 #aboutLinksDiv {
   width: 100vw;
