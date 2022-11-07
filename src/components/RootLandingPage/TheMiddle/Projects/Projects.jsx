@@ -7,7 +7,7 @@ const Projects = () => {
       <div id="myPicDiv">
         <img id="me" src={mePhoto} alt="me" />
       </div>
-      <h2>My websites and projects</h2>
+      <h2 id="projectsSectionTitle">My websites and projects</h2>
       <div id="projectsDiv">
         <a href="https://www.fishingbridgeusa.com/">
           <figure className="projectLabels">

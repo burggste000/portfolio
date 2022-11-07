@@ -25,6 +25,9 @@
   min-height: 120px;
   max-height: 500px;
 }
+#projectsSectionTitle {
+  color: rgb(197, 197, 197);
+}
 #projectsDiv {
   display: flex;
   justify-content: space-evenly;
