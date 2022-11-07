@@ -1,6 +1,15 @@
-#aboutDiv{
-    background-color:rgb(232, 231, 231);
-    height:30vh;
-    display:flex;
-    align-items:center;
+#aboutDiv {
+  background-color: rgb(232, 231, 231);
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#aboutParagraph {
+  margin-top: 5vh;
+}
+#aboutLinksDiv {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
 }

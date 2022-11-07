@@ -1,23 +1,26 @@
-#background2{
-    background:url("https://www.splitshire.com/wp-content/uploads/2015/06/SplitShire-5466-1800x1200.jpg");
-    height:75vh;
-    width:100vw;
-    display:flex;
-    justify-content:center;
-    max-height:640px;
-    flex-direction:column;
+#background2 {
+  background: url("https://www.splitshire.com/wp-content/uploads/2015/06/SplitShire-5466-1800x1200.jpg");
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  max-height: 640px;
+  flex-direction: column;
 }
-#skillsTitleDiv{
-    display:flex;
-    justify-content:center;
-    margin-bottom:30px;
+#skillsTitleDiv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
-.skillsDivs{
-    display:flex;
-    justify-content:center;
+#skillsTitle {
+  color: white;
 }
-.skills{
-    display:flex;
-    height:8vh;
-    width:8vh;
+.skillsDivs {
+  display: flex;
+  justify-content: center;
+}
+.skills {
+  display: flex;
+  height: 8vh;
+  width: 8vh;
 }
