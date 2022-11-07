@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 700px;
+  min-height: 500px;
 }
 #aboutParagraph {
   width: 70vw;
@@ -14,4 +14,9 @@
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
+}
+@media (max-width: 770px) {
+  #aboutDiv {
+    min-height: 1100px;
+  }
 }
