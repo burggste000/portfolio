@@ -7,8 +7,8 @@ const TheMiddle = (props) => {
   return (
     <div id={props.viewClicked === true ? "" : "hide"}>
       <Projects />
-      {/* <About /> */}
-      {/* <Skills /> */}
+      <About />
+      <Skills />
     </div>
   );
 };
