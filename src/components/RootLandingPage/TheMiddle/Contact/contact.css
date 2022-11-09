@@ -1,17 +1,26 @@
 #contactMeDiv {
-	height: 130px;
+	height: 150px;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	background-color: rgba(32, 178, 171, 0.302);
-}
-#email {
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 #aboutLinksDiv {
 	width: 100vw;
 	display: flex;
 	justify-content: space-evenly;
+}
+#email {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+@media (max-width: 770px) {
+	#email {
+		width: 200px;
+	}
+	.contactLinks {
+		width: 60px;
+	}
 }
