@@ -28,7 +28,7 @@ const Projects = () => {
 						<figcaption>Fishing Bridge USA Website</figcaption>
 					</figure>
 				</a>
-				<a href="https://burggste000.github.io/task-integration/taskManagement">
+				<a href="https://burggste000.github.io/portfolio/taskManagement">
 					<figure className="projectLabels">
 						<img
 							className="projectImages"
