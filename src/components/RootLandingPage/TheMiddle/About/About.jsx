@@ -3,6 +3,7 @@ import "./about.css";
 const About = () => {
 	return (
 		<div id="aboutDiv">
+			<h3>How it all started</h3>
 			<p className="aboutParagraph">
 				Jon Duckett's book titled, HTML and CSS Design and Build Websites, is
 				what got me hooked on the dream of being a Front-End Web Developer. I
@@ -13,6 +14,7 @@ const About = () => {
 				comfortable with many of the implementations that HTML, CSS, and
 				JavaScript play part of in the web development process.
 			</p>
+			<h3>My Education and Career</h3>
 			<p className="aboutParagraph">
 				I took an offer from a senior mentor in the Software Engineering
 				industry and became his full-time student for two months. Those two
@@ -30,12 +32,15 @@ const About = () => {
 				love problem solving and contributing to the world of Front-End Web
 				Development!
 			</p>
-			<p>Email me at: steedsranch@gmail.com</p>
-			<div id="aboutLinksDiv">
-				<a href="https://github.com/burggste000">My GitHub Profile</a>
-				<a href="https://www.linkedin.com/in/stephen-burggraaf-867993226/">
-					My LinkedIn Profile
-				</a>
+			<div id="contactMeDiv">
+				<h3 id="contactTitle">Reach out!</h3>
+				<div id="aboutLinksDiv">
+					<a href="https://github.com/burggste000">My GitHub Profile</a>
+					<p id="email">Email me at: steedsranch@gmail.com</p>
+					<a href="https://www.linkedin.com/in/stephen-burggraaf-867993226/">
+						My LinkedIn Profile
+					</a>
+				</div>
 			</div>
 		</div>
 	);
