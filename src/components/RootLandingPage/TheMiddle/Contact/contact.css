@@ -1,0 +1,17 @@
+#contactMeDiv {
+	height: 130px;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(32, 178, 171, 0.302);
+}
+#email {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#aboutLinksDiv {
+	width: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+}
