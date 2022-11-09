@@ -10,7 +10,7 @@
 	background-size: cover;
 	min-height: 800px;
 }
-#projectsMeDiv {
+#projectsWelcomeDiv {
 	display: flex;
 	flex-direction: row;
 	width: 100vw;

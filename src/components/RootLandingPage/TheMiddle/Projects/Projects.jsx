@@ -4,7 +4,7 @@ import mePhoto from "./mePhoto.JPG";
 const Projects = () => {
 	return (
 		<div id="background1">
-			<div id="projectsMeDiv">
+			<div id="projectsWelcomeDiv">
 				<div id="myPicDiv">
 					<img id="mePic" src={mePhoto} alt="me" />
 				</div>
