@@ -60,6 +60,9 @@
 #projectsSectionTitle {
 	color: white;
 	font-size: xx-large;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 1px;
 }
 #projectsDiv {
 	display: flex;

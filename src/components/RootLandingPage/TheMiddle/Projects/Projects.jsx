@@ -16,7 +16,7 @@ const Projects = () => {
 					<p id="welcomeText3">Web Development</p>
 				</div>
 			</div>
-			<h2 id="projectsSectionTitle">My websites and projects</h2>
+			<h2 id="projectsSectionTitle">Websites & Projects</h2>
 			<div id="projectsDiv">
 				<a href="https://www.fishingbridgeusa.com/">
 					<figure className="projectLabels">
