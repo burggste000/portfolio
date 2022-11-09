@@ -93,4 +93,13 @@
 	.projectLabels {
 		font-size: xx-small;
 	}
+	#welcomeText1 {
+		font-size: 30px;
+	}
+	#welcomeText2 {
+		font-size: 30px;
+	}
+	#welcomeText3 {
+		font-size: 30px;
+	}
 }
