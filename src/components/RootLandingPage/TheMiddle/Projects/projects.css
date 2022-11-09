@@ -96,6 +96,8 @@
 	#welcomeTextDiv {
 		position: relative;
 		top: 15px;
+		display: flex;
+		align-items: center;
 	}
 	#welcomeText1 {
 		font-size: 23px;
