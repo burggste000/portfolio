@@ -1,26 +1,40 @@
 #background2 {
-  background: url("https://www.splitshire.com/wp-content/uploads/2015/06/SplitShire-5466-1800x1200.jpg");
-  height: 75vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  max-height: 640px;
-  flex-direction: column;
+	/*Below is a nice picture for a division's background in the future.*/
+	/* background: url("https://www.splitshire.com/wp-content/uploads/2015/06/SplitShire-5466-1800x1200.jpg"); */
+	background-image: url("./images/skillsBackground.jpg");
+	height: 90vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	max-height: 640px;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-size: 100%100%;
 }
 #skillsTitleDiv {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
 }
 #skillsTitle {
-  color: white;
+	color: white;
+	font-size: x-large;
 }
 .skillsDivs {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 20px;
+}
+#htmlLogo {
+	border-bottom-right-radius: 70px;
+}
+#figmaLogo {
+	filter: brightness(130%);
 }
 .skills {
-  display: flex;
-  height: 8vh;
-  width: 8vh;
+	display: flex;
+	height: 15vh;
+	width: 15vh;
+	border-radius: 18px;
 }
