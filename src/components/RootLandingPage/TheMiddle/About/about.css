@@ -9,7 +9,6 @@
 .aboutParagraph {
 	width: 70vw;
 	text-align: justify;
-	text-indent: 30px;
 }
 @media (max-width: 770px) {
 	#aboutDiv {
