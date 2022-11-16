@@ -1,12 +1,10 @@
 #background2 {
-	/*Below is a nice picture for a division's background in the future.*/
-	/* background: url("https://www.splitshire.com/wp-content/uploads/2015/06/SplitShire-5466-1800x1200.jpg"); */
 	background-image: url("./images/skillsBackground.jpg");
 	height: 90vh;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
-	max-height: 640px;
+	max-height: 740px;
 	flex-direction: column;
 	background-repeat: no-repeat;
 	background-size: 100%100%;
