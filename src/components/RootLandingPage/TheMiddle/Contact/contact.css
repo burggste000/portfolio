@@ -18,6 +18,7 @@
 }
 .contactLinks {
 	text-decoration: none;
+	font-weight: 600;
 	background-color: rgb(160, 216, 216);
 	color: #333333;
 	padding: 2px 6px 2px 6px;
