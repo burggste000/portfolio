@@ -16,6 +16,20 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+.contactLinks {
+	text-decoration: none;
+	background-color: rgb(160, 216, 216);
+	color: #333333;
+	padding: 2px 6px 2px 6px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #333333;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #333333;
+}
+.contactLinks:hover {
+	border-bottom-width: 2px;
+	border-right-width: 2px;
+}
 @media (max-width: 770px) {
 	#email {
 		width: 200px;
